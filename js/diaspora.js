@@ -105,6 +105,8 @@ var Diaspora = {
                     comment.click();
                 }
             }, 0)
+            var math = document.getElementById("single")
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, math])
         })
     },
     preview: function() {
@@ -543,7 +545,7 @@ $(function() {
                 }else{
                   hash = $(e.target).attr('href')
                 }
-                to  = $("a.headerlink[href='" + hash + "']")
+                to  = $(decodeURI(hash))
                 $("html,body").animate({
                   scrollTop: to.offset().top - 50
                 }, 300);
@@ -632,6 +634,6 @@ $(function() {
         comment.click();
     }
 		
-    //console.log("%c Github %c","background:#24272A; color:#ffffff","","https://github.com/Fechin/hexo-theme-diaspora")
+    console.log("%c Github %c","background:#24272A; color:#ffffff","","https://github.com/Fechin/hexo-theme-diaspora")
 })
 
