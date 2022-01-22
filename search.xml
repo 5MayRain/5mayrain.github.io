@@ -56,19 +56,6 @@
       </tags>
   </entry>
   <entry>
-    <title>删除 Github 的所有提交记录</title>
-    <url>/posts/802b0d9b/</url>
-    <content><![CDATA[<h3 id="删除记录"><a href="#删除记录" class="headerlink" title="删除记录"></a>删除记录</h3><p>在本地 GitHub 的项目路径下，打开 <code>Git Bash</code> 窗口，运行下列代码。</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment"># 尝试运行</span></span><br><span class="line">git checkout --orphan latest_branch</span><br><span class="line"><span class="comment"># 添加所有文件</span></span><br><span class="line">git add -A</span><br><span class="line"><span class="comment"># 提交更改</span></span><br><span class="line">git commit -am <span class="string">&quot;commit message&quot;</span></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">git branch -D master</span><br><span class="line"><span class="comment"># 将当前分支重命名</span></span><br><span class="line">git branch -m master</span><br><span class="line"><span class="comment"># 强制更新存储库</span></span><br><span class="line">git push -f origin master</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Diaspora 主题美化日记</title>
     <url>/posts/ff31d855/</url>
     <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ol>
@@ -190,6 +177,71 @@
       </tags>
   </entry>
   <entry>
+    <title>Freenom获取免费域名</title>
+    <url>/posts/d8ac6531/</url>
+    <content><![CDATA[<h3 id="Freenom"><a href="#Freenom" class="headerlink" title="Freenom"></a>Freenom</h3><p>Freenom 是一个提供免费域名申请的网站，最长可以选择一年，到期前2个星期会提醒是否续费，到时直接可以免费续费再用一年，相当于永久免费。</p>
+<h3 id="申请"><a href="#申请" class="headerlink" title="申请"></a>申请</h3><ol>
+<li>打开 <a href="http://www.freenom.com/zh/index.html">Freenom</a> 网站，查询自己想要的域名是否可用，可以看到tk、ml、ga、cf、gq这些后缀都是免费的。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/01.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/02.png"></br></p>
+<ol start="2">
+<li>点击 <font color="red">现在获取！</font>，你会发现这些域名都不可用，你只需要把你想要的域名和后缀都输入，例如我想要的域名是 <font color="red">mrzgh</font>，后缀是<font color="red">ml</font>，再查询就会发现可以用了，之后点击完成即可。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/03.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/04.png"></br></p>
+<ol start="3">
+<li>修改域名时间，默认是3个月，最长可以修改到12个月，修改完成后点击 <font color="red">Continue</font></li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/05.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/06.png"></br></p>
+<ol start="4">
+<li>登录结账，有社交账号的可以选择社交账号登录，没有的可以选择邮箱，我选择用邮箱，输入完成后点击 <font color="red">Verify My Email Address</font></li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/07.png"></br></p>
+<ol start="5">
+<li>验证邮箱，网站会发送一封邮件，点击邮件内的链接进行验证</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/08.png"></br></p>
+<ol start="6">
+<li>点击验证链接后，会打开一个注册信息的页面，输入相关信息即可。注意：你输入的地址必须和ip查出来的地址符合，还要关闭广告屏蔽插件，不然会申请失败</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/09.png"></br></p>
+<ol start="7">
+<li>申请成功后显示如下页面</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/10.png"></br></p>
+<ol start="8">
+<li>查看域名，点击导航的 <font color="red">Services</font>，在弹出的菜单中点击<font color="red">My Domains</font>，然后会弹出登录页面，登录完成后就可以查看自己申请的域名了。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/11.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/12.png"></br></p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>申请失败的原因有</p>
+<blockquote>
+<ol>
+<li>你输入的地址和ip查询的地址不符合</li>
+<li>未关闭广告屏蔽插件</li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>域名</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>删除 Github 的所有提交记录</title>
+    <url>/posts/802b0d9b/</url>
+    <content><![CDATA[<h3 id="删除记录"><a href="#删除记录" class="headerlink" title="删除记录"></a>删除记录</h3><p>在本地 GitHub 的项目路径下，打开 <code>Git Bash</code> 窗口，运行下列代码。</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment"># 尝试运行</span></span><br><span class="line">git checkout --orphan latest_branch</span><br><span class="line"><span class="comment"># 添加所有文件</span></span><br><span class="line">git add -A</span><br><span class="line"><span class="comment"># 提交更改</span></span><br><span class="line">git commit -am <span class="string">&quot;commit message&quot;</span></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">git branch -D master</span><br><span class="line"><span class="comment"># 将当前分支重命名</span></span><br><span class="line">git branch -m master</span><br><span class="line"><span class="comment"># 强制更新存储库</span></span><br><span class="line">git push -f origin master</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>利用 EFB 使 Telegram 收发微信消息</title>
     <url>/posts/622c629d/</url>
     <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h4 id="EH-Forwarder-Bot（EFB）"><a href="#EH-Forwarder-Bot（EFB）" class="headerlink" title="EH Forwarder Bot（EFB）"></a>EH Forwarder Bot（EFB）</h4><p>是一个可扩展的开源聊天平台隧道 Bot 框架，允许用户一次发送和接收来自多个平台的消息，目前支持在 Telegram 上收发微信、QQ、Facebook Message 信息，支持文字、语音、图片、视频、表情互通，虽有一些功能限制但可用性良好</p>
@@ -272,58 +324,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Freenom获取免费域名</title>
-    <url>/posts/d8ac6531/</url>
-    <content><![CDATA[<h3 id="Freenom"><a href="#Freenom" class="headerlink" title="Freenom"></a>Freenom</h3><p>Freenom 是一个提供免费域名申请的网站，最长可以选择一年，到期前2个星期会提醒是否续费，到时直接可以免费续费再用一年，相当于永久免费。</p>
-<h3 id="申请"><a href="#申请" class="headerlink" title="申请"></a>申请</h3><ol>
-<li>打开 <a href="http://www.freenom.com/zh/index.html">Freenom</a> 网站，查询自己想要的域名是否可用，可以看到tk、ml、ga、cf、gq这些后缀都是免费的。</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/01.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/02.png"></br></p>
-<ol start="2">
-<li>点击 <font color="red">现在获取！</font>，你会发现这些域名都不可用，你只需要把你想要的域名和后缀都输入，例如我想要的域名是 <font color="red">mrzgh</font>，后缀是<font color="red">ml</font>，再查询就会发现可以用了，之后点击完成即可。</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/03.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/04.png"></br></p>
-<ol start="3">
-<li>修改域名时间，默认是3个月，最长可以修改到12个月，修改完成后点击 <font color="red">Continue</font></li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/05.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/06.png"></br></p>
-<ol start="4">
-<li>登录结账，有社交账号的可以选择社交账号登录，没有的可以选择邮箱，我选择用邮箱，输入完成后点击 <font color="red">Verify My Email Address</font></li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/07.png"></br></p>
-<ol start="5">
-<li>验证邮箱，网站会发送一封邮件，点击邮件内的链接进行验证</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/08.png"></br></p>
-<ol start="6">
-<li>点击验证链接后，会打开一个注册信息的页面，输入相关信息即可。注意：你输入的地址必须和ip查出来的地址符合，还要关闭广告屏蔽插件，不然会申请失败</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/09.png"></br></p>
-<ol start="7">
-<li>申请成功后显示如下页面</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/10.png"></br></p>
-<ol start="8">
-<li>查看域名，点击导航的 <font color="red">Services</font>，在弹出的菜单中点击<font color="red">My Domains</font>，然后会弹出登录页面，登录完成后就可以查看自己申请的域名了。</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/11.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/18/12.png"></br></p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>申请失败的原因有</p>
-<blockquote>
-<ol>
-<li>你输入的地址和ip查询的地址不符合</li>
-<li>未关闭广告屏蔽插件</li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>域名</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git Portable 配置</title>
     <url>/posts/1543b37f/</url>
     <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Git Portable 是针对 Windows 版 Git 所设计的一款软件，你可以选择将它安装在U盘或移动硬盘等便携设备上。它不需要安装，也不会在注册表上留下记录。它无法像安装版的 Git 那样，可以使用右键 <code>Git Bash</code> 或者 <code>Git GUI</code> 。</p>
@@ -356,6 +356,30 @@
       <tags>
         <tag>教程</tag>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GoogleDrive团队盘无限容量获取</title>
+    <url>/posts/f9e19dad/</url>
+    <content><![CDATA[<ol>
+<li><p>登录 <a href="https://mail.google.com/">Google邮箱</a></p>
+</li>
+<li><p>选择下列的网站，哪一个都行</p>
+<blockquote>
+<p><a href="https://gdrive.zppcw.cn/">sheffield.ac.uk</a><br><a href="https://tv.ssr.workers.dev/">ccsf</a><br><a href="https://teamdrive.xcpx.workers.dev/">swccd</a><br><a href="https://gd.zxd.workers.dev/">Yesyesxx.me</a></p>
+</blockquote>
+</li>
+<li><p>填入团队盘的名称和你的Google邮箱，填完点击 Submit ，成功后登录 <a href="https://drive.google.com/?tab=wo&authuser=0">GoogleDrive</a> 可看到</p>
+</li>
+</ol>
+<p>PS：创建成功后，团队里面只有你一个人，你就是管理员</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Google</tag>
       </tags>
   </entry>
   <entry>
@@ -409,67 +433,6 @@
         <tag>Hexo</tag>
         <tag>域名</tag>
         <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用GoIndex搭建GoogleDrive网站目录</title>
-    <url>/posts/c56f99dc/</url>
-    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>使用 Goindex 不用翻墙即可访问团队盘的文件，实现在线看小姐姐。<br>由于原来的 GoIndex 已删库，现提供由他人修改并加上自己美化的GoIndex。<br>地址：<a href="https://github.com/5MayRain/goIndex-theme-nexmoe">GitHub</a></p>
-<h3 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h3><p><a href="https://go.zgh.workers.dev/">app-v2.js</a> &nbsp;&nbsp; <a href="https://demo.zgh.workers.dev/">app-v3.js</a></p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol>
-<li><p>打开 <a href="https://install.kenci.workers.dev/">https://install.kenci.workers.dev/</a> 网站,验证并获取代码<br><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/01.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/02.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/03.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/04.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/05.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/06.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/07.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/08.png"></p>
-</li>
-<li><p>使用相对应 app.js 的模板，将获取到的id和授权填入</p>
-</li>
-</ol>
-<blockquote>
-<p>app-v2.js        &gt;        GoIndex.js<br>app-v3.js        &gt;        GoIndex_v2.js</p>
-</blockquote>
-<ol start="3">
-<li><p>登录<a href="https://www.cloudflare.com/zh-cn/">Cloudflare</a>（没有就自己注册），部署代码<br><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/09.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/10.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/11.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/12.png"></p>
-</li>
-<li><p>使用你选择的模板相对应的app.js，替换模板默认的app.js</p>
-</li>
-</ol>
-<blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/5MayRain/goIndex-theme-nexmoe@1.1.2/app-v2.js">app-v2.js</a><br><a href="https://cdn.jsdelivr.net/gh/5MayRain/goIndex-theme-nexmoe@1.1.5/app-v3.js">app-v3.js</a></p>
-</blockquote>
-<figure class="highlight javascript"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>JAVASCRIPT</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="string">`</span></span><br><span class="line"><span class="string">......</span></span><br><span class="line"><span class="string">&lt;script src=&quot;替换&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">......</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>保存并部署</li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GoogleDrive团队盘无限容量获取</title>
-    <url>/posts/f9e19dad/</url>
-    <content><![CDATA[<ol>
-<li><p>登录 <a href="https://mail.google.com/">Google邮箱</a></p>
-</li>
-<li><p>选择下列的网站，哪一个都行</p>
-<blockquote>
-<p><a href="https://gdrive.zppcw.cn/">sheffield.ac.uk</a><br><a href="https://tv.ssr.workers.dev/">ccsf</a><br><a href="https://teamdrive.xcpx.workers.dev/">swccd</a><br><a href="https://gd.zxd.workers.dev/">Yesyesxx.me</a></p>
-</blockquote>
-</li>
-<li><p>填入团队盘的名称和你的Google邮箱，填完点击 Submit ，成功后登录 <a href="https://drive.google.com/?tab=wo&authuser=0">GoogleDrive</a> 可看到</p>
-</li>
-</ol>
-<p>PS：创建成功后，团队里面只有你一个人，你就是管理员</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Google</tag>
       </tags>
   </entry>
   <entry>
@@ -606,6 +569,43 @@
       <tags>
         <tag>教程</tag>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用GoIndex搭建GoogleDrive网站目录</title>
+    <url>/posts/c56f99dc/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>使用 Goindex 不用翻墙即可访问团队盘的文件，实现在线看小姐姐。<br>由于原来的 GoIndex 已删库，现提供由他人修改并加上自己美化的GoIndex。<br>地址：<a href="https://github.com/5MayRain/goIndex-theme-nexmoe">GitHub</a></p>
+<h3 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h3><p><a href="https://go.zgh.workers.dev/">app-v2.js</a> &nbsp;&nbsp; <a href="https://demo.zgh.workers.dev/">app-v3.js</a></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol>
+<li><p>打开 <a href="https://install.kenci.workers.dev/">https://install.kenci.workers.dev/</a> 网站,验证并获取代码<br><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/01.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/02.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/03.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/04.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/05.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/06.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/07.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/08.png"></p>
+</li>
+<li><p>使用相对应 app.js 的模板，将获取到的id和授权填入</p>
+</li>
+</ol>
+<blockquote>
+<p>app-v2.js        &gt;        GoIndex.js<br>app-v3.js        &gt;        GoIndex_v2.js</p>
+</blockquote>
+<ol start="3">
+<li><p>登录<a href="https://www.cloudflare.com/zh-cn/">Cloudflare</a>（没有就自己注册），部署代码<br><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/09.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/10.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/11.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2020/05/13/12.png"></p>
+</li>
+<li><p>使用你选择的模板相对应的app.js，替换模板默认的app.js</p>
+</li>
+</ol>
+<blockquote>
+<p><a href="https://cdn.jsdelivr.net/gh/5MayRain/goIndex-theme-nexmoe@1.1.2/app-v2.js">app-v2.js</a><br><a href="https://cdn.jsdelivr.net/gh/5MayRain/goIndex-theme-nexmoe@1.1.5/app-v3.js">app-v3.js</a></p>
+</blockquote>
+<figure class="highlight javascript"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>JAVASCRIPT</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="string">`</span></span><br><span class="line"><span class="string">......</span></span><br><span class="line"><span class="string">&lt;script src=&quot;替换&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">......</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>保存并部署</li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Google</tag>
       </tags>
   </entry>
   <entry>
@@ -832,6 +832,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Windows 10 启用 Linux 子系统</title>
+    <url>/posts/67ae9c91/</url>
+    <content><![CDATA[<h3 id="1-启用开发人员模式"><a href="#1-启用开发人员模式" class="headerlink" title="1. 启用开发人员模式"></a>1. 启用开发人员模式</h3><p>设置 &gt; 更新和安全 &gt; 开发者选项 &gt; 启用开发人员模式<br><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/01.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/02.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/03.png"></p>
+<h3 id="2-更改系统功能"><a href="#2-更改系统功能" class="headerlink" title="2. 更改系统功能"></a>2. 更改系统功能</h3><p>使用Win+X快捷键调出系统管理菜单(也可以右击Win开始菜单调出) &gt; 应用和功能 &gt; 程序和功能 &gt; 启用或关闭 Windows 功能 &gt; 勾选适用于 Linux 的 Windows 子系统 &gt; 确定 &gt; 重启电脑<br><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/04.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/05.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/06.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/07.png"></p>
+<h3 id="3-安装Linux子系统"><a href="#3-安装Linux子系统" class="headerlink" title="3. 安装Linux子系统"></a>3. 安装Linux子系统</h3><p>重启系统后，打开 Microsoft Store，搜索 WSL，选择 Ubuntu 20.04 LTS，安装即可<br><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/08.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/09.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/10.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/11.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/12.png"></p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">sudo passwd root	<span class="comment">#设置root密码</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/13.png"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Ubuntu</tag>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在Windows使用Rclone挂载OneDrive</title>
     <url>/posts/80a24c4e/</url>
     <content><![CDATA[<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>rclone：<a href="https://rclone.org/downloads/">官网</a> &nbsp;  <a href="https://github.com/ncw/rclone">GitHub</a><br>winfsp：<a href="https://github.com/billziss-gh/winfsp/releases">GitHub</a></p>
@@ -927,6 +945,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/posts/4a17b156/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>虚拟机安装 Ubuntu 20.04</title>
     <url>/posts/c82dee71/</url>
     <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>本文采用 <a href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html">VMware Workstation</a> 虚拟机安装，请在电脑上安装好虚拟机</p>
@@ -983,41 +1019,5 @@
         <tag>Ubuntu</tag>
         <tag>VMware Workstation</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Windows 10 启用 Linux 子系统</title>
-    <url>/posts/67ae9c91/</url>
-    <content><![CDATA[<h3 id="1-启用开发人员模式"><a href="#1-启用开发人员模式" class="headerlink" title="1. 启用开发人员模式"></a>1. 启用开发人员模式</h3><p>设置 &gt; 更新和安全 &gt; 开发者选项 &gt; 启用开发人员模式<br><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/01.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/02.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/03.png"></p>
-<h3 id="2-更改系统功能"><a href="#2-更改系统功能" class="headerlink" title="2. 更改系统功能"></a>2. 更改系统功能</h3><p>使用Win+X快捷键调出系统管理菜单(也可以右击Win开始菜单调出) &gt; 应用和功能 &gt; 程序和功能 &gt; 启用或关闭 Windows 功能 &gt; 勾选适用于 Linux 的 Windows 子系统 &gt; 确定 &gt; 重启电脑<br><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/04.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/05.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/06.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/07.png"></p>
-<h3 id="3-安装Linux子系统"><a href="#3-安装Linux子系统" class="headerlink" title="3. 安装Linux子系统"></a>3. 安装Linux子系统</h3><p>重启系统后，打开 Microsoft Store，搜索 WSL，选择 Ubuntu 20.04 LTS，安装即可<br><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/08.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/09.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/10.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/11.png"> <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/12.png"></p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">sudo passwd root	<span class="comment">#设置root密码</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/07/06/13.png"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Ubuntu</tag>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/4a17b156/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
 </search>
