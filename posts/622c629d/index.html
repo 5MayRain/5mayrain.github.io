@@ -13,7 +13,7 @@
     <meta name="description" content="简介EH Forwarder Bot（EFB）是一个可扩展的开源聊天平台隧道 Bot 框架，允许用户一次发送和接收来自多个平台的消息，目前支持在 Telegram 上收发微信、QQ、Facebook,"> 
     <meta name="author" content="棕果核"> 
     <link rel="alternative" href="atom.xml" title="棕果核" type="application/atom+xml"> 
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting@latest/Blog/Website/favicon.png"> 
+    <link rel="icon" href="https://img.mrzgh.top/Blog/Website/favicon.png"> 
     
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -34,6 +34,7 @@
 <link rel="stylesheet" href="/css/diaspora.css">
 <link rel="stylesheet" href="/css/add.css">
 
+    <script>window.searchDbPath = "/search.xml";</script>
 
     <!-- plyr -->
     <script src="https://cdn.rawgit.com/video-dev/hls.js/18bb552/dist/hls.min.js"></script>
@@ -50,7 +51,6 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/gh/5MayRain/5MayRain.github.io@latest/js/fireworks.js"></script>
     
 <meta name="generator" content="Hexo 6.2.0"></head>
-
 <body class="loading">
     <span id="config-title" style="display:none">棕果核</span>
     <div id="loader"></div>
@@ -76,7 +76,7 @@
 
     <div class="post_cover" >
         
-            <img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/12/08/cover_01.jpg" />
+            <img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/cover_01.jpg" />
         
         <div class="post_cover_mask"></div>
         <div class="post_text">
@@ -124,7 +124,7 @@
 <li>输入 Bot 用户名，注意用户名必须以 Bot 结尾</li>
 <li>保存获取到的 token</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/12/08/01.png"></p>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/01.png"></p>
 <h4 id="二、-配置-Bot"><a href="#二、-配置-Bot" class="headerlink" title="二、 配置 Bot"></a>二、 配置 Bot</h4><ol>
 <li>在 Telegram 里，对 @botfather 输入: &#x2F;setprivacy 选择 Disable ( 允许 Bot 读取非指令信息 )</li>
 <li>在 Telegram 里，对 @botfather 输入: &#x2F;setjoingroups, 选择 Enable ( 允许将 Bot 添加进群组 )</li>
@@ -132,9 +132,9 @@
 </ol>
 <figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Website/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">help</span> - 显示命令列表.</span><br><span class="line"><span class="built_in">link</span> - 将远程会话绑定到 Telegram 群组</span><br><span class="line">chat - 生成会话头</span><br><span class="line">recog - 回复语音消息以进行识别</span><br><span class="line">info - 显示当前 Telegram 聊天的信息.</span><br><span class="line">unlink_all - 将所有远程会话从 Telegram 群组解绑.</span><br><span class="line">update_info - 更新群组名称和头像</span><br><span class="line">extra - 获取更多功能</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/12/08/02.png"></p>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/02.png"></p>
 <h4 id="三、-获取-Telegram-账户-ID"><a href="#三、-获取-Telegram-账户-ID" class="headerlink" title="三、 获取 Telegram 账户 ID"></a>三、 获取 Telegram 账户 ID</h4><p>在 Telegram 里，对 @get_id_bot 点击 start 即可获得你的 Telegram ID</p>
-<p><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/12/08/03.png"></p>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/03.png"></p>
 <h4 id="四、-安装依赖"><a href="#四、-安装依赖" class="headerlink" title="四、 安装依赖"></a>四、 安装依赖</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Website/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">apt update</span><br><span class="line">apt install libwebp-dev libmagic-dev git screen nano -y</span><br></pre></td></tr></table></figure>
 
 <h4 id="五、-安装-Python3-6（或更高版本）"><a href="#五、-安装-Python3-6（或更高版本）" class="headerlink" title="五、 安装 Python3.6（或更高版本）"></a>五、 安装 Python3.6（或更高版本）</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Website/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install python3-pip python3-setuptools python3-dev -y</span><br></pre></td></tr></table></figure>
@@ -155,9 +155,9 @@
 <figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Website/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">token:</span> <span class="string">&quot;你的token&quot;</span> </span><br><span class="line"><span class="attr">admins:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">你的userid</span> </span><br><span class="line"><span class="attr">flags:</span></span><br><span class="line">  <span class="comment"># 将所有图像消息作为文件发送，以防止主动报文的图像压缩</span></span><br><span class="line">  <span class="attr">send_image_as_file:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># 图片/视频/文件消息没有标题时的占位符文本</span></span><br><span class="line">  <span class="attr">default_media_prompt:</span> <span class="string">text</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <h4 id="九、-设置代理"><a href="#九、-设置代理" class="headerlink" title="九、 设置代理"></a>九、 设置代理</h4><ol>
-<li><p>在 cmd 输入 <code>ipconfig</code> 查看本机 IP 地址<br><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/12/08/04.png"></p>
+<li><p>在 cmd 输入 <code>ipconfig</code> 查看本机 IP 地址<br><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/04.png"></p>
 </li>
-<li><p>在 Ubuntu 输入 <code>ifconfig</code> 查看 IP 地址，没有 <code>ifconfig</code> 命令则输入 <code>sudo apt-get install net-tools</code> 命令安装<br><img src="https://cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Posts/2021/12/08/05.png"></p>
+<li><p>在 Ubuntu 输入 <code>ifconfig</code> 查看 IP 地址，没有 <code>ifconfig</code> 命令则输入 <code>sudo apt-get install net-tools</code> 命令安装<br><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/05.png"></p>
 </li>
 <li><p>可以知道本机跟子系统同一域的是 192.168.31.84</p>
 </li>
@@ -302,8 +302,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 
