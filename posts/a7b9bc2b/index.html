@@ -55,11 +55,11 @@
 
     <!-- 点击效果 -->
     
-    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 999; pointer-events: none;" ></canvas>
     <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/gh/5MayRain/5MayRain.github.io@latest/js/fireworks.js"></script>
     
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 <body class="loading">
     <span id="config-title" style="display:none">棕果核</span>
     <div id="loader"></div>
@@ -114,6 +114,7 @@
         
             <div class="content markdown" style="margin-top: 0px">
         
+        
             <h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页</p>
 <h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ol>
 <li>全是静态文件，访问速度快；</li>
@@ -143,14 +144,14 @@
 <blockquote>
 <p>安装成功后，在桌面右键打开 Git Bash，输入以下命令验证是否成功，成功则会出现相应的版本号。</p>
 </blockquote>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Website/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>BASH</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
 <p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/12/01.png"></p>
 <h3 id="二、安装Hexo"><a href="#二、安装Hexo" class="headerlink" title="二、安装Hexo"></a>二、安装Hexo</h3><p>2.1 安装</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Website/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>BASH</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
 <p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/12/02.png"><br>2.2 初始化<br>在电脑新建MyHexo文件夹（名字可以随便取），这个文件夹作为你存放代码的地方，最好不要随便放。</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Website/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> MyHexo</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>BASH</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> MyHexo</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 <p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/12/03.png"><br>2.3 输入以下代码开启服务，打开网址<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//cdn.jsdelivr.net/gh/5MayRain/ImageHosting/Blog/Website/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>BASH</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/12/04.png"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
