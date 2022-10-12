@@ -589,6 +589,31 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo 版本升级</title>
+    <url>/posts/f2539c19/</url>
+    <content><![CDATA[<h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><ol>
+<li><p>全局升级 hexo-cli</p>
+<figure class="highlight bash"><figcaption><span>BASH</span></figcaption><table><tr><td class="code"><pre><span class="line">npm i hexo-cli -g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查系统中的插件是否有升级的</p>
+<figure class="highlight bash"><figcaption><span>BASH</span></figcaption><table><tr><td class="code"><pre><span class="line">npm install -g npm-check</span><br><span class="line">npm-check</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>升级系统中的插件</p>
+<figure class="highlight bash"><figcaption><span>BASH</span></figcaption><table><tr><td class="code"><pre><span class="line">npm install -g npm-upgrade</span><br><span class="line">npm-upgrade</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>全局更新</p>
+<figure class="highlight bash"><figcaption><span>BASH</span></figcaption><table><tr><td class="code"><pre><span class="line">npm update -g</span><br><span class="line">npm update --save</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo常用命令</title>
     <url>/posts/24caea6b/</url>
     <content><![CDATA[<h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><figure class="highlight bash"><figcaption><span>BASH</span></figcaption><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;postName&quot;</span> 			<span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">&quot;pageName&quot;</span> 		<span class="comment">#新建页面</span></span><br><span class="line">hexo generate 				<span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server 				<span class="comment">#开启服务（默认端口4000，&#x27;ctrl + c&#x27;关闭server）</span></span><br><span class="line">hexo deploy 				<span class="comment">#部署</span></span><br><span class="line">hexo <span class="built_in">help</span>  				<span class="comment">#帮助</span></span><br><span class="line">hexo version				<span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
