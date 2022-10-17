@@ -1064,9 +1064,6 @@
 </br>
 </li>
 <li><p>MongoDB</p>
-<blockquote>
-<p>建议安装时取消勾选 Compass，网络不好可能会卡进度，取消后可使用 Robo 3T 等更轻量的工具来管理数据库。</p>
-</blockquote>
 <div class="download_layout">
   <img class="download_icon1" src="https://img.mrzgh.top/Blog/Website/icon/Download/01.svg" />
   <div class="download_text">
