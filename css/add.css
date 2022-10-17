@@ -62,6 +62,18 @@
     width: auto !important;
 }
 
+.directory_list li a {
+    display: inline-block;
+    color: #737373;
+    text-decoration: none;
+    transition: color, padding 0.2s ease-in-out;
+}
+
+.directory_list li a:hover {
+    padding-left: 8px;
+    border-left: 3px solid black;
+}
+
 /*声明*/
 .statement {
     width: 100%;
