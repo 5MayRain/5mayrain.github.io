@@ -1,6 +1,6 @@
-::-webkit-scrollbar {width: 5px;height: 8px;scrollbar-arrow-color: rgba(0,0,0,0); display: none;}/*滚动条整体样式*/
-::-webkit-scrollbar-thumb {border-radius: 5px;background-color: #333333;scrollbar-arrow-color: rgba(0,0,0,0);}/*滚动条里面小方块*/
-::-webkit-scrollbar-track {border-radius: 5px;background-color: #F1F1F1;}/*滚动条里面轨道*/
+::-webkit-scrollbar {width: 8px;height: 8px;scrollbar-arrow-color: rgba(0,0,0,0); display: none;}/*滚动条整体样式*/
+::-webkit-scrollbar-thumb {border-radius: 8px;background-color: #A8A8A8;scrollbar-arrow-color: rgba(0,0,0,0);}/*滚动条里面小方块*/
+::-webkit-scrollbar-track {border-radius: 0px;background-color: #F1F1F1;display: none;}/*滚动条里面轨道*/
 body,div,h1,h2,h3,h4,h5,p,ul,li {margin:0;padding:0;font-weight:normal;list-style:none;}
 html {-webkit-text-size-adjust:100%;}
 html,body {-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing:antialiased;background:#fff;}
