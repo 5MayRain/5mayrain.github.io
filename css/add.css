@@ -26,6 +26,14 @@
     color: #5A83DE !important;
 }
 
+.set h2,
+.timeline h2,
+.timeline h3 {
+    border-left-style: none;
+    padding-left: 0;
+    color: #333333 !important;
+}
+
 /*悬浮*/
 .float {
     width: auto !important;
