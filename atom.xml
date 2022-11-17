@@ -6,7 +6,7 @@
   <link href="https://mrzgh.top/atom.xml" rel="self"/>
   
   <link href="https://mrzgh.top/"/>
-  <updated>2022-10-19T10:07:52.000Z</updated>
+  <updated>2022-11-16T08:08:11.000Z</updated>
   <id>https://mrzgh.top/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows 搭建 DNF 私服</title>
+    <link href="https://mrzgh.top/posts/14ae033e/"/>
+    <id>https://mrzgh.top/posts/14ae033e/</id>
+    <published>2022-11-16T08:08:11.000Z</published>
+    <updated>2022-11-16T08:08:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、搭建准备"><a href="#一、搭建准备" class="headerlink" title="一、搭建准备"></a>一、搭建准备</h3></br><h4 id="安装-VMware-Workstation-Pro"><a href="#安装-VMware-Workstation-Pro" class="headerlink" title="安装 VMware Workstation Pro"></a>安装 VMware Workstation Pro</h4><div style="width:100%;height: 1px;margin: 10px 0;"></div><blockquote><p>激活码：ZF3R0-FHED2-M80TY-8QYGC-NPKYF</p></blockquote><div class="download_layout">  <img class="download_icon1" src="https://img.mrzgh.top/Blog/Website/icon/Download/01.svg" />  <div class="download_text">    <span>VMware Workstation Pro 16</span>    <p>来源: 官网</p>  </div>  <div class="download_url"><a href="https://www.vmware.com/go/getworkstation-win" target="_blank"><img class="download_icon2" src="https://img.mrzgh.top/Blog/Website/icon/Download/02.svg" /></a></div></div></br><h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><div style="width:100%;height: 1px;margin: 10px 0;"></div><div class="download_layout">  <img class="download_icon1" src="https://img.mrzgh.top/Blog/Website/icon/Download/01.svg" />  <div class="download_text">    <span>客户端</span>    <p>来源: 百度云 | 提取码：ueyr</p></p>  </div>  <div class="download_url"><a href="https://pan.baidu.com/s/1eT1WCCSC09noWN_LKGNH_Q#ueyr" target="_blank"><img class="download_icon2" src="https://img.mrzgh.top/Blog/Website/icon/Download/02.svg" /></a></div></div><div class="download_layout">  <img class="download_icon1" src="https://img.mrzgh.top/Blog/Website/icon/Download/01.svg" />  <div class="download_text">    <span>服务端</span>    <p>来源: 百度云 | 提取码：chj9</p></p>  </div>  <div class="download_url"><a href="https://pan.baidu.com/s/1Z9Fz-NA4mzvVzyO8knD6_w#chj9" target="_blank"><img class="download_icon2" src="https://img.mrzgh.top/Blog/Website/icon/Download/02.svg" /></a></div></div><div class="download_layout">  <img class="download_icon1" src="https://img.mrzgh.top/Blog/Website/icon/Download/01.svg" />  <div class="download_text">    <span>Win10 补丁</span>    <p>来源: 百度云 | 提取码：yda9</p></p>  </div>  <div class="download_url"><a href="https://pan.baidu.com/s/1spFgm_1z3E8CUodvFxsj2Q#yda9" target="_blank"><img class="download_icon2" src="https://img.mrzgh.top/Blog/Website/icon/Download/02.svg" /></a></div></div></br><h3 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h3><h4 id="解压文件"><a href="#解压文件" class="headerlink" title="解压文件"></a>解压文件</h4><p>解压下载的文件 ，找到 <code>DNF Server</code> 文件夹，用 VMware Workstation Pro 打开 <code>DNFServer.vmx</code> 文件<br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/01.png"></p><h4 id="虚拟网络编辑器"><a href="#虚拟网络编辑器" class="headerlink" title="虚拟网络编辑器"></a>虚拟网络编辑器</h4><p>打开虚拟网络编辑器，修改 <code>VMnet8</code> 的ip地址为 <code>192.168.200.0</code><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/02.png"><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/03.png"><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/04.png"></p><h4 id="修改内存"><a href="#修改内存" class="headerlink" title="修改内存"></a>修改内存</h4><p>依照电脑的内存，按需修改虚拟机的内存。例如我的电脑是16g的内存，我把虚拟机的内存修改为4g<br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/05.png"><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/06.png"></p><h4 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h4><ol><li><p>开启虚拟机，选择 <code>我已复制该虚拟机</code><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/07.png"><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/08.png"></p></li><li><p>虚拟机出现下面内容，则找到 <code>SecureCRT</code> 文件夹，双击打开 <code>SecureCRTPortable.exe</code><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/09.png"><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/10.png"></p></li><li><p>按下图指示，连接虚拟机后，启动服务器<br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/11.png"><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/12.png"></p></li><li><p>等待几分钟，等出现 CN HK KR MO TW 的五地区和多个感叹号，代表服务端已搭建成功<br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/13.png"></p></li></ol><h3 id="启动游戏"><a href="#启动游戏" class="headerlink" title="启动游戏"></a>启动游戏</h3><h4 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h4><p>打开游戏，选择左上角的注册账号，账号密码随便输入即可<br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/14.png"></p><h4 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h4><ol><li><p>输入注册的账号和密码，登录游戏<br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/15.png"></p></li><li><p>服务器变灰，点击 <code>run1</code><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/16.png"><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/17.png"></p></li><li><p>服务器还是变灰，在控制端输入两次 <code>./stop</code>，在输入 <code>./run</code>，重新启动服务器即可<br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/18.png"><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/19.png"><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/20.png"><br><img src="https://img.mrzgh.top/Blog/Posts/2022/11/16/21.png"></p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;一、搭建准备&quot;&gt;&lt;a href=&quot;#一、搭建准备&quot; class=&quot;headerlink&quot; title=&quot;一、搭建准备&quot;&gt;&lt;/a&gt;一、搭建准备&lt;/h3&gt;&lt;/br&gt;
+
+&lt;h4 id=&quot;安装-VMware-Workstation-Pro&quot;&gt;&lt;a href=&quot;#安装-VM</summary>
+      
+    
+    
+    
+    <category term="教程" scheme="https://mrzgh.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
+    
+    <category term="私服" scheme="https://mrzgh.top/tags/%E7%A7%81%E6%9C%8D/"/>
+    
+    <category term="DNF" scheme="https://mrzgh.top/tags/DNF/"/>
+    
+  </entry>
   
   <entry>
     <title>原神使用 3DMigoto Loader 加载 Mod</title>
@@ -74,11 +106,11 @@
     
     <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
     
-    <category term="Grasscutter" scheme="https://mrzgh.top/tags/Grasscutter/"/>
-    
     <category term="原神" scheme="https://mrzgh.top/tags/%E5%8E%9F%E7%A5%9E/"/>
     
     <category term="私服" scheme="https://mrzgh.top/tags/%E7%A7%81%E6%9C%8D/"/>
+    
+    <category term="Grasscutter" scheme="https://mrzgh.top/tags/Grasscutter/"/>
     
   </entry>
   
@@ -134,9 +166,9 @@
     
     <category term="Ubuntu" scheme="https://mrzgh.top/tags/Ubuntu/"/>
     
-    <category term="EFB" scheme="https://mrzgh.top/tags/EFB/"/>
-    
     <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
+    
+    <category term="EFB" scheme="https://mrzgh.top/tags/EFB/"/>
     
   </entry>
   
@@ -488,9 +520,9 @@
     
     <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="Hexo" scheme="https://mrzgh.top/tags/Hexo/"/>
-    
     <category term="域名" scheme="https://mrzgh.top/tags/%E5%9F%9F%E5%90%8D/"/>
+    
+    <category term="Hexo" scheme="https://mrzgh.top/tags/Hexo/"/>
     
     <category term="GitHub" scheme="https://mrzgh.top/tags/GitHub/"/>
     
@@ -576,32 +608,6 @@
     <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="Google" scheme="https://mrzgh.top/tags/Google/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo使用主题</title>
-    <link href="https://mrzgh.top/posts/b2b596ff/"/>
-    <id>https://mrzgh.top/posts/b2b596ff/</id>
-    <published>2020-05-12T08:12:05.000Z</published>
-    <updated>2020-05-12T08:12:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>去Hexo网站查找你喜欢的主题 <a href="https://hexo.io/themes/">https://hexo.io/themes/</a></p><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol><li><p>例如我要的是<a href="https://github.com/next-theme/hexo-theme-next">NexT主题</a>，这主题已经提供了代码，只需要执行即可</p></li><li><p>在Hexo根目录打开 Git Bash 命令窗口，输入下列命令</p></li></ol><figure class="highlight bash"><figcaption><span>BASH</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next   </span><br></pre></td></tr></table></figure><p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/12/16.png"></p><ol start="3"><li>编辑Hexo根目录的 <font color="red">_config.yml</font> 文件 ，找到<font color="red"> theme: </font> 这行，把内容修改为 <font color="red">next</font>（主题的名称）</li></ol><p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/12/17.png"></p><ol start="4"><li>开启服务，就可以看到主题已经改变了</li></ol><figure class="highlight bash"><figcaption><span>BASH</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s//开启服务</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;主题&quot;&gt;&lt;a href=&quot;#主题&quot; class=&quot;headerlink&quot; title=&quot;主题&quot;&gt;&lt;/a&gt;主题&lt;/h3&gt;&lt;p&gt;去Hexo网站查找你喜欢的主题 &lt;a href=&quot;https://hexo.io/themes/&quot;&gt;https://hexo.io/them</summary>
-      
-    
-    
-    
-    <category term="Hexo" scheme="https://mrzgh.top/categories/Hexo/"/>
-    
-    
-    <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
-    
-    <category term="Hexo" scheme="https://mrzgh.top/tags/Hexo/"/>
     
   </entry>
   
