@@ -69,17 +69,111 @@
       </tags>
   </entry>
   <entry>
-    <title>删除 Github 的所有提交记录</title>
-    <url>/posts/802b0d9b/</url>
-    <content><![CDATA[<h3 id="删除记录"><a href="#删除记录" class="headerlink" title="删除记录"></a>删除记录</h3><p>在本地 GitHub 的项目路径下，打开 <code>Git Bash</code> 窗口，运行下列代码。</p>
+    <title>利用 EFB 使 Telegram 收发微信消息</title>
+    <url>/posts/622c629d/</url>
+    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h4 id="EH-Forwarder-Bot（EFB）"><a href="#EH-Forwarder-Bot（EFB）" class="headerlink" title="EH Forwarder Bot（EFB）"></a>EH Forwarder Bot（EFB）</h4><p>是一个可扩展的开源聊天平台隧道 Bot 框架，允许用户一次发送和接收来自多个平台的消息，目前支持在 Telegram 上收发微信、QQ、Facebook Message 信息，支持文字、语音、图片、视频、表情互通，虽有一些功能限制但可用性良好</p>
+<h4 id="微信网页版"><a href="#微信网页版" class="headerlink" title="微信网页版"></a>微信网页版</h4><p>微信会对使用第三方客户端登录<a href="https://wx.qq.com/">微信网页版</a>的用户实行封禁，账号较老的用户封禁率似乎不高。<br><code>采用了最新的UOS协议，对于不支持微信网页版的账号也可以使用。</code></p>
+<h4 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h4><p><a href="https://github.com/blueset/ehForwarderBot">ehForwarderBot</a>、<a href="https://github.com/blueset/efb-telegram-master">efb-telegram-maste</a>、<a href="https://github.com/blueset/efb-wechat-slave">efb-wechat-slave</a></p>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
+<li>能够科学上网</li>
+<li>Ubuntu 18.04 以上的系统（ 本人用的是 Windows Linux 子系统 Ubuntu 20.04 LTS ）</li>
+<li>Telegram 软件（ 手机端或电脑端都可以 ）</li>
+</ol>
+<blockquote>
+<p>注：手机端可以使用 Termux 安装</p>
+</blockquote>
+<br>
+
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><h4 id="一、-获取-Bot-Token"><a href="#一、-获取-Bot-Token" class="headerlink" title="一、 获取 Bot Token"></a>一、 获取 Bot Token</h4><ol>
+<li>在 Telegram 里，对 @botfather 输入: &#x2F;newbot</li>
+<li>输入 Bot 名称</li>
+<li>输入 Bot 用户名，注意用户名必须以 Bot 结尾</li>
+<li>保存获取到的 token</li>
+</ol>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/01.png"></p>
+<h4 id="二、-配置-Bot"><a href="#二、-配置-Bot" class="headerlink" title="二、 配置 Bot"></a>二、 配置 Bot</h4><ol>
+<li>在 Telegram 里，对 @botfather 输入: &#x2F;setprivacy 选择 Disable ( 允许 Bot 读取非指令信息 )</li>
+<li>在 Telegram 里，对 @botfather 输入: &#x2F;setjoingroups, 选择 Enable ( 允许将 Bot 添加进群组 )</li>
+<li>在 Telegram 里，对 @botfather 输入: &#x2F;setcommands, 输入下列内容 ( 允许 Bot 提供指令列表 )</li>
+</ol>
 <figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment"># 尝试运行</span></span><br><span class="line">git checkout --orphan latest_branch</span><br><span class="line"><span class="comment"># 添加所有文件</span></span><br><span class="line">git add -A</span><br><span class="line"><span class="comment"># 提交更改</span></span><br><span class="line">git commit -am <span class="string">&quot;commit message&quot;</span></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">git branch -D master</span><br><span class="line"><span class="comment"># 将当前分支重命名</span></span><br><span class="line">git branch -m master</span><br><span class="line"><span class="comment"># 强制更新存储库</span></span><br><span class="line">git push -f origin master</span><br></pre></td></tr></table></figure>]]></content>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="built_in">help</span> - 显示命令列表.</span><br><span class="line"><span class="built_in">link</span> - 将远程会话绑定到 Telegram 群组</span><br><span class="line">chat - 生成会话头</span><br><span class="line">recog - 回复语音消息以进行识别</span><br><span class="line">info - 显示当前 Telegram 聊天的信息.</span><br><span class="line">unlink_all - 将所有远程会话从 Telegram 群组解绑.</span><br><span class="line">update_info - 更新群组名称和头像</span><br><span class="line">extra - 获取更多功能</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/02.png"></p>
+<h4 id="三、-获取-Telegram-账户-ID"><a href="#三、-获取-Telegram-账户-ID" class="headerlink" title="三、 获取 Telegram 账户 ID"></a>三、 获取 Telegram 账户 ID</h4><p>在 Telegram 里，对 @get_id_bot 点击 start 即可获得你的 Telegram ID</p>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/03.png"></p>
+<h4 id="四、-安装依赖"><a href="#四、-安装依赖" class="headerlink" title="四、 安装依赖"></a>四、 安装依赖</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">sudo su</span><br><span class="line">apt update</span><br><span class="line">apt install libwebp-dev libmagic-dev git screen nano -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="五、-安装-Python3-6（或更高版本）"><a href="#五、-安装-Python3-6（或更高版本）" class="headerlink" title="五、 安装 Python3.6（或更高版本）"></a>五、 安装 Python3.6（或更高版本）</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">apt install python3-pip python3-setuptools python3-dev -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="六、-安装-FFmpeg"><a href="#六、-安装-FFmpeg" class="headerlink" title="六、 安装 FFmpeg"></a>六、 安装 FFmpeg</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment">#下载ffmpeg二进制</span></span><br><span class="line">wget https://www.moerats.com/usr/down/ffmpeg/ffmpeg-git-$(getconf LONG_BIT)bit-static.tar.xz</span><br><span class="line"><span class="comment">#解压文件</span></span><br><span class="line">tar xvf ffmpeg-git-*-static.tar.xz</span><br><span class="line"><span class="comment">#移动ffmpeg可执行文件</span></span><br><span class="line"><span class="built_in">mv</span> ffmpeg-git-*/ffmpeg  ffmpeg-git-*/ffprobe /usr/bin/</span><br><span class="line"><span class="comment">#删除文件</span></span><br><span class="line"><span class="built_in">rm</span> -rf ffmpeg-git-*</span><br></pre></td></tr></table></figure>
+
+<h4 id="七、-安装-EFB"><a href="#七、-安装-EFB" class="headerlink" title="七、 安装 EFB"></a>七、 安装 EFB</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment"># 框架</span></span><br><span class="line">pip3 install ehforwarderbot</span><br><span class="line"><span class="comment"># Telegram 模块</span></span><br><span class="line">pip3 install efb-telegram-master</span><br><span class="line"><span class="comment"># WeChat 模块</span></span><br><span class="line">pip3 install efb-wechat-slave</span><br></pre></td></tr></table></figure>
+
+<h4 id="八、-配置文件"><a href="#八、-配置文件" class="headerlink" title="八、 配置文件"></a>八、 配置文件</h4><ol>
+<li><p>EFB 配置</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ehforwarderbot/profiles/default</span><br><span class="line">nano ~/.ehforwarderbot/profiles/default/config.yaml</span><br></pre></td></tr></table></figure>
+<p>粘贴下列内容，<code>ctrl+x</code> 保存退出</p>
+<figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="attr">master_channel:</span> <span class="string">blueset.telegram</span></span><br><span class="line"><span class="attr">slave_channels:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">blueset.wechat</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Telegram 模块配置</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/.ehforwarderbot/profiles/default/blueset.telegram</span><br><span class="line">nano ~/.ehforwarderbot/profiles/default/blueset.telegram/config.yaml</span><br></pre></td></tr></table></figure>
+<p>粘贴下列内容，<code>ctrl+x</code> 保存退出</p>
+<figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="attr">token:</span> <span class="string">&quot;你的token&quot;</span> </span><br><span class="line"><span class="attr">admins:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">你的userid</span> </span><br><span class="line"><span class="attr">flags:</span></span><br><span class="line">  <span class="comment"># 将所有图像消息作为文件发送，以防止主动报文的图像压缩</span></span><br><span class="line">  <span class="attr">send_image_as_file:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># 图片/视频/文件消息没有标题时的占位符文本</span></span><br><span class="line">  <span class="attr">default_media_prompt:</span> <span class="string">text</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="九、-设置代理"><a href="#九、-设置代理" class="headerlink" title="九、 设置代理"></a>九、 设置代理</h4><ol>
+<li><p>在 cmd 输入 <code>ipconfig</code> 查看本机 IP 地址<br><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/04.png"></p>
+</li>
+<li><p>在 Ubuntu 输入 <code>ifconfig</code> 查看 IP 地址，没有 <code>ifconfig</code> 命令则输入 <code>sudo apt-get install net-tools</code> 命令安装<br><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/05.png"></p>
+</li>
+<li><p>可以知道本机跟子系统同一域的是 192.168.31.84</p>
+</li>
+<li><p>在 Ubuntu 输入 <code>vi /etc/environment</code>，粘贴下列代码</p>
+<figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment"># 代理配置</span></span><br><span class="line"><span class="comment"># 本人使用的是 Clash 默认端口号为 7980</span></span><br><span class="line"><span class="string">export</span> <span class="string">http_proxy=http://192.168.31.84:7890;</span></span><br><span class="line"><span class="string">export</span> <span class="string">https_proxy=http://192.168.31.84:7890;</span></span><br><span class="line"><span class="string">export</span> <span class="string">ftp_proxy=http://192.168.31.84:7890;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳过代理</span></span><br><span class="line"><span class="string">no_proxy=&quot;127.0.0.1,</span> <span class="string">localhost,</span> <span class="string">qq,</span> <span class="string">weixin,</span>  <span class="string">login.weixin.qq.com,</span>  <span class="string">wx2.qq.com,</span>  <span class="string">*.qq.*,</span>  <span class="string">*.weixin.*&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入 <code>source /etc/environment</code> 使代理生效</p>
+</li>
+</ol>
+<h4 id="十、-启动"><a href="#十、-启动" class="headerlink" title="十、 启动"></a>十、 启动</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">ehforwarderbot</span><br></pre></td></tr></table></figure>
+<p>此时会给一个微信二维码或者二维码链接给你，放到浏览器打开扫描登录即可。</p>
+<h4 id="十一、-使用"><a href="#十一、-使用" class="headerlink" title="十一、 使用"></a>十一、 使用</h4><ol>
+<li>在 Telegram 里新建群组，把你创建的 Bot 添加进去，把 Bot 设置为管理员</li>
+<li>对 Bot 输入 &#x2F;link 选择你要绑定的好友或群，再绑定你刚创建的群组</li>
+<li>好友或群里发的信息，就会发送到你创建的群组</li>
+<li>不绑定的话，微信所有的消息都会发送到 Bot 里</li>
+</ol>
+<h4 id="十二、-更新"><a href="#十二、-更新" class="headerlink" title="十二、 更新"></a>十二、 更新</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">pip3 install --upgrade ehforwarderbot</span><br><span class="line">pip3 install --upgrade efb-telegram-master </span><br><span class="line">pip3 install --upgrade efb-wechat-slave</span><br></pre></td></tr></table></figure>
+
+<h4 id="十三、-后台"><a href="#十三、-后台" class="headerlink" title="十三、 后台"></a>十三、 后台</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/systemd/system/</span><br><span class="line">nano efb.service</span><br></pre></td></tr></table></figure>
+<p>粘贴下列内容，<code>ctrl+x</code> 保存退出</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=ehforwarderbot</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root</span><br><span class="line">ExecStart=/usr/local/bin/ehforwarderbot</span><br><span class="line">Restart=always</span><br></pre></td></tr></table></figure>
+<p>输入代码启动 efb 开机自启 efb</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment">#重新加载进程守护</span></span><br><span class="line">systemctl daemon-reload</span><br><span class="line"><span class="comment">#进程守护 启动efb</span></span><br><span class="line">systemctl start efb.service</span><br><span class="line"><span class="comment">#打印日志 此时不会直接显示二维码，而需要你打开http的链接，进行扫码登录</span></span><br><span class="line">journalctl -f -u efb.service</span><br><span class="line"><span class="comment">#进程守护 开机自启efb</span></span><br><span class="line">systemctl <span class="built_in">enable</span> efb.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>查看状态</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment">#进程守护 停止efb</span></span><br><span class="line">systemctl stop efb.service</span><br><span class="line"><span class="comment">#进程守护 关闭开机自启efb</span></span><br><span class="line">systemctl <span class="built_in">disable</span> efb.service</span><br><span class="line"><span class="comment">#查看当前 efb 状态</span></span><br><span class="line">systemctl status efb.service</span><br><span class="line"><span class="comment">#实时查看 efb 守护日志</span></span><br><span class="line">journalctl -f -u efb.service</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>Git</tag>
+        <tag>Ubuntu</tag>
+        <tag>EFB</tag>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -274,111 +368,71 @@
       </tags>
   </entry>
   <entry>
-    <title>利用 EFB 使 Telegram 收发微信消息</title>
-    <url>/posts/622c629d/</url>
-    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h4 id="EH-Forwarder-Bot（EFB）"><a href="#EH-Forwarder-Bot（EFB）" class="headerlink" title="EH Forwarder Bot（EFB）"></a>EH Forwarder Bot（EFB）</h4><p>是一个可扩展的开源聊天平台隧道 Bot 框架，允许用户一次发送和接收来自多个平台的消息，目前支持在 Telegram 上收发微信、QQ、Facebook Message 信息，支持文字、语音、图片、视频、表情互通，虽有一些功能限制但可用性良好</p>
-<h4 id="微信网页版"><a href="#微信网页版" class="headerlink" title="微信网页版"></a>微信网页版</h4><p>微信会对使用第三方客户端登录<a href="https://wx.qq.com/">微信网页版</a>的用户实行封禁，账号较老的用户封禁率似乎不高。<br><code>采用了最新的UOS协议，对于不支持微信网页版的账号也可以使用。</code></p>
-<h4 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h4><p><a href="https://github.com/blueset/ehForwarderBot">ehForwarderBot</a>、<a href="https://github.com/blueset/efb-telegram-master">efb-telegram-maste</a>、<a href="https://github.com/blueset/efb-wechat-slave">efb-wechat-slave</a></p>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
-<li>能够科学上网</li>
-<li>Ubuntu 18.04 以上的系统（ 本人用的是 Windows Linux 子系统 Ubuntu 20.04 LTS ）</li>
-<li>Telegram 软件（ 手机端或电脑端都可以 ）</li>
-</ol>
-<blockquote>
-<p>注：手机端可以使用 Termux 安装</p>
-</blockquote>
-<br>
-
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><h4 id="一、-获取-Bot-Token"><a href="#一、-获取-Bot-Token" class="headerlink" title="一、 获取 Bot Token"></a>一、 获取 Bot Token</h4><ol>
-<li>在 Telegram 里，对 @botfather 输入: &#x2F;newbot</li>
-<li>输入 Bot 名称</li>
-<li>输入 Bot 用户名，注意用户名必须以 Bot 结尾</li>
-<li>保存获取到的 token</li>
-</ol>
-<p><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/01.png"></p>
-<h4 id="二、-配置-Bot"><a href="#二、-配置-Bot" class="headerlink" title="二、 配置 Bot"></a>二、 配置 Bot</h4><ol>
-<li>在 Telegram 里，对 @botfather 输入: &#x2F;setprivacy 选择 Disable ( 允许 Bot 读取非指令信息 )</li>
-<li>在 Telegram 里，对 @botfather 输入: &#x2F;setjoingroups, 选择 Enable ( 允许将 Bot 添加进群组 )</li>
-<li>在 Telegram 里，对 @botfather 输入: &#x2F;setcommands, 输入下列内容 ( 允许 Bot 提供指令列表 )</li>
-</ol>
+    <title>删除 Github 的所有提交记录</title>
+    <url>/posts/802b0d9b/</url>
+    <content><![CDATA[<h3 id="删除记录"><a href="#删除记录" class="headerlink" title="删除记录"></a>删除记录</h3><p>在本地 GitHub 的项目路径下，打开 <code>Git Bash</code> 窗口，运行下列代码。</p>
 <figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="built_in">help</span> - 显示命令列表.</span><br><span class="line"><span class="built_in">link</span> - 将远程会话绑定到 Telegram 群组</span><br><span class="line">chat - 生成会话头</span><br><span class="line">recog - 回复语音消息以进行识别</span><br><span class="line">info - 显示当前 Telegram 聊天的信息.</span><br><span class="line">unlink_all - 将所有远程会话从 Telegram 群组解绑.</span><br><span class="line">update_info - 更新群组名称和头像</span><br><span class="line">extra - 获取更多功能</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/02.png"></p>
-<h4 id="三、-获取-Telegram-账户-ID"><a href="#三、-获取-Telegram-账户-ID" class="headerlink" title="三、 获取 Telegram 账户 ID"></a>三、 获取 Telegram 账户 ID</h4><p>在 Telegram 里，对 @get_id_bot 点击 start 即可获得你的 Telegram ID</p>
-<p><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/03.png"></p>
-<h4 id="四、-安装依赖"><a href="#四、-安装依赖" class="headerlink" title="四、 安装依赖"></a>四、 安装依赖</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">sudo su</span><br><span class="line">apt update</span><br><span class="line">apt install libwebp-dev libmagic-dev git screen nano -y</span><br></pre></td></tr></table></figure>
-
-<h4 id="五、-安装-Python3-6（或更高版本）"><a href="#五、-安装-Python3-6（或更高版本）" class="headerlink" title="五、 安装 Python3.6（或更高版本）"></a>五、 安装 Python3.6（或更高版本）</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">apt install python3-pip python3-setuptools python3-dev -y</span><br></pre></td></tr></table></figure>
-
-<h4 id="六、-安装-FFmpeg"><a href="#六、-安装-FFmpeg" class="headerlink" title="六、 安装 FFmpeg"></a>六、 安装 FFmpeg</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment">#下载ffmpeg二进制</span></span><br><span class="line">wget https://www.moerats.com/usr/down/ffmpeg/ffmpeg-git-$(getconf LONG_BIT)bit-static.tar.xz</span><br><span class="line"><span class="comment">#解压文件</span></span><br><span class="line">tar xvf ffmpeg-git-*-static.tar.xz</span><br><span class="line"><span class="comment">#移动ffmpeg可执行文件</span></span><br><span class="line"><span class="built_in">mv</span> ffmpeg-git-*/ffmpeg  ffmpeg-git-*/ffprobe /usr/bin/</span><br><span class="line"><span class="comment">#删除文件</span></span><br><span class="line"><span class="built_in">rm</span> -rf ffmpeg-git-*</span><br></pre></td></tr></table></figure>
-
-<h4 id="七、-安装-EFB"><a href="#七、-安装-EFB" class="headerlink" title="七、 安装 EFB"></a>七、 安装 EFB</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment"># 框架</span></span><br><span class="line">pip3 install ehforwarderbot</span><br><span class="line"><span class="comment"># Telegram 模块</span></span><br><span class="line">pip3 install efb-telegram-master</span><br><span class="line"><span class="comment"># WeChat 模块</span></span><br><span class="line">pip3 install efb-wechat-slave</span><br></pre></td></tr></table></figure>
-
-<h4 id="八、-配置文件"><a href="#八、-配置文件" class="headerlink" title="八、 配置文件"></a>八、 配置文件</h4><ol>
-<li><p>EFB 配置</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ehforwarderbot/profiles/default</span><br><span class="line">nano ~/.ehforwarderbot/profiles/default/config.yaml</span><br></pre></td></tr></table></figure>
-<p>粘贴下列内容，<code>ctrl+x</code> 保存退出</p>
-<figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="attr">master_channel:</span> <span class="string">blueset.telegram</span></span><br><span class="line"><span class="attr">slave_channels:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">blueset.wechat</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Telegram 模块配置</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/.ehforwarderbot/profiles/default/blueset.telegram</span><br><span class="line">nano ~/.ehforwarderbot/profiles/default/blueset.telegram/config.yaml</span><br></pre></td></tr></table></figure>
-<p>粘贴下列内容，<code>ctrl+x</code> 保存退出</p>
-<figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="attr">token:</span> <span class="string">&quot;你的token&quot;</span> </span><br><span class="line"><span class="attr">admins:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">你的userid</span> </span><br><span class="line"><span class="attr">flags:</span></span><br><span class="line">  <span class="comment"># 将所有图像消息作为文件发送，以防止主动报文的图像压缩</span></span><br><span class="line">  <span class="attr">send_image_as_file:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># 图片/视频/文件消息没有标题时的占位符文本</span></span><br><span class="line">  <span class="attr">default_media_prompt:</span> <span class="string">text</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h4 id="九、-设置代理"><a href="#九、-设置代理" class="headerlink" title="九、 设置代理"></a>九、 设置代理</h4><ol>
-<li><p>在 cmd 输入 <code>ipconfig</code> 查看本机 IP 地址<br><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/04.png"></p>
-</li>
-<li><p>在 Ubuntu 输入 <code>ifconfig</code> 查看 IP 地址，没有 <code>ifconfig</code> 命令则输入 <code>sudo apt-get install net-tools</code> 命令安装<br><img src="https://img.mrzgh.top/Blog/Posts/2021/12/08/05.png"></p>
-</li>
-<li><p>可以知道本机跟子系统同一域的是 192.168.31.84</p>
-</li>
-<li><p>在 Ubuntu 输入 <code>vi /etc/environment</code>，粘贴下列代码</p>
-<figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment"># 代理配置</span></span><br><span class="line"><span class="comment"># 本人使用的是 Clash 默认端口号为 7980</span></span><br><span class="line"><span class="string">export</span> <span class="string">http_proxy=http://192.168.31.84:7890;</span></span><br><span class="line"><span class="string">export</span> <span class="string">https_proxy=http://192.168.31.84:7890;</span></span><br><span class="line"><span class="string">export</span> <span class="string">ftp_proxy=http://192.168.31.84:7890;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳过代理</span></span><br><span class="line"><span class="string">no_proxy=&quot;127.0.0.1,</span> <span class="string">localhost,</span> <span class="string">qq,</span> <span class="string">weixin,</span>  <span class="string">login.weixin.qq.com,</span>  <span class="string">wx2.qq.com,</span>  <span class="string">*.qq.*,</span>  <span class="string">*.weixin.*&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输入 <code>source /etc/environment</code> 使代理生效</p>
-</li>
-</ol>
-<h4 id="十、-启动"><a href="#十、-启动" class="headerlink" title="十、 启动"></a>十、 启动</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">ehforwarderbot</span><br></pre></td></tr></table></figure>
-<p>此时会给一个微信二维码或者二维码链接给你，放到浏览器打开扫描登录即可。</p>
-<h4 id="十一、-使用"><a href="#十一、-使用" class="headerlink" title="十一、 使用"></a>十一、 使用</h4><ol>
-<li>在 Telegram 里新建群组，把你创建的 Bot 添加进去，把 Bot 设置为管理员</li>
-<li>对 Bot 输入 &#x2F;link 选择你要绑定的好友或群，再绑定你刚创建的群组</li>
-<li>好友或群里发的信息，就会发送到你创建的群组</li>
-<li>不绑定的话，微信所有的消息都会发送到 Bot 里</li>
-</ol>
-<h4 id="十二、-更新"><a href="#十二、-更新" class="headerlink" title="十二、 更新"></a>十二、 更新</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">pip3 install --upgrade ehforwarderbot</span><br><span class="line">pip3 install --upgrade efb-telegram-master </span><br><span class="line">pip3 install --upgrade efb-wechat-slave</span><br></pre></td></tr></table></figure>
-
-<h4 id="十三、-后台"><a href="#十三、-后台" class="headerlink" title="十三、 后台"></a>十三、 后台</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/systemd/system/</span><br><span class="line">nano efb.service</span><br></pre></td></tr></table></figure>
-<p>粘贴下列内容，<code>ctrl+x</code> 保存退出</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=ehforwarderbot</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root</span><br><span class="line">ExecStart=/usr/local/bin/ehforwarderbot</span><br><span class="line">Restart=always</span><br></pre></td></tr></table></figure>
-<p>输入代码启动 efb 开机自启 efb</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment">#重新加载进程守护</span></span><br><span class="line">systemctl daemon-reload</span><br><span class="line"><span class="comment">#进程守护 启动efb</span></span><br><span class="line">systemctl start efb.service</span><br><span class="line"><span class="comment">#打印日志 此时不会直接显示二维码，而需要你打开http的链接，进行扫码登录</span></span><br><span class="line">journalctl -f -u efb.service</span><br><span class="line"><span class="comment">#进程守护 开机自启efb</span></span><br><span class="line">systemctl <span class="built_in">enable</span> efb.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>查看状态</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment">#进程守护 停止efb</span></span><br><span class="line">systemctl stop efb.service</span><br><span class="line"><span class="comment">#进程守护 关闭开机自启efb</span></span><br><span class="line">systemctl <span class="built_in">disable</span> efb.service</span><br><span class="line"><span class="comment">#查看当前 efb 状态</span></span><br><span class="line">systemctl status efb.service</span><br><span class="line"><span class="comment">#实时查看 efb 守护日志</span></span><br><span class="line">journalctl -f -u efb.service</span><br></pre></td></tr></table></figure>]]></content>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment"># 尝试运行</span></span><br><span class="line">git checkout --orphan latest_branch</span><br><span class="line"><span class="comment"># 添加所有文件</span></span><br><span class="line">git add -A</span><br><span class="line"><span class="comment"># 提交更改</span></span><br><span class="line">git commit -am <span class="string">&quot;commit message&quot;</span></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">git branch -D master</span><br><span class="line"><span class="comment"># 将当前分支重命名</span></span><br><span class="line">git branch -m master</span><br><span class="line"><span class="comment"># 强制更新存储库</span></span><br><span class="line">git push -f origin master</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>Ubuntu</tag>
-        <tag>EFB</tag>
-        <tag>Windows</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub静态网站绑定域名</title>
+    <url>/posts/b09467db/</url>
+    <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>上一篇文章讲到怎么获取免费的域名，这一篇讲怎么把获取到的域名绑定GitHub中的静态网站。</p>
+<h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><ol>
+<li>打开 <a href="https://www.dnspod.cn/">DNSPod</a> 网站，注册登录，可以直接使用微信或者QQ登录</li>
+</ol>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/13.png"></br></p>
+<ol start="2">
+<li>登录成功后，打开 <font color="red">管理控制台</font>，选择 <font color="red">DNS 解析</font></li>
+</ol>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/14.png"></br></p>
+<ol start="3">
+<li>点击添加域名，输入你申请到的域名，然后点击确认。添加成功后会看到 <font color="red">DNS错误</font>，需要到域名管理修改服务器地址</li>
+</ol>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/15.png"> <img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/16.png"></br></p>
+<ol start="4">
+<li>打开你申请域名的网站，进入域名管理</li>
+</ol>
+<p>	</p>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/17.png"> <img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/18.png"></br></p>
+<ol start="5">
+<li>选择自定义，修改服务器地址，输入完成后点击 <font color="red">Change Nameservers</font>。然后等待DNS服务器生效，短的话几分钟，长的话几个小时，请耐性等候。</li>
+</ol>
+<blockquote>
+<p>f1g1ns1.dnspod.net<br>f1g1ns2.dnspod.net</p>
+</blockquote>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/19.png"> <img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/20.png"></br></p>
+<ol start="6">
+<li>生效后，打开你的GitHub静态网站的仓库，在仓库的根目录里面添加 <font color="red">CNAME</font> 文件，输入你的域名，然后点击 <font color="red">Commit changes</font></li>
+</ol>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/21.png"> <img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/22.png"></br></p>
+<ol start="7">
+<li>回到DNSPod网站，打开你的域名，添加GitHub静态网地址的记录，点击确认完成输入<blockquote>
+<p>主机记录分别为 @ 和 www<br>记录类型为 CNAME<br>记录值为 GitHub静态网地址</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/23.png"></br></p>
+<ol start="8">
+<li>打开静态网站的仓库设置，找到 <font color="red">GitHub Pages</font>，如果 <font color="red">Custom domain</font> 是空的，就输入你的域名，然后点击保存，刷新网页等待生效。生效后会看到  <font color="red">Your site is published at 你的域名</font>，点击你的域名，会可以看到网站了。</li>
+</ol>
+<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/24.png"> <img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/25.png"></br></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Hexo</tag>
+        <tag>域名</tag>
+        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -459,84 +513,6 @@
       </tags>
   </entry>
   <entry>
-    <title>GoogleDrive团队盘无限容量获取</title>
-    <url>/posts/f9e19dad/</url>
-    <content><![CDATA[<ol>
-<li><p>登录 <a href="https://mail.google.com/">Google邮箱</a></p>
-</li>
-<li><p>选择下列的网站，哪一个都行</p>
-<blockquote>
-<p><a href="https://gdrive.zppcw.cn/">sheffield.ac.uk</a><br><a href="https://tv.ssr.workers.dev/">ccsf</a><br><a href="https://teamdrive.xcpx.workers.dev/">swccd</a><br><a href="https://gd.zxd.workers.dev/">Yesyesxx.me</a></p>
-</blockquote>
-</li>
-<li><p>填入团队盘的名称和你的Google邮箱，填完点击 Submit ，成功后登录 <a href="https://drive.google.com/?tab=wo&authuser=0">GoogleDrive</a> 可看到</p>
-</li>
-</ol>
-<p>PS：创建成功后，团队里面只有你一个人，你就是管理员</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GitHub静态网站绑定域名</title>
-    <url>/posts/b09467db/</url>
-    <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>上一篇文章讲到怎么获取免费的域名，这一篇讲怎么把获取到的域名绑定GitHub中的静态网站。</p>
-<h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><ol>
-<li>打开 <a href="https://www.dnspod.cn/">DNSPod</a> 网站，注册登录，可以直接使用微信或者QQ登录</li>
-</ol>
-<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/13.png"></br></p>
-<ol start="2">
-<li>登录成功后，打开 <font color="red">管理控制台</font>，选择 <font color="red">DNS 解析</font></li>
-</ol>
-<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/14.png"></br></p>
-<ol start="3">
-<li>点击添加域名，输入你申请到的域名，然后点击确认。添加成功后会看到 <font color="red">DNS错误</font>，需要到域名管理修改服务器地址</li>
-</ol>
-<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/15.png"> <img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/16.png"></br></p>
-<ol start="4">
-<li>打开你申请域名的网站，进入域名管理</li>
-</ol>
-<p>	</p>
-<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/17.png"> <img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/18.png"></br></p>
-<ol start="5">
-<li>选择自定义，修改服务器地址，输入完成后点击 <font color="red">Change Nameservers</font>。然后等待DNS服务器生效，短的话几分钟，长的话几个小时，请耐性等候。</li>
-</ol>
-<blockquote>
-<p>f1g1ns1.dnspod.net<br>f1g1ns2.dnspod.net</p>
-</blockquote>
-<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/19.png"> <img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/20.png"></br></p>
-<ol start="6">
-<li>生效后，打开你的GitHub静态网站的仓库，在仓库的根目录里面添加 <font color="red">CNAME</font> 文件，输入你的域名，然后点击 <font color="red">Commit changes</font></li>
-</ol>
-<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/21.png"> <img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/22.png"></br></p>
-<ol start="7">
-<li>回到DNSPod网站，打开你的域名，添加GitHub静态网地址的记录，点击确认完成输入<blockquote>
-<p>主机记录分别为 @ 和 www<br>记录类型为 CNAME<br>记录值为 GitHub静态网地址</p>
-</blockquote>
-</li>
-</ol>
-<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/23.png"></br></p>
-<ol start="8">
-<li>打开静态网站的仓库设置，找到 <font color="red">GitHub Pages</font>，如果 <font color="red">Custom domain</font> 是空的，就输入你的域名，然后点击保存，刷新网页等待生效。生效后会看到  <font color="red">Your site is published at 你的域名</font>，点击你的域名，会可以看到网站了。</li>
-</ol>
-<p><img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/24.png"> <img src="https://img.mrzgh.top/Blog/Posts/2020/05/18/25.png"></br></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Hexo</tag>
-        <tag>域名</tag>
-        <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用Hexo+GitHub搭建个人网站（1、本地安装）</title>
     <url>/posts/a7b9bc2b/</url>
     <content><![CDATA[<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页</p>
@@ -587,8 +563,8 @@
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>Hexo</tag>
         <tag>Windows</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -612,6 +588,75 @@
 <button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">npm update -g</span><br><span class="line">npm update --save</span><br></pre></td></tr></table></figure></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GoogleDrive团队盘无限容量获取</title>
+    <url>/posts/f9e19dad/</url>
+    <content><![CDATA[<ol>
+<li><p>登录 <a href="https://mail.google.com/">Google邮箱</a></p>
+</li>
+<li><p>选择下列的网站，哪一个都行</p>
+<blockquote>
+<p><a href="https://gdrive.zppcw.cn/">sheffield.ac.uk</a><br><a href="https://tv.ssr.workers.dev/">ccsf</a><br><a href="https://teamdrive.xcpx.workers.dev/">swccd</a><br><a href="https://gd.zxd.workers.dev/">Yesyesxx.me</a></p>
+</blockquote>
+</li>
+<li><p>填入团队盘的名称和你的Google邮箱，填完点击 Submit ，成功后登录 <a href="https://drive.google.com/?tab=wo&authuser=0">GoogleDrive</a> 可看到</p>
+</li>
+</ol>
+<p>PS：创建成功后，团队里面只有你一个人，你就是管理员</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Google</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo常用命令</title>
+    <url>/posts/24caea6b/</url>
+    <content><![CDATA[<h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;postName&quot;</span> 			<span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">&quot;pageName&quot;</span> 		<span class="comment">#新建页面</span></span><br><span class="line">hexo generate 				<span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server 				<span class="comment">#开启服务（默认端口4000，&#x27;ctrl + c&#x27;关闭server）</span></span><br><span class="line">hexo deploy 				<span class="comment">#部署</span></span><br><span class="line">hexo <span class="built_in">help</span>  				<span class="comment">#帮助</span></span><br><span class="line">hexo version				<span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="缩写命令"><a href="#缩写命令" class="headerlink" title="缩写命令"></a>缩写命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">hexo n == hexo new	<span class="comment">#新建</span></span><br><span class="line">hexo g == hexo generate	<span class="comment">#生成静态网页</span></span><br><span class="line">hexo s == hexo server	<span class="comment">#开启服务</span></span><br><span class="line">hexo d == hexo deploy	<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="组合命令"><a href="#组合命令" class="headerlink" title="组合命令"></a>组合命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">hexo s -g <span class="comment">#生成并本地预览</span></span><br><span class="line">hexo d -g <span class="comment">#生成并上传</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo使用gulp优化</title>
+    <url>/posts/3cf7d586/</url>
+    <content><![CDATA[<h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><p>通过对站点使用的静态资源进行压缩，来优化网站的访问速度。</p>
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><blockquote>
+<p>在网站根目录打开 Git Bash 命令窗口，输入下列命令 </p>
+</blockquote>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 Gulp 插件</span></span><br><span class="line">npm install --global gulp-cli <span class="comment">#全局安装gulp指令集</span></span><br><span class="line">npm install gulp --save <span class="comment">#安装gulp插件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># HTML</span></span><br><span class="line">npm install gulp-htmlclean --save-dev</span><br><span class="line">npm install gulp-html-minifier-terser --save-dev</span><br><span class="line"><span class="comment"># 用gulp-html-minifier-terser可以压缩HTML中的ES6语法</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩 CSS</span></span><br><span class="line">npm install gulp-clean-css --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩 JS</span></span><br><span class="line">npm install gulp-terser --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置gulp"><a href="#配置gulp" class="headerlink" title="配置gulp"></a>配置gulp</h3><blockquote>
+<p>在网站根目录创建 gulpfile.js 文件，写入下列代码</p>
+</blockquote>
+<figure class="highlight js"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>JS</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment">//用到的各个插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> cleanCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-html-minifier-terser&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlclean&#x27;</span>);</span><br><span class="line"><span class="comment">// gulp-tester</span></span><br><span class="line"><span class="keyword">var</span> terser = <span class="built_in">require</span>(<span class="string">&#x27;gulp-terser&#x27;</span>);</span><br><span class="line"><span class="comment">// 压缩js</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;compress&#x27;</span>, <span class="function">() =&gt;</span></span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.js&#x27;</span>, <span class="string">&#x27;!./public/**/*.min.js&#x27;</span>])</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">terser</span>())</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">)</span><br><span class="line"><span class="comment">//压缩css</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.css&#x27;</span>])</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">cleanCSS</span>(&#123;</span><br><span class="line">            <span class="attr">compatibility</span>: <span class="string">&#x27;ie11&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩html</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;./public/**/*.html&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlclean</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlmin</span>(&#123;</span><br><span class="line">            <span class="attr">removeComments</span>: <span class="literal">true</span>, <span class="comment">//清除html注释</span></span><br><span class="line">            <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>, <span class="comment">//压缩html</span></span><br><span class="line">            <span class="attr">collapseBooleanAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//省略布尔属性的值，例如：&lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeEmptyAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除所有空格作属性值，例如：&lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeScriptTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;script&gt;的type=&quot;text/javascript&quot;</span></span><br><span class="line">            <span class="attr">removeStyleLinkTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;style&gt;和&lt;link&gt;的 type=&quot;text/css&quot;</span></span><br><span class="line">            <span class="attr">minifyJS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 JS</span></span><br><span class="line">            <span class="attr">minifyCSS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 CSS</span></span><br><span class="line">            <span class="attr">minifyURLs</span>: <span class="literal">true</span>  <span class="comment">//压缩页面URL</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行gulp命令时依次执行以下任务</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, gulp.<span class="title function_">parallel</span>(</span><br><span class="line">  <span class="string">&#x27;compress&#x27;</span>, <span class="string">&#x27;minify-css&#x27;</span>, <span class="string">&#x27;minify-html&#x27;</span></span><br><span class="line">))</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">hexo clean		<span class="comment">#清除缓存</span></span><br><span class="line">hexo g			<span class="comment">#生成静态网页</span></span><br><span class="line">gulp			<span class="comment">#压缩</span></span><br><span class="line">hexo d			<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
@@ -667,52 +712,7 @@
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>Hexo</tag>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo常用命令</title>
-    <url>/posts/24caea6b/</url>
-    <content><![CDATA[<h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;postName&quot;</span> 			<span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">&quot;pageName&quot;</span> 		<span class="comment">#新建页面</span></span><br><span class="line">hexo generate 				<span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server 				<span class="comment">#开启服务（默认端口4000，&#x27;ctrl + c&#x27;关闭server）</span></span><br><span class="line">hexo deploy 				<span class="comment">#部署</span></span><br><span class="line">hexo <span class="built_in">help</span>  				<span class="comment">#帮助</span></span><br><span class="line">hexo version				<span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="缩写命令"><a href="#缩写命令" class="headerlink" title="缩写命令"></a>缩写命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">hexo n == hexo new	<span class="comment">#新建</span></span><br><span class="line">hexo g == hexo generate	<span class="comment">#生成静态网页</span></span><br><span class="line">hexo s == hexo server	<span class="comment">#开启服务</span></span><br><span class="line">hexo d == hexo deploy	<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="组合命令"><a href="#组合命令" class="headerlink" title="组合命令"></a>组合命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">hexo s -g <span class="comment">#生成并本地预览</span></span><br><span class="line">hexo d -g <span class="comment">#生成并上传</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo使用gulp优化</title>
-    <url>/posts/3cf7d586/</url>
-    <content><![CDATA[<h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><p>通过对站点使用的静态资源进行压缩，来优化网站的访问速度。</p>
-<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><blockquote>
-<p>在网站根目录打开 Git Bash 命令窗口，输入下列命令 </p>
-</blockquote>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 Gulp 插件</span></span><br><span class="line">npm install --global gulp-cli <span class="comment">#全局安装gulp指令集</span></span><br><span class="line">npm install gulp --save <span class="comment">#安装gulp插件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># HTML</span></span><br><span class="line">npm install gulp-htmlclean --save-dev</span><br><span class="line">npm install gulp-html-minifier-terser --save-dev</span><br><span class="line"><span class="comment"># 用gulp-html-minifier-terser可以压缩HTML中的ES6语法</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩 CSS</span></span><br><span class="line">npm install gulp-clean-css --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩 JS</span></span><br><span class="line">npm install gulp-terser --save-dev</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置gulp"><a href="#配置gulp" class="headerlink" title="配置gulp"></a>配置gulp</h3><blockquote>
-<p>在网站根目录创建 gulpfile.js 文件，写入下列代码</p>
-</blockquote>
-<figure class="highlight js"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>JS</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line"><span class="comment">//用到的各个插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> cleanCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-html-minifier-terser&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlclean&#x27;</span>);</span><br><span class="line"><span class="comment">// gulp-tester</span></span><br><span class="line"><span class="keyword">var</span> terser = <span class="built_in">require</span>(<span class="string">&#x27;gulp-terser&#x27;</span>);</span><br><span class="line"><span class="comment">// 压缩js</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;compress&#x27;</span>, <span class="function">() =&gt;</span></span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.js&#x27;</span>, <span class="string">&#x27;!./public/**/*.min.js&#x27;</span>])</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">terser</span>())</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">)</span><br><span class="line"><span class="comment">//压缩css</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.css&#x27;</span>])</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">cleanCSS</span>(&#123;</span><br><span class="line">            <span class="attr">compatibility</span>: <span class="string">&#x27;ie11&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩html</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;./public/**/*.html&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlclean</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlmin</span>(&#123;</span><br><span class="line">            <span class="attr">removeComments</span>: <span class="literal">true</span>, <span class="comment">//清除html注释</span></span><br><span class="line">            <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>, <span class="comment">//压缩html</span></span><br><span class="line">            <span class="attr">collapseBooleanAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//省略布尔属性的值，例如：&lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeEmptyAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除所有空格作属性值，例如：&lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeScriptTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;script&gt;的type=&quot;text/javascript&quot;</span></span><br><span class="line">            <span class="attr">removeStyleLinkTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;style&gt;和&lt;link&gt;的 type=&quot;text/css&quot;</span></span><br><span class="line">            <span class="attr">minifyJS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 JS</span></span><br><span class="line">            <span class="attr">minifyCSS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 CSS</span></span><br><span class="line">            <span class="attr">minifyURLs</span>: <span class="literal">true</span>  <span class="comment">//压缩页面URL</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行gulp命令时依次执行以下任务</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, gulp.<span class="title function_">parallel</span>(</span><br><span class="line">  <span class="string">&#x27;compress&#x27;</span>, <span class="string">&#x27;minify-css&#x27;</span>, <span class="string">&#x27;minify-html&#x27;</span></span><br><span class="line">))</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="//img.mrzgh.top/Blog/Website/icon/copy.svg" /></button><table><tr><td class="code"><pre><span class="line">hexo clean		<span class="comment">#清除缓存</span></span><br><span class="line">hexo g			<span class="comment">#生成静态网页</span></span><br><span class="line">gulp			<span class="comment">#压缩</span></span><br><span class="line">hexo d			<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -913,6 +913,41 @@
       </tags>
   </entry>
   <entry>
+    <title>MIUI12.5 解锁 System 动态分区</title>
+    <url>/posts/7f81bd69/</url>
+    <content><![CDATA[<h3 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h3><ol>
+<li>本文使用的 Rom 包为 <font color="#1e89f2">MIUI12.5 21.6.30</font></li>
+<li>需要 <a href="/posts/f69b264e/">D.N.A</a> 工具进行解包</li>
+<li>编辑工具为 <font color="#1e89f2">Sublime Text</font></li>
+</ol>
+<div class="download_layout">
+  <img class="download_icon1" src="https://img.mrzgh.top/Blog/Website/icon/Download/01.svg" />
+  <div class="download_text">
+    <span>Sublime Text 下载</span>
+    <p>来源: 官网</p>
+  </div>
+  <div class="download_url"><a href="https://www.sublimetext.com/download" target="_blank"><img class="download_icon2" src="https://img.mrzgh.top/Blog/Website/icon/Download/02.svg" /></a></div>
+</div>
+
+<ol start="4">
+<li>解包教程请看 <a href="/posts/2b1d269d/">之前的帖子</a></li>
+</ol>
+<br>
+
+<h3 id="二、解锁System"><a href="#二、解锁System" class="headerlink" title="二、解锁System"></a>二、解锁System</h3><p>打开 <font color="#1e89f2">&#x2F;vendor&#x2F;etc&#x2F;fstab.qcom</font> 文件，找到 <font color="#1e89f2">avb</font> 相关内容，把它删除即可，逗号别忘了删<br><img src="https://img.mrzgh.top/Blog/Posts/2021/07/20/03.png"> <img src="https://img.mrzgh.top/Blog/Posts/2021/07/20/04.png"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Android</tag>
+        <tag>Ubuntu</tag>
+        <tag>D.N.A</tag>
+        <tag>MIUI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在Windows使用Rclone挂载OneDrive</title>
     <url>/posts/80a24c4e/</url>
     <content><![CDATA[<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>rclone：<a href="https://rclone.org/downloads/">官网</a> &amp;nbsp;  <a href="https://github.com/ncw/rclone">GitHub</a><br>winfsp：<a href="https://github.com/billziss-gh/winfsp/releases">GitHub</a></p>
@@ -1009,41 +1044,6 @@
         <tag>教程</tag>
         <tag>Windows</tag>
         <tag>OneDrive</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MIUI12.5 解锁 System 动态分区</title>
-    <url>/posts/7f81bd69/</url>
-    <content><![CDATA[<h3 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h3><ol>
-<li>本文使用的 Rom 包为 <font color="#1e89f2">MIUI12.5 21.6.30</font></li>
-<li>需要 <a href="/posts/f69b264e/">D.N.A</a> 工具进行解包</li>
-<li>编辑工具为 <font color="#1e89f2">Sublime Text</font></li>
-</ol>
-<div class="download_layout">
-  <img class="download_icon1" src="https://img.mrzgh.top/Blog/Website/icon/Download/01.svg" />
-  <div class="download_text">
-    <span>Sublime Text 下载</span>
-    <p>来源: 官网</p>
-  </div>
-  <div class="download_url"><a href="https://www.sublimetext.com/download" target="_blank"><img class="download_icon2" src="https://img.mrzgh.top/Blog/Website/icon/Download/02.svg" /></a></div>
-</div>
-
-<ol start="4">
-<li>解包教程请看 <a href="/posts/2b1d269d/">之前的帖子</a></li>
-</ol>
-<br>
-
-<h3 id="二、解锁System"><a href="#二、解锁System" class="headerlink" title="二、解锁System"></a>二、解锁System</h3><p>打开 <font color="#1e89f2">&#x2F;vendor&#x2F;etc&#x2F;fstab.qcom</font> 文件，找到 <font color="#1e89f2">avb</font> 相关内容，把它删除即可，逗号别忘了删<br><img src="https://img.mrzgh.top/Blog/Posts/2021/07/20/03.png"> <img src="https://img.mrzgh.top/Blog/Posts/2021/07/20/04.png"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Android</tag>
-        <tag>Ubuntu</tag>
-        <tag>D.N.A</tag>
-        <tag>MIUI</tag>
       </tags>
   </entry>
   <entry>
