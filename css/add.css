@@ -10,8 +10,8 @@
     border-left-style: solid;
     border-left-color: #5A83DE;
     border-left-width: 6px;
-    border-radius: 6px;
-    padding-left: 30px;
+    border-radius: 7px;
+    padding-left: 25px;
     color: #5A83DE !important;
 }
 
@@ -496,4 +496,18 @@ figcaption .r3 {
     .friends_item p {
         width: 77%;
     }
+
+    /*内容标题*/
+    .content h1,
+    .content h2,
+    .content h3 {
+        font-size: 22px;
+    }
+
+    .content h4,
+    .content h5,
+    .content h6 {
+        font-size: 18px;
+    }
+
 }
