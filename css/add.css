@@ -227,6 +227,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
+    border-style: none;
+    padding-left: 0;
 }
 
 .friends_item .friends_text p {
