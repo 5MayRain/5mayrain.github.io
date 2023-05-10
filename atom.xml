@@ -6,7 +6,7 @@
   <link href="https://mrzgh.top/atom.xml" rel="self"/>
   
   <link href="https://mrzgh.top/"/>
-  <updated>2023-05-08T14:54:18.000Z</updated>
+  <updated>2023-05-10T03:50:26.000Z</updated>
   <id>https://mrzgh.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android 使用 Cpolar 进行内网穿透</title>
+    <link href="https://mrzgh.top/posts/a35127fe/"/>
+    <id>https://mrzgh.top/posts/a35127fe/</id>
+    <published>2023-05-10T03:50:26.000Z</published>
+    <updated>2023-05-10T03:50:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://www.cpolar.com/">Cpolar</a> 是一款好用的内网穿透工具 ， 无需公网IP，能免费使用。</p><blockquote><p>免费套餐</p><ol><li>随机URL&#x2F;端口上的HTTP&#x2F;TCP隧道</li><li>1个在线cpolar进程</li><li>4个隧道&#x2F;cpoloar进程</li><li>40个连接数&#x2F;分钟</li></ol></blockquote><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ol><li>必须有<code>root</code>权限，需要安装 <a href="/posts/ea9a75b1/">Termux</a>，安装方法请看我上一篇文章。</li><li>注册 <a href="https://www.cpolar.com/">Cpolar</a> 账号，获取 <code>Authtoken</code></li></ol><p><img src="/img/post/2023/05/10/01.png"></p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="下载-Cpolar"><a href="#下载-Cpolar" class="headerlink" title="下载 Cpolar"></a>下载 Cpolar</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://static.cpolar.com/downloads/releases/3.3.18/cpolar-stable-linux-arm.zip</span><br></pre></td></tr></table></figure><p><img src="/img/post/2023/05/10/02.jpg"></p><h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip cpolar-stable-linux-arm.zip &amp;&amp; <span class="built_in">rm</span> -r cpolar-stable-linux-arm.zip</span><br></pre></td></tr></table></figure><p><img src="/img/post/2023/05/10/03.jpg"></p><h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入root模式，没有这个命令则看我上一篇文章</span></span><br><span class="line">tsu</span><br><span class="line"><span class="comment"># 配置Authtoken</span></span><br><span class="line">./cpolar authtoken 你的获得到的Authtoken</span><br></pre></td></tr></table></figure><p><img src="/img/post/2023/05/10/04.jpg"></p><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="常规使用"><a href="#常规使用" class="headerlink" title="常规使用"></a>常规使用</h4><p>创建http隧道，指向手机 5700 端口的web服务的，根据你的需要来更改端口号或协议</p><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./cpolar http 5700</span><br></pre></td></tr></table></figure><p><img src="/img/post/2023/05/10/05.jpg"><br>可以看到已经成功了，得到的地址是 <a href="https://118f12f9.r15.cpolar.top/">https://118f12f9.r15.cpolar.top/</a> ，用浏览器打开能成功访问<br><img src="/img/post/2023/05/10/06.jpg"><img src="/img/post/2023/05/10/07.png"></p><h4 id="多个端口"><a href="#多个端口" class="headerlink" title="多个端口"></a>多个端口</h4><p>打开配置文件，根据需求，添加或修改端口</p><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim .suroot/.cpolar/cpolar.yml</span><br></pre></td></tr></table></figure><p><img src="/img/post/2023/05/10/08.jpg"><img src="/img/post/2023/05/10/09.jpg"></p><figure class="highlight yml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YML</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">authtoken:</span> <span class="string">你的authtoken</span></span><br><span class="line"><span class="comment"># 控制台UI界面</span></span><br><span class="line"><span class="attr">console_ui:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># 隧道定义的名称映射</span></span><br><span class="line"><span class="attr">tunnels:</span></span><br><span class="line"><span class="comment"># 隧道名称，可自定义</span></span><br><span class="line"><span class="attr">ssh:</span></span><br><span class="line"><span class="comment"># 协议，可选 http 和 tcp</span></span><br><span class="line"><span class="attr">proto:</span> <span class="string">tcp</span></span><br><span class="line"><span class="comment"># 端口</span></span><br><span class="line"><span class="attr">addr:</span> <span class="string">&quot;22&quot;</span></span><br><span class="line"><span class="attr">website:</span></span><br><span class="line"><span class="attr">proto:</span> <span class="string">http</span></span><br><span class="line"><span class="attr">addr:</span> <span class="string">&quot;5700&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>运行配置的所有端口</p><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./cpolar start-all</span><br></pre></td></tr></table></figure><p><img src="/img/post/2023/05/10/10.jpg"><img src="/img/post/2023/05/10/11.jpg"></p><h4 id="快捷使用"><a href="#快捷使用" class="headerlink" title="快捷使用"></a>快捷使用</h4><h5 id="更改配置地址"><a href="#更改配置地址" class="headerlink" title="更改配置地址"></a>更改配置地址</h5><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> .cpolar &amp;&amp; <span class="built_in">cp</span> .suroot/.cpolar/cpolar.yml .cpolar/cpolar.yml</span><br></pre></td></tr></table></figure><h5 id="创建启动脚本"><a href="#创建启动脚本" class="headerlink" title="创建启动脚本"></a>创建启动脚本</h5><p>运行脚本后，让 <code>Cpolar</code> 能在后台运行</p><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim start.sh</span><br></pre></td></tr></table></figure><p>脚本内容</p><figure class="highlight sh"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>SH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/system/bin/sh</span></span><br><span class="line"><span class="built_in">export</span> HOME=<span class="string">&quot;<span class="subst">$(cd <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span> &amp;&amp; pwd)</span>&quot;</span></span><br><span class="line">./cpolar start-all &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure><p><img src="/img/post/2023/05/10/12.jpg"><img src="/img/post/2023/05/10/13.jpg"></p><h5 id="创建停止脚本"><a href="#创建停止脚本" class="headerlink" title="创建停止脚本"></a>创建停止脚本</h5><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim stop.sh</span><br></pre></td></tr></table></figure><p>脚本内容</p><figure class="highlight sh"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>SH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/system/bin/sh</span></span><br><span class="line"><span class="built_in">export</span> HOME=<span class="string">&quot;<span class="subst">$(cd <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span> &amp;&amp; pwd)</span>&quot;</span></span><br><span class="line">process_name=<span class="string">&quot;cpolar&quot;</span></span><br><span class="line">pkill -f <span class="variable">$process_name</span></span><br></pre></td></tr></table></figure><p><img src="/img/post/2023/05/10/14.jpg"><img src="/img/post/2023/05/10/15.jpg"></p><h5 id="脚本使用"><a href="#脚本使用" class="headerlink" title="脚本使用"></a>脚本使用</h5><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动</span></span><br><span class="line">sh start.sh</span><br><span class="line"><span class="comment"># 停止</span></span><br><span class="line">sh stop.sh</span><br></pre></td></tr></table></figure><blockquote><p>详细使用方法看 <a href="https://www.cpolar.com/docs?channel=0&invite=4W3F">Cpolar</a> 官方文档</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.cpolar.com/&quot;&gt;Cpolar&lt;/a&gt; 是一款好用的内网穿透工具 ， 无需公网IP，能免费</summary>
+      
+    
+    
+    
+    <category term="教程" scheme="https://mrzgh.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Android" scheme="https://mrzgh.top/tags/Android/"/>
+    
+    <category term="Termux" scheme="https://mrzgh.top/tags/Termux/"/>
+    
+  </entry>
   
   <entry>
     <title>Termux 安装和配置</title>
@@ -37,6 +65,8 @@
     
     
     <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Android" scheme="https://mrzgh.top/tags/Android/"/>
     
     <category term="Termux" scheme="https://mrzgh.top/tags/Termux/"/>
     
@@ -68,9 +98,9 @@
     
     <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
     
-    <category term="DNF" scheme="https://mrzgh.top/tags/DNF/"/>
-    
     <category term="私服" scheme="https://mrzgh.top/tags/%E7%A7%81%E6%9C%8D/"/>
+    
+    <category term="DNF" scheme="https://mrzgh.top/tags/DNF/"/>
     
   </entry>
   
@@ -98,9 +128,9 @@
     
     <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
     
-    <category term="私服" scheme="https://mrzgh.top/tags/%E7%A7%81%E6%9C%8D/"/>
-    
     <category term="原神" scheme="https://mrzgh.top/tags/%E5%8E%9F%E7%A5%9E/"/>
+    
+    <category term="私服" scheme="https://mrzgh.top/tags/%E7%A7%81%E6%9C%8D/"/>
     
     <category term="GIMI" scheme="https://mrzgh.top/tags/GIMI/"/>
     
@@ -133,11 +163,11 @@
     
     <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
     
+    <category term="原神" scheme="https://mrzgh.top/tags/%E5%8E%9F%E7%A5%9E/"/>
+    
     <category term="私服" scheme="https://mrzgh.top/tags/%E7%A7%81%E6%9C%8D/"/>
     
     <category term="Grasscutter" scheme="https://mrzgh.top/tags/Grasscutter/"/>
-    
-    <category term="原神" scheme="https://mrzgh.top/tags/%E5%8E%9F%E7%A5%9E/"/>
     
   </entry>
   
@@ -191,11 +221,11 @@
     
     <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="Ubuntu" scheme="https://mrzgh.top/tags/Ubuntu/"/>
-    
     <category term="EFB" scheme="https://mrzgh.top/tags/EFB/"/>
     
     <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
+    
+    <category term="Ubuntu" scheme="https://mrzgh.top/tags/Ubuntu/"/>
     
   </entry>
   
@@ -402,11 +432,11 @@
     
     <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
     
+    <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
+    
     <category term="Ubuntu" scheme="https://mrzgh.top/tags/Ubuntu/"/>
     
     <category term="D.N.A" scheme="https://mrzgh.top/tags/D-N-A/"/>
-    
-    <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
     
   </entry>
   
@@ -462,9 +492,9 @@
     
     <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="Ubuntu" scheme="https://mrzgh.top/tags/Ubuntu/"/>
-    
     <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
+    
+    <category term="Ubuntu" scheme="https://mrzgh.top/tags/Ubuntu/"/>
     
   </entry>
   
@@ -578,32 +608,6 @@
     <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="域名" scheme="https://mrzgh.top/tags/%E5%9F%9F%E5%90%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用GoIndex搭建GoogleDrive网站目录</title>
-    <link href="https://mrzgh.top/posts/c56f99dc/"/>
-    <id>https://mrzgh.top/posts/c56f99dc/</id>
-    <published>2020-05-13T02:21:00.000Z</published>
-    <updated>2020-05-13T02:21:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>使用 Goindex 不用翻墙即可访问团队盘的文件，实现在线看小姐姐。<br>由于原来的 GoIndex 已删库，现提供由他人修改并加上自己美化的GoIndex。<br>地址：<a href="https://github.com/5MayRain/goIndex-theme-nexmoe">GitHub</a></p><h3 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h3><p><a href="https://go.zgh.workers.dev/">app-v2.js</a> &amp;nbsp;&amp;nbsp; <a href="https://demo.zgh.workers.dev/">app-v3.js</a></p><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol><li><p>打开 <a href="https://install.kenci.workers.dev/">https://install.kenci.workers.dev/</a> 网站,验证并获取代码<br><img src="/img/post/2020/05/13/01.png"> <img src="/img/post/2020/05/13/02.png"> <img src="/img/post/2020/05/13/03.png"> <img src="/img/post/2020/05/13/04.png"> <img src="/img/post/2020/05/13/05.png"> <img src="/img/post/2020/05/13/06.png"> <img src="/img/post/2020/05/13/07.png"> <img src="/img/post/2020/05/13/08.png"></p></li><li><p>使用相对应 app.js 的模板，将获取到的id和授权填入</p></li></ol><blockquote><p>app-v2.js&gt;GoIndex.js<br>app-v3.js&gt;GoIndex_v2.js</p></blockquote><ol start="3"><li><p>登录<a href="https://www.cloudflare.com/zh-cn/">Cloudflare</a>（没有就自己注册），部署代码<br><img src="/img/post/2020/05/13/09.png"> <img src="/img/post/2020/05/13/10.png"> <img src="/img/post/2020/05/13/11.png"> <img src="/img/post/2020/05/13/12.png"></p></li><li><p>使用你选择的模板相对应的app.js，替换模板默认的app.js</p></li></ol><blockquote><p><a href="https://cdn.jsdelivr.net/gh/5MayRain/goIndex-theme-nexmoe@1.1.2/app-v2.js">app-v2.js</a><br><a href="https://cdn.jsdelivr.net/gh/5MayRain/goIndex-theme-nexmoe@1.1.5/app-v3.js">app-v3.js</a></p></blockquote><figure class="highlight javascript"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>JAVASCRIPT</span></figcaption><button class="btn-copy" data-clipboard-snippet="" title="复制"><img src="/img/icon/copy.svg" /></button><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="string">`</span></span><br><span class="line"><span class="string">......</span></span><br><span class="line"><span class="string">&lt;script src=&quot;替换&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">......</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure><ol start="5"><li>保存并部署</li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;使用 Goindex 不用翻墙即可访问团队盘的文件，实现在线看小姐姐。&lt;br&gt;由于原来的 GoIndex 已删库，现提供由他人修改并加上自己</summary>
-      
-    
-    
-    
-    <category term="教程" scheme="https://mrzgh.top/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
-    
-    <category term="Google" scheme="https://mrzgh.top/tags/Google/"/>
     
   </entry>
   
