@@ -6,7 +6,7 @@
   <link href="https://mrzgh.top/atom.xml" rel="self"/>
   
   <link href="https://mrzgh.top/"/>
-  <updated>2023-05-10T03:50:26.000Z</updated>
+  <updated>2023-05-15T06:32:43.000Z</updated>
   <id>https://mrzgh.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>随身WIFI(中兴微) 切卡和改串</title>
+    <link href="https://mrzgh.top/posts/ca27d59b/"/>
+    <id>https://mrzgh.top/posts/ca27d59b/</id>
+    <published>2023-05-15T06:32:43.000Z</published>
+    <updated>2023-05-15T06:32:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h4><p>插入电脑，进入 web后台，打开高级设置 -&gt; 其它 ，按 F12 打开开发人员工具界面，在控制台或 Console 工具栏下，执行下面代码，开启隐藏功能</p><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption><input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;*&quot;</span>).show();</span><br></pre></td></tr></table></figure><p><img src="/img/post/2023/05/15/01.png"><img src="/img/post/2023/05/15/02.png"></p><h4 id="切卡"><a href="#切卡" class="headerlink" title="切卡"></a>切卡</h4><p>SIM卡选择栏，选择手动和卡槽，切卡密码：<code>BJadmin1234</code> 、 <code>778899</code> 、 <code>UFIadmin1234</code> ，这三个自行尝试，然后应用重启<br><img src="/img/post/2023/05/15/03.png"></p><h4 id="改串"><a href="#改串" class="headerlink" title="改串"></a>改串</h4><ol><li><p>进入 高级设置 -&gt; 其它 -&gt; 调试，在调试输入 <code>AT+ZMODE=1</code> 发送，显示 OK 就重启设备<br><img src="/img/post/2023/05/15/04.png"></p></li><li><p>重启后在调试输入 <code>AT+MODIMEI=888888888888888</code> 发送，数字可修改为自己想要的 imei，显示 OK 就重启设备，重新进入后台可以看到已经改好了<br><img src="/img/post/2023/05/15/05.png"><img src="/img/post/2023/05/15/06.png"></p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;开始&quot;&gt;&lt;a href=&quot;#开始&quot; class=&quot;headerlink&quot; title=&quot;开始&quot;&gt;&lt;/a&gt;开始&lt;/h4&gt;&lt;p&gt;插入电脑，进入 web后台，打开高级设置 -&amp;gt; 其它 ，按 F12 打开开发人员工具界面，在控制台或 Console 工具栏下，执行下</summary>
+      
+    
+    
+    
+    <category term="教程" scheme="https://mrzgh.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="随身WIFI" scheme="https://mrzgh.top/tags/%E9%9A%8F%E8%BA%ABWIFI/"/>
+    
+    <category term="中兴微" scheme="https://mrzgh.top/tags/%E4%B8%AD%E5%85%B4%E5%BE%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>Android 使用 Cpolar 进行内网穿透</title>
@@ -98,9 +126,9 @@
     
     <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
     
-    <category term="DNF" scheme="https://mrzgh.top/tags/DNF/"/>
-    
     <category term="私服" scheme="https://mrzgh.top/tags/%E7%A7%81%E6%9C%8D/"/>
+    
+    <category term="DNF" scheme="https://mrzgh.top/tags/DNF/"/>
     
   </entry>
   
@@ -128,9 +156,9 @@
     
     <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
     
-    <category term="私服" scheme="https://mrzgh.top/tags/%E7%A7%81%E6%9C%8D/"/>
-    
     <category term="原神" scheme="https://mrzgh.top/tags/%E5%8E%9F%E7%A5%9E/"/>
+    
+    <category term="私服" scheme="https://mrzgh.top/tags/%E7%A7%81%E6%9C%8D/"/>
     
     <category term="GIMI" scheme="https://mrzgh.top/tags/GIMI/"/>
     
@@ -163,11 +191,11 @@
     
     <category term="Windows" scheme="https://mrzgh.top/tags/Windows/"/>
     
+    <category term="原神" scheme="https://mrzgh.top/tags/%E5%8E%9F%E7%A5%9E/"/>
+    
     <category term="私服" scheme="https://mrzgh.top/tags/%E7%A7%81%E6%9C%8D/"/>
     
     <category term="Grasscutter" scheme="https://mrzgh.top/tags/Grasscutter/"/>
-    
-    <category term="原神" scheme="https://mrzgh.top/tags/%E5%8E%9F%E7%A5%9E/"/>
     
   </entry>
   
@@ -582,32 +610,6 @@
     <category term="域名" scheme="https://mrzgh.top/tags/%E5%9F%9F%E5%90%8D/"/>
     
     <category term="GitHub" scheme="https://mrzgh.top/tags/GitHub/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Freenom获取免费域名</title>
-    <link href="https://mrzgh.top/posts/d8ac6531/"/>
-    <id>https://mrzgh.top/posts/d8ac6531/</id>
-    <published>2020-05-18T05:00:00.000Z</published>
-    <updated>2020-05-18T05:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Freenom"><a href="#Freenom" class="headerlink" title="Freenom"></a>Freenom</h3><p>Freenom 是一个提供免费域名申请的网站，最长可以选择一年，到期前2个星期会提醒是否续费，到时直接可以免费续费再用一年，相当于永久免费。</p><h3 id="申请"><a href="#申请" class="headerlink" title="申请"></a>申请</h3><ol><li>打开 <a href="http://www.freenom.com/zh/index.html">Freenom</a> 网站，查询自己想要的域名是否可用，可以看到tk、ml、ga、cf、gq这些后缀都是免费的。</li></ol><p><img src="/img/post/2020/05/18/01.png"> <img src="/img/post/2020/05/18/02.png"></br></p><ol start="2"><li>点击 <font color="red">现在获取！</font>，你会发现这些域名都不可用，你只需要把你想要的域名和后缀都输入，例如我想要的域名是 <font color="red">mrzgh</font>，后缀是<font color="red">ml</font>，再查询就会发现可以用了，之后点击完成即可。</li></ol><p><img src="/img/post/2020/05/18/03.png"> <img src="/img/post/2020/05/18/04.png"></br></p><ol start="3"><li>修改域名时间，默认是3个月，最长可以修改到12个月，修改完成后点击 <font color="red">Continue</font></li></ol><p><img src="/img/post/2020/05/18/05.png"> <img src="/img/post/2020/05/18/06.png"></br></p><ol start="4"><li>登录结账，有社交账号的可以选择社交账号登录，没有的可以选择邮箱，我选择用邮箱，输入完成后点击 <font color="red">Verify My Email Address</font></li></ol><p><img src="/img/post/2020/05/18/07.png"></br></p><ol start="5"><li>验证邮箱，网站会发送一封邮件，点击邮件内的链接进行验证</li></ol><p><img src="/img/post/2020/05/18/08.png"></br></p><ol start="6"><li>点击验证链接后，会打开一个注册信息的页面，输入相关信息即可。注意：你输入的地址必须和ip查出来的地址符合，还要关闭广告屏蔽插件，不然会申请失败</li></ol><p><img src="/img/post/2020/05/18/09.png"></br></p><ol start="7"><li>申请成功后显示如下页面</li></ol><p><img src="/img/post/2020/05/18/10.png"></br></p><ol start="8"><li>查看域名，点击导航的 <font color="red">Services</font>，在弹出的菜单中点击<font color="red">My Domains</font>，然后会弹出登录页面，登录完成后就可以查看自己申请的域名了。</li></ol><p><img src="/img/post/2020/05/18/11.png"> <img src="/img/post/2020/05/18/12.png"></br></p><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>申请失败的原因有</p><blockquote><ol><li>你输入的地址和ip查询的地址不符合</li><li>未关闭广告屏蔽插件</li></ol></blockquote>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;Freenom&quot;&gt;&lt;a href=&quot;#Freenom&quot; class=&quot;headerlink&quot; title=&quot;Freenom&quot;&gt;&lt;/a&gt;Freenom&lt;/h3&gt;&lt;p&gt;Freenom 是一个提供免费域名申请的网站，最长可以选择一年，到期前2个星期会提醒是否续费，到时直</summary>
-      
-    
-    
-    
-    <category term="教程" scheme="https://mrzgh.top/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="教程" scheme="https://mrzgh.top/tags/%E6%95%99%E7%A8%8B/"/>
-    
-    <category term="域名" scheme="https://mrzgh.top/tags/%E5%9F%9F%E5%90%8D/"/>
     
   </entry>
   
