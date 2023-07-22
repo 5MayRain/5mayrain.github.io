@@ -1,98 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>随身WIFI(中兴微) 切卡和改串</title>
-    <url>/posts/ca27d59b/</url>
-    <content><![CDATA[<h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h4><p>插入电脑，进入 web后台，打开高级设置 -&gt; 其它 ，按 F12 打开开发人员工具界面，在控制台或 Console 工具栏下，执行下面代码，开启隐藏功能</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;*&quot;</span>).show();</span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2023/05/15/01.png"><img src="/img/posts/2023/05/15/02.png"></p>
-<h4 id="切卡"><a href="#切卡" class="headerlink" title="切卡"></a>切卡</h4><p>SIM卡选择栏，选择手动和卡槽，切卡密码：<code>BJadmin1234</code> 、 <code>778899</code> 、 <code>UFIadmin1234</code> ，这三个自行尝试，然后应用重启<br><img src="/img/posts/2023/05/15/03.png"></p>
-<h4 id="改串"><a href="#改串" class="headerlink" title="改串"></a>改串</h4><ol>
-<li><p>进入 高级设置 -&gt; 其它 -&gt; 调试，在调试输入 <code>AT+ZMODE=1</code> 发送，显示 OK 就重启设备<br><img src="/img/posts/2023/05/15/04.png"></p>
-</li>
-<li><p>重启后在调试输入 <code>AT+MODIMEI=888888888888888</code> 发送，数字可修改为自己想要的 imei，显示 OK 就重启设备，重新进入后台可以看到已经改好了<br><img src="/img/posts/2023/05/15/05.png"><img src="/img/posts/2023/05/15/06.png"></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>随身WIFI</tag>
-        <tag>中兴微</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在 Android 上使用 Ubuntu 安装 Droid Normal Assistant</title>
-    <url>/posts/c74387b4/</url>
-    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><h4 id="Droid-Normal-Assistant"><a href="#Droid-Normal-Assistant" class="headerlink" title="Droid Normal Assistant"></a>Droid Normal Assistant</h4><p>安卓一般固件解包打包助手， 简称： <a href="https://gitee.com/sharpeter/DNA">D.N.A</a></p>
-<h4 id="Termux"><a href="#Termux" class="headerlink" title="Termux"></a>Termux</h4><p>Android 下的一个高级终端模拟器，开源且不需要 root，支持 apt 管理软件包</p>
-<div class="download_layout">
-  <img class="download_icon1" src="/img/icon/Download/01.svg" />
-  <div class="download_text">
-    <span>Termux 0.116 下载</span>
-    <p>来源: APKMirror </p>
-  </div>
-  <div class="download_url"><a href="https://www.apkmirror.com/apk/fredrik-fornwall/termux-fdroid-version/termux-fdroid-version-0-116-release/termux-fdroid-version-0-116-android-apk-download/#file" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div>
-</div>
-
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
-<li><p>打开Termux ，输入代码，获取存储权限</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">termux-setup-storage</span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2021/07/12/01.jpg"> <img src="/img/posts/2021/07/12/02.jpg"></p>
-<br />
-</li>
-<li><p>下载git、tar、proot</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">pkg update</span><br><span class="line">pkg install git tar proot wget -y</span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2021/07/12/03.jpg"> <img src="/img/posts/2021/07/12/04.jpg"></p>
-<br />
-</li>
-<li><p>下载ubuntu.tar.xz及安装脚本</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/sharpeter/proot-ubuntu --depth 1</span><br><span class="line">bash proot-ubuntu/install_ubuntu.sh</span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2021/07/12/05.jpg"> <img src="/img/posts/2021/07/12/06.jpg"></p>
-<br />
-</li>
-<li><p>启动 ubuntu 20.04</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">ubuntu</span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2021/07/12/07.jpg"></p>
-<br />
-</li>
-<li><p>输入下列代码</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade -y <span class="comment">#必须执行</span></span><br><span class="line">sudo apt install git cpio aria2 brotli android-sdk-libsparse-utils openjdk-11-jre p7zip-full -y <span class="comment">#必须执行，使用新版本前建议重新安装一次</span></span><br><span class="line">sudo apt install zip unzip gawk sed curl wget -y <span class="comment">#可选，非必需</span></span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2021/07/12/08.jpg"> <img src="/img/posts/2021/07/12/09.jpg"></p>
-<br />
-</li>
-<li><p>下载 D.N.A</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/sharpeter/DNA.git --depth 1</span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2021/07/12/10.jpg"></p>
-<br />
-</li>
-<li><p>启动</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> DNA &amp;&amp; python3 run.py</span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2021/07/12/11.jpg"></p>
-<br /></li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Android</tag>
-        <tag>Ubuntu</tag>
-        <tag>D.N.A</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Android 使用 Cpolar 进行内网穿透</title>
     <url>/posts/a35127fe/</url>
     <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://www.cpolar.com/">Cpolar</a> 是一款好用的内网穿透工具 ， 无需公网IP，能免费使用。</p>
@@ -166,6 +74,98 @@
       </tags>
   </entry>
   <entry>
+    <title>在 Android 上使用 Ubuntu 安装 Droid Normal Assistant</title>
+    <url>/posts/c74387b4/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><h4 id="Droid-Normal-Assistant"><a href="#Droid-Normal-Assistant" class="headerlink" title="Droid Normal Assistant"></a>Droid Normal Assistant</h4><p>安卓一般固件解包打包助手， 简称： <a href="https://gitee.com/sharpeter/DNA">D.N.A</a></p>
+<h4 id="Termux"><a href="#Termux" class="headerlink" title="Termux"></a>Termux</h4><p>Android 下的一个高级终端模拟器，开源且不需要 root，支持 apt 管理软件包</p>
+<div class="download_layout">
+  <img class="download_icon1" src="/img/icon/Download/01.svg" />
+  <div class="download_text">
+    <span>Termux 0.116 下载</span>
+    <p>来源: APKMirror </p>
+  </div>
+  <div class="download_url"><a href="https://www.apkmirror.com/apk/fredrik-fornwall/termux-fdroid-version/termux-fdroid-version-0-116-release/termux-fdroid-version-0-116-android-apk-download/#file" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div>
+</div>
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li><p>打开Termux ，输入代码，获取存储权限</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">termux-setup-storage</span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2021/07/12/01.jpg"> <img src="/img/posts/2021/07/12/02.jpg"></p>
+<br />
+</li>
+<li><p>下载git、tar、proot</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">pkg update</span><br><span class="line">pkg install git tar proot wget -y</span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2021/07/12/03.jpg"> <img src="/img/posts/2021/07/12/04.jpg"></p>
+<br />
+</li>
+<li><p>下载ubuntu.tar.xz及安装脚本</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/sharpeter/proot-ubuntu --depth 1</span><br><span class="line">bash proot-ubuntu/install_ubuntu.sh</span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2021/07/12/05.jpg"> <img src="/img/posts/2021/07/12/06.jpg"></p>
+<br />
+</li>
+<li><p>启动 ubuntu 20.04</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">ubuntu</span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2021/07/12/07.jpg"></p>
+<br />
+</li>
+<li><p>输入下列代码</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade -y <span class="comment">#必须执行</span></span><br><span class="line">sudo apt install git cpio aria2 brotli android-sdk-libsparse-utils openjdk-11-jre p7zip-full -y <span class="comment">#必须执行，使用新版本前建议重新安装一次</span></span><br><span class="line">sudo apt install zip unzip gawk sed curl wget -y <span class="comment">#可选，非必需</span></span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2021/07/12/08.jpg"> <img src="/img/posts/2021/07/12/09.jpg"></p>
+<br />
+</li>
+<li><p>下载 D.N.A</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/sharpeter/DNA.git --depth 1</span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2021/07/12/10.jpg"></p>
+<br />
+</li>
+<li><p>启动</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> DNA &amp;&amp; python3 run.py</span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2021/07/12/11.jpg"></p>
+<br /></li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Android</tag>
+        <tag>Ubuntu</tag>
+        <tag>D.N.A</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>随身WIFI(中兴微) 切卡和改串</title>
+    <url>/posts/ca27d59b/</url>
+    <content><![CDATA[<h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h4><p>插入电脑，进入 web后台，打开高级设置 -&gt; 其它 ，按 F12 打开开发人员工具界面，在控制台或 Console 工具栏下，执行下面代码，开启隐藏功能</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;*&quot;</span>).show();</span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2023/05/15/01.png"><img src="/img/posts/2023/05/15/02.png"></p>
+<h4 id="切卡"><a href="#切卡" class="headerlink" title="切卡"></a>切卡</h4><p>SIM卡选择栏，选择手动和卡槽，切卡密码：<code>BJadmin1234</code> 、 <code>778899</code> 、 <code>UFIadmin1234</code> ，这三个自行尝试，然后应用重启<br><img src="/img/posts/2023/05/15/03.png"></p>
+<h4 id="改串"><a href="#改串" class="headerlink" title="改串"></a>改串</h4><ol>
+<li><p>进入 高级设置 -&gt; 其它 -&gt; 调试，在调试输入 <code>AT+ZMODE=1</code> 发送，显示 OK 就重启设备<br><img src="/img/posts/2023/05/15/04.png"></p>
+</li>
+<li><p>重启后在调试输入 <code>AT+MODIMEI=888888888888888</code> 发送，数字可修改为自己想要的 imei，显示 OK 就重启设备，重新进入后台可以看到已经改好了<br><img src="/img/posts/2023/05/15/05.png"><img src="/img/posts/2023/05/15/06.png"></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>随身WIFI</tag>
+        <tag>中兴微</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>删除 Github 的所有提交记录</title>
     <url>/posts/802b0d9b/</url>
     <content><![CDATA[<h3 id="删除记录"><a href="#删除记录" class="headerlink" title="删除记录"></a>删除记录</h3><p>在本地 GitHub 的项目路径下，打开 <code>Git Bash</code> 窗口，运行下列代码。</p>
@@ -177,6 +177,112 @@
       <tags>
         <tag>教程</tag>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Freenom获取免费域名</title>
+    <url>/posts/d8ac6531/</url>
+    <content><![CDATA[<h3 id="Freenom"><a href="#Freenom" class="headerlink" title="Freenom"></a>Freenom</h3><p>Freenom 是一个提供免费域名申请的网站，最长可以选择一年，到期前2个星期会提醒是否续费，到时直接可以免费续费再用一年，相当于永久免费。</p>
+<h3 id="申请"><a href="#申请" class="headerlink" title="申请"></a>申请</h3><ol>
+<li>打开 <a href="http://www.freenom.com/zh/index.html">Freenom</a> 网站，查询自己想要的域名是否可用，可以看到tk、ml、ga、cf、gq这些后缀都是免费的。</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/01.png"> <img src="/img/posts/2020/05/18/02.png"></br></p>
+<ol start="2">
+<li>点击 <font color="red">现在获取！</font>，你会发现这些域名都不可用，你只需要把你想要的域名和后缀都输入，例如我想要的域名是 <font color="red">mrzgh</font>，后缀是<font color="red">ml</font>，再查询就会发现可以用了，之后点击完成即可。</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/03.png"> <img src="/img/posts/2020/05/18/04.png"></br></p>
+<ol start="3">
+<li>修改域名时间，默认是3个月，最长可以修改到12个月，修改完成后点击 <font color="red">Continue</font></li>
+</ol>
+<p><img src="/img/posts/2020/05/18/05.png"> <img src="/img/posts/2020/05/18/06.png"></br></p>
+<ol start="4">
+<li>登录结账，有社交账号的可以选择社交账号登录，没有的可以选择邮箱，我选择用邮箱，输入完成后点击 <font color="red">Verify My Email Address</font></li>
+</ol>
+<p><img src="/img/posts/2020/05/18/07.png"></br></p>
+<ol start="5">
+<li>验证邮箱，网站会发送一封邮件，点击邮件内的链接进行验证</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/08.png"></br></p>
+<ol start="6">
+<li>点击验证链接后，会打开一个注册信息的页面，输入相关信息即可。注意：你输入的地址必须和ip查出来的地址符合，还要关闭广告屏蔽插件，不然会申请失败</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/09.png"></br></p>
+<ol start="7">
+<li>申请成功后显示如下页面</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/10.png"></br></p>
+<ol start="8">
+<li>查看域名，点击导航的 <font color="red">Services</font>，在弹出的菜单中点击<font color="red">My Domains</font>，然后会弹出登录页面，登录完成后就可以查看自己申请的域名了。</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/11.png"> <img src="/img/posts/2020/05/18/12.png"></br></p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>申请失败的原因有</p>
+<blockquote>
+<ol>
+<li>你输入的地址和ip查询的地址不符合</li>
+<li>未关闭广告屏蔽插件</li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>域名</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub静态网站绑定域名</title>
+    <url>/posts/b09467db/</url>
+    <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>上一篇文章讲到怎么获取免费的域名，这一篇讲怎么把获取到的域名绑定GitHub中的静态网站。</p>
+<h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><ol>
+<li>打开 <a href="https://www.dnspod.cn/">DNSPod</a> 网站，注册登录，可以直接使用微信或者QQ登录</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/13.png"></br></p>
+<ol start="2">
+<li>登录成功后，打开 <font color="red">管理控制台</font>，选择 <font color="red">DNS 解析</font></li>
+</ol>
+<p><img src="/img/posts/2020/05/18/14.png"></br></p>
+<ol start="3">
+<li>点击添加域名，输入你申请到的域名，然后点击确认。添加成功后会看到 <font color="red">DNS错误</font>，需要到域名管理修改服务器地址</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/15.png"> <img src="/img/posts/2020/05/18/16.png"></br></p>
+<ol start="4">
+<li>打开你申请域名的网站，进入域名管理</li>
+</ol>
+<p>	</p>
+<p><img src="/img/posts/2020/05/18/17.png"> <img src="/img/posts/2020/05/18/18.png"></br></p>
+<ol start="5">
+<li>选择自定义，修改服务器地址，输入完成后点击 <font color="red">Change Nameservers</font>。然后等待DNS服务器生效，短的话几分钟，长的话几个小时，请耐性等候。</li>
+</ol>
+<blockquote>
+<p>f1g1ns1.dnspod.net<br>f1g1ns2.dnspod.net</p>
+</blockquote>
+<p><img src="/img/posts/2020/05/18/19.png"> <img src="/img/posts/2020/05/18/20.png"></br></p>
+<ol start="6">
+<li>生效后，打开你的GitHub静态网站的仓库，在仓库的根目录里面添加 <font color="red">CNAME</font> 文件，输入你的域名，然后点击 <font color="red">Commit changes</font></li>
+</ol>
+<p><img src="/img/posts/2020/05/18/21.png"> <img src="/img/posts/2020/05/18/22.png"></br></p>
+<ol start="7">
+<li>回到DNSPod网站，打开你的域名，添加GitHub静态网地址的记录，点击确认完成输入<blockquote>
+<p>主机记录分别为 @ 和 www<br>记录类型为 CNAME<br>记录值为 GitHub静态网地址</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/23.png"></br></p>
+<ol start="8">
+<li>打开静态网站的仓库设置，找到 <font color="red">GitHub Pages</font>，如果 <font color="red">Custom domain</font> 是空的，就输入你的域名，然后点击保存，刷新网页等待生效。生效后会看到  <font color="red">Your site is published at 你的域名</font>，点击你的域名，会可以看到网站了。</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/24.png"> <img src="/img/posts/2020/05/18/25.png"></br></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>域名</tag>
+        <tag>GitHub</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -466,112 +572,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Freenom获取免费域名</title>
-    <url>/posts/d8ac6531/</url>
-    <content><![CDATA[<h3 id="Freenom"><a href="#Freenom" class="headerlink" title="Freenom"></a>Freenom</h3><p>Freenom 是一个提供免费域名申请的网站，最长可以选择一年，到期前2个星期会提醒是否续费，到时直接可以免费续费再用一年，相当于永久免费。</p>
-<h3 id="申请"><a href="#申请" class="headerlink" title="申请"></a>申请</h3><ol>
-<li>打开 <a href="http://www.freenom.com/zh/index.html">Freenom</a> 网站，查询自己想要的域名是否可用，可以看到tk、ml、ga、cf、gq这些后缀都是免费的。</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/01.png"> <img src="/img/posts/2020/05/18/02.png"></br></p>
-<ol start="2">
-<li>点击 <font color="red">现在获取！</font>，你会发现这些域名都不可用，你只需要把你想要的域名和后缀都输入，例如我想要的域名是 <font color="red">mrzgh</font>，后缀是<font color="red">ml</font>，再查询就会发现可以用了，之后点击完成即可。</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/03.png"> <img src="/img/posts/2020/05/18/04.png"></br></p>
-<ol start="3">
-<li>修改域名时间，默认是3个月，最长可以修改到12个月，修改完成后点击 <font color="red">Continue</font></li>
-</ol>
-<p><img src="/img/posts/2020/05/18/05.png"> <img src="/img/posts/2020/05/18/06.png"></br></p>
-<ol start="4">
-<li>登录结账，有社交账号的可以选择社交账号登录，没有的可以选择邮箱，我选择用邮箱，输入完成后点击 <font color="red">Verify My Email Address</font></li>
-</ol>
-<p><img src="/img/posts/2020/05/18/07.png"></br></p>
-<ol start="5">
-<li>验证邮箱，网站会发送一封邮件，点击邮件内的链接进行验证</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/08.png"></br></p>
-<ol start="6">
-<li>点击验证链接后，会打开一个注册信息的页面，输入相关信息即可。注意：你输入的地址必须和ip查出来的地址符合，还要关闭广告屏蔽插件，不然会申请失败</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/09.png"></br></p>
-<ol start="7">
-<li>申请成功后显示如下页面</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/10.png"></br></p>
-<ol start="8">
-<li>查看域名，点击导航的 <font color="red">Services</font>，在弹出的菜单中点击<font color="red">My Domains</font>，然后会弹出登录页面，登录完成后就可以查看自己申请的域名了。</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/11.png"> <img src="/img/posts/2020/05/18/12.png"></br></p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>申请失败的原因有</p>
-<blockquote>
-<ol>
-<li>你输入的地址和ip查询的地址不符合</li>
-<li>未关闭广告屏蔽插件</li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>域名</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GitHub静态网站绑定域名</title>
-    <url>/posts/b09467db/</url>
-    <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>上一篇文章讲到怎么获取免费的域名，这一篇讲怎么把获取到的域名绑定GitHub中的静态网站。</p>
-<h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><ol>
-<li>打开 <a href="https://www.dnspod.cn/">DNSPod</a> 网站，注册登录，可以直接使用微信或者QQ登录</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/13.png"></br></p>
-<ol start="2">
-<li>登录成功后，打开 <font color="red">管理控制台</font>，选择 <font color="red">DNS 解析</font></li>
-</ol>
-<p><img src="/img/posts/2020/05/18/14.png"></br></p>
-<ol start="3">
-<li>点击添加域名，输入你申请到的域名，然后点击确认。添加成功后会看到 <font color="red">DNS错误</font>，需要到域名管理修改服务器地址</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/15.png"> <img src="/img/posts/2020/05/18/16.png"></br></p>
-<ol start="4">
-<li>打开你申请域名的网站，进入域名管理</li>
-</ol>
-<p>	</p>
-<p><img src="/img/posts/2020/05/18/17.png"> <img src="/img/posts/2020/05/18/18.png"></br></p>
-<ol start="5">
-<li>选择自定义，修改服务器地址，输入完成后点击 <font color="red">Change Nameservers</font>。然后等待DNS服务器生效，短的话几分钟，长的话几个小时，请耐性等候。</li>
-</ol>
-<blockquote>
-<p>f1g1ns1.dnspod.net<br>f1g1ns2.dnspod.net</p>
-</blockquote>
-<p><img src="/img/posts/2020/05/18/19.png"> <img src="/img/posts/2020/05/18/20.png"></br></p>
-<ol start="6">
-<li>生效后，打开你的GitHub静态网站的仓库，在仓库的根目录里面添加 <font color="red">CNAME</font> 文件，输入你的域名，然后点击 <font color="red">Commit changes</font></li>
-</ol>
-<p><img src="/img/posts/2020/05/18/21.png"> <img src="/img/posts/2020/05/18/22.png"></br></p>
-<ol start="7">
-<li>回到DNSPod网站，打开你的域名，添加GitHub静态网地址的记录，点击确认完成输入<blockquote>
-<p>主机记录分别为 @ 和 www<br>记录类型为 CNAME<br>记录值为 GitHub静态网地址</p>
-</blockquote>
-</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/23.png"></br></p>
-<ol start="8">
-<li>打开静态网站的仓库设置，找到 <font color="red">GitHub Pages</font>，如果 <font color="red">Custom domain</font> 是空的，就输入你的域名，然后点击保存，刷新网页等待生效。生效后会看到  <font color="red">Your site is published at 你的域名</font>，点击你的域名，会可以看到网站了。</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/24.png"> <img src="/img/posts/2020/05/18/25.png"></br></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Hexo</tag>
-        <tag>域名</tag>
-        <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用GoIndex搭建GoogleDrive网站目录</title>
     <url>/posts/c56f99dc/</url>
     <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>使用 Goindex 不用翻墙即可访问团队盘的文件，实现在线看小姐姐。<br>由于原来的 GoIndex 已删库，现提供由他人修改并加上自己美化的GoIndex。<br>地址：<a href="https://github.com/5MayRain/goIndex-theme-nexmoe">GitHub</a></p>
@@ -600,30 +600,6 @@
 <ol start="5">
 <li>保存并部署</li>
 </ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GoogleDrive团队盘无限容量获取</title>
-    <url>/posts/f9e19dad/</url>
-    <content><![CDATA[<ol>
-<li><p>登录 <a href="https://mail.google.com/">Google邮箱</a></p>
-</li>
-<li><p>选择下列的网站，哪一个都行</p>
-<blockquote>
-<p><a href="https://gdrive.zppcw.cn/">sheffield.ac.uk</a><br><a href="https://tv.ssr.workers.dev/">ccsf</a><br><a href="https://teamdrive.xcpx.workers.dev/">swccd</a><br><a href="https://gd.zxd.workers.dev/">Yesyesxx.me</a></p>
-</blockquote>
-</li>
-<li><p>填入团队盘的名称和你的Google邮箱，填完点击 Submit ，成功后登录 <a href="https://drive.google.com/?tab=wo&authuser=0">GoogleDrive</a> 可看到</p>
-</li>
-</ol>
-<p>PS：创建成功后，团队里面只有你一个人，你就是管理员</p>
 ]]></content>
       <categories>
         <category>教程</category>
@@ -689,32 +665,27 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo 版本升级</title>
-    <url>/posts/f2539c19/</url>
-    <content><![CDATA[<h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><ol>
-<li><p>全局升级 hexo-cli</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">npm i hexo-cli -g</span><br></pre></td></tr></table></figure>
+    <title>GoogleDrive团队盘无限容量获取</title>
+    <url>/posts/f9e19dad/</url>
+    <content><![CDATA[<ol>
+<li><p>登录 <a href="https://mail.google.com/">Google邮箱</a></p>
 </li>
-<li><p>检查系统中的插件是否有升级的</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">npm install -g npm-check</span><br><span class="line">npm-check</span><br></pre></td></tr></table></figure>
+<li><p>选择下列的网站，哪一个都行</p>
+<blockquote>
+<p><a href="https://gdrive.zppcw.cn/">sheffield.ac.uk</a><br><a href="https://tv.ssr.workers.dev/">ccsf</a><br><a href="https://teamdrive.xcpx.workers.dev/">swccd</a><br><a href="https://gd.zxd.workers.dev/">Yesyesxx.me</a></p>
+</blockquote>
 </li>
-<li><p>升级系统中的插件</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">npm install -g npm-upgrade</span><br><span class="line">npm-upgrade</span><br></pre></td></tr></table></figure>
+<li><p>填入团队盘的名称和你的Google邮箱，填完点击 Submit ，成功后登录 <a href="https://drive.google.com/?tab=wo&authuser=0">GoogleDrive</a> 可看到</p>
 </li>
-<li><p>全局更新</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">npm update -g</span><br><span class="line">npm update --save</span><br></pre></td></tr></table></figure></li>
 </ol>
+<p>PS：创建成功后，团队里面只有你一个人，你就是管理员</p>
 ]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>教程</category>
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>Hexo</tag>
+        <tag>Google</tag>
       </tags>
   </entry>
   <entry>
@@ -769,6 +740,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo 版本升级</title>
+    <url>/posts/f2539c19/</url>
+    <content><![CDATA[<h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><ol>
+<li><p>全局升级 hexo-cli</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">npm i hexo-cli -g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查系统中的插件是否有升级的</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">npm install -g npm-check</span><br><span class="line">npm-check</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>升级系统中的插件</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">npm install -g npm-upgrade</span><br><span class="line">npm-upgrade</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>全局更新</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">npm update -g</span><br><span class="line">npm update --save</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo常用命令</title>
     <url>/posts/24caea6b/</url>
     <content><![CDATA[<h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
@@ -779,62 +779,6 @@
 
 <h3 id="组合命令"><a href="#组合命令" class="headerlink" title="组合命令"></a>组合命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
 <input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo s -g <span class="comment">#生成并本地预览</span></span><br><span class="line">hexo d -g <span class="comment">#生成并上传</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo使用gulp优化</title>
-    <url>/posts/3cf7d586/</url>
-    <content><![CDATA[<h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><p>通过对站点使用的静态资源进行压缩，来优化网站的访问速度。</p>
-<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><blockquote>
-<p>在网站根目录打开 Git Bash 命令窗口，输入下列命令 </p>
-</blockquote>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 Gulp 插件</span></span><br><span class="line">npm install --global gulp-cli <span class="comment">#全局安装gulp指令集</span></span><br><span class="line">npm install gulp --save <span class="comment">#安装gulp插件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># HTML</span></span><br><span class="line">npm install gulp-htmlclean --save-dev</span><br><span class="line">npm install gulp-html-minifier-terser --save-dev</span><br><span class="line"><span class="comment"># 用gulp-html-minifier-terser可以压缩HTML中的ES6语法</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩 CSS</span></span><br><span class="line">npm install gulp-clean-css --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩 JS</span></span><br><span class="line">npm install gulp-terser --save-dev</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置gulp"><a href="#配置gulp" class="headerlink" title="配置gulp"></a>配置gulp</h3><blockquote>
-<p>在网站根目录创建 gulpfile.js 文件，写入下列代码</p>
-</blockquote>
-<figure class="highlight js"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>JS</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment">//用到的各个插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> cleanCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-html-minifier-terser&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlclean&#x27;</span>);</span><br><span class="line"><span class="comment">// gulp-tester</span></span><br><span class="line"><span class="keyword">var</span> terser = <span class="built_in">require</span>(<span class="string">&#x27;gulp-terser&#x27;</span>);</span><br><span class="line"><span class="comment">// 压缩js</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;compress&#x27;</span>, <span class="function">() =&gt;</span></span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.js&#x27;</span>, <span class="string">&#x27;!./public/**/*.min.js&#x27;</span>])</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">terser</span>())</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">)</span><br><span class="line"><span class="comment">//压缩css</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.css&#x27;</span>])</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">cleanCSS</span>(&#123;</span><br><span class="line">            <span class="attr">compatibility</span>: <span class="string">&#x27;ie11&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩html</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;./public/**/*.html&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlclean</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlmin</span>(&#123;</span><br><span class="line">            <span class="attr">removeComments</span>: <span class="literal">true</span>, <span class="comment">//清除html注释</span></span><br><span class="line">            <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>, <span class="comment">//压缩html</span></span><br><span class="line">            <span class="attr">collapseBooleanAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//省略布尔属性的值，例如：&lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeEmptyAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除所有空格作属性值，例如：&lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeScriptTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;script&gt;的type=&quot;text/javascript&quot;</span></span><br><span class="line">            <span class="attr">removeStyleLinkTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;style&gt;和&lt;link&gt;的 type=&quot;text/css&quot;</span></span><br><span class="line">            <span class="attr">minifyJS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 JS</span></span><br><span class="line">            <span class="attr">minifyCSS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 CSS</span></span><br><span class="line">            <span class="attr">minifyURLs</span>: <span class="literal">true</span>  <span class="comment">//压缩页面URL</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行gulp命令时依次执行以下任务</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, gulp.<span class="title function_">parallel</span>(</span><br><span class="line">  <span class="string">&#x27;compress&#x27;</span>, <span class="string">&#x27;minify-css&#x27;</span>, <span class="string">&#x27;minify-html&#x27;</span></span><br><span class="line">))</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo clean		<span class="comment">#清除缓存</span></span><br><span class="line">hexo g			<span class="comment">#生成静态网页</span></span><br><span class="line">gulp			<span class="comment">#压缩</span></span><br><span class="line">hexo d			<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo使用主题</title>
-    <url>/posts/b2b596ff/</url>
-    <content><![CDATA[<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>去Hexo网站查找你喜欢的主题 <a href="https://hexo.io/themes/">https://hexo.io/themes/</a></p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol>
-<li><p>例如我要的是<a href="https://github.com/next-theme/hexo-theme-next">NexT主题</a>，这主题已经提供了代码，只需要执行即可</p>
-</li>
-<li><p>在Hexo根目录打开 Git Bash 命令窗口，输入下列命令</p>
-</li>
-</ol>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next   </span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2020/05/12/16.png"></p>
-<ol start="3">
-<li>编辑Hexo根目录的 <font color="red">_config.yml</font> 文件 ，找到<font color="red"> theme: </font> 这行，把内容修改为 <font color="red">next</font>（主题的名称）</li>
-</ol>
-<p><img src="/img/posts/2020/05/12/17.png"></p>
-<ol start="4">
-<li>开启服务，就可以看到主题已经改变了</li>
-</ol>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo s		//开启服务</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
@@ -973,6 +917,36 @@
         <tag>Ubuntu</tag>
         <tag>D.N.A</tag>
         <tag>MIUI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo使用主题</title>
+    <url>/posts/b2b596ff/</url>
+    <content><![CDATA[<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>去Hexo网站查找你喜欢的主题 <a href="https://hexo.io/themes/">https://hexo.io/themes/</a></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol>
+<li><p>例如我要的是<a href="https://github.com/next-theme/hexo-theme-next">NexT主题</a>，这主题已经提供了代码，只需要执行即可</p>
+</li>
+<li><p>在Hexo根目录打开 Git Bash 命令窗口，输入下列命令</p>
+</li>
+</ol>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next   </span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2020/05/12/16.png"></p>
+<ol start="3">
+<li>编辑Hexo根目录的 <font color="red">_config.yml</font> 文件 ，找到<font color="red"> theme: </font> 这行，把内容修改为 <font color="red">next</font>（主题的名称）</li>
+</ol>
+<p><img src="/img/posts/2020/05/12/17.png"></p>
+<ol start="4">
+<li>开启服务，就可以看到主题已经改变了</li>
+</ol>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo s		//开启服务</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1236,6 +1210,90 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo使用gulp优化</title>
+    <url>/posts/3cf7d586/</url>
+    <content><![CDATA[<h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><p>通过对站点使用的静态资源进行压缩，来优化网站的访问速度。</p>
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><blockquote>
+<p>在网站根目录打开 Git Bash 命令窗口，输入下列命令 </p>
+</blockquote>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 Gulp 插件</span></span><br><span class="line">npm install --global gulp-cli <span class="comment">#全局安装gulp指令集</span></span><br><span class="line">npm install gulp --save <span class="comment">#安装gulp插件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># HTML</span></span><br><span class="line">npm install gulp-htmlclean --save-dev</span><br><span class="line">npm install gulp-html-minifier-terser --save-dev</span><br><span class="line"><span class="comment"># 用gulp-html-minifier-terser可以压缩HTML中的ES6语法</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩 CSS</span></span><br><span class="line">npm install gulp-clean-css --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩 JS</span></span><br><span class="line">npm install gulp-terser --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置gulp"><a href="#配置gulp" class="headerlink" title="配置gulp"></a>配置gulp</h3><blockquote>
+<p>在网站根目录创建 gulpfile.js 文件，写入下列代码</p>
+</blockquote>
+<figure class="highlight js"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>JS</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment">//用到的各个插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> cleanCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-html-minifier-terser&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlclean&#x27;</span>);</span><br><span class="line"><span class="comment">// gulp-tester</span></span><br><span class="line"><span class="keyword">var</span> terser = <span class="built_in">require</span>(<span class="string">&#x27;gulp-terser&#x27;</span>);</span><br><span class="line"><span class="comment">// 压缩js</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;compress&#x27;</span>, <span class="function">() =&gt;</span></span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.js&#x27;</span>, <span class="string">&#x27;!./public/**/*.min.js&#x27;</span>])</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">terser</span>())</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">)</span><br><span class="line"><span class="comment">//压缩css</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>([<span class="string">&#x27;./public/**/*.css&#x27;</span>])</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">cleanCSS</span>(&#123;</span><br><span class="line">            <span class="attr">compatibility</span>: <span class="string">&#x27;ie11&#x27;</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//压缩html</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.<span class="title function_">src</span>(<span class="string">&#x27;./public/**/*.html&#x27;</span>)</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlclean</span>())</span><br><span class="line">        .<span class="title function_">pipe</span>(<span class="title function_">htmlmin</span>(&#123;</span><br><span class="line">            <span class="attr">removeComments</span>: <span class="literal">true</span>, <span class="comment">//清除html注释</span></span><br><span class="line">            <span class="attr">collapseWhitespace</span>: <span class="literal">true</span>, <span class="comment">//压缩html</span></span><br><span class="line">            <span class="attr">collapseBooleanAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//省略布尔属性的值，例如：&lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeEmptyAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除所有空格作属性值，例如：&lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;</span></span><br><span class="line">            <span class="attr">removeScriptTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;script&gt;的type=&quot;text/javascript&quot;</span></span><br><span class="line">            <span class="attr">removeStyleLinkTypeAttributes</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="comment">//删除&lt;style&gt;和&lt;link&gt;的 type=&quot;text/css&quot;</span></span><br><span class="line">            <span class="attr">minifyJS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 JS</span></span><br><span class="line">            <span class="attr">minifyCSS</span>: <span class="literal">true</span>, <span class="comment">//压缩页面 CSS</span></span><br><span class="line">            <span class="attr">minifyURLs</span>: <span class="literal">true</span>  <span class="comment">//压缩页面URL</span></span><br><span class="line">        &#125;))</span><br><span class="line">        .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行gulp命令时依次执行以下任务</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>, gulp.<span class="title function_">parallel</span>(</span><br><span class="line">  <span class="string">&#x27;compress&#x27;</span>, <span class="string">&#x27;minify-css&#x27;</span>, <span class="string">&#x27;minify-html&#x27;</span></span><br><span class="line">))</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo clean		<span class="comment">#清除缓存</span></span><br><span class="line">hexo g			<span class="comment">#生成静态网页</span></span><br><span class="line">gulp			<span class="comment">#压缩</span></span><br><span class="line">hexo d			<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>虚拟机安装 Ubuntu 20.04</title>
+    <url>/posts/c82dee71/</url>
+    <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>本文采用 <a href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html">VMware Workstation</a> 虚拟机安装，请在电脑上安装好虚拟机</p>
+<div class="download_layout">
+  <img class="download_icon1" src="/img/icon/Download/01.svg" />
+  <div class="download_text">
+    <span>VMware Workstation 16 Pro 下载</span>
+    <p>来源: 官网 </p>
+  </div>
+  <div class="download_url"><a href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-16.1.2-17966106.exe" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div>
+</div>
+
+<br/>
+
+<p>激活密钥:<br>16版本：<br><a href="">ZF3R0-FHED2-M80TY-8QYGC-NPKYF</a></p>
+<p>15版本：<br><a href="">FC7D0-D1YDL-M8DXZ-CYPZE-P2AY6</a><br><a href="">FG78K-0UZ15-085TQ-TZQXV-XV0CD</a><br><a href="">ZA11U-DVY97-M81LP-4MNEZ-X3AW0</a><br><a href="">YU102-44D86-48D2Z-Z4Q5C-MFAWD</a></p>
+<p>12版本：<br><a href="">ZC3TK-63GE6-481JY-WWW5T-Z7ATA</a></p>
+<p>10版本：<br><a href="">1Z0G9-67285-FZG78-ZL3Q2-234JG</a></p>
+<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><p><a href="https://ubuntu.com/">Ubuntu</a> 是一个以桌面应用为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词，意思是“人性”“我的存在是因为大家的存在”，是非洲传统的一种价值观。</p>
+<div class="download_layout">
+  <img class="download_icon1" src="/img/icon/Download/01.svg" />
+  <div class="download_text">
+    <span>Ubuntu 20.04.2.0 LTS 下载</span>
+    <p>来源: 官网 </p>
+  </div>
+  <div class="download_url"><a href="https://mirror.hkt.cc/ubuntu/20.04.2.0/ubuntu-20.04.2.0-desktop-amd64.iso" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div>
+</div>
+
+
+<h3 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h3><p>1、 打开VMware Workstation，创建新的虚拟机，选择<font color="red">自定义(高级)</font>，然后点击下一步<br><img src="/img/posts/2021/07/05/01.png"></p>
+<p>2、默认即可<br><img src="/img/posts/2021/07/05/02.png"></p>
+<p>3、选择 稍后安装操作系统<br><img src="/img/posts/2021/07/05/03.png"></p>
+<p>4、客户机操作系统选择 <font color="red">Linux</font>，版本 <font color="red">Ubuntu 64位</font><br><img src="/img/posts/2021/07/05/04.png"></p>
+<p>5、输入名称，及选择安装位置<br><img src="/img/posts/2021/07/05/05.png"></p>
+<p>6、配置处理器，按照个人电脑配置选择<br><img src="/img/posts/2021/07/05/06.png"></p>
+<p>7、配置处理器，按照个人电脑配置选择<br><img src="/img/posts/2021/07/05/07.png"></p>
+<p>8、配置内存，按照个人电脑配置选择<br><img src="/img/posts/2021/07/05/08.png"></p>
+<p>9、默认即可<br><img src="/img/posts/2021/07/05/09.png"> <img src="/img/posts/2021/07/05/10.png"> <img src="/img/posts/2021/07/05/11.png"></p>
+<p>10、为虚拟机分配磁盘大小，选择 <font color="red">将虚拟磁盘存储为单个文件</font>，磁盘大小按照个人电脑配置选择<br><img src="/img/posts/2021/07/05/12.png"></p>
+<p>11、默认即可<br><img src="/img/posts/2021/07/05/13.png"></p>
+<p>12、配置系统镜像<br><img src="/img/posts/2021/07/05/14.png"> <img src="/img/posts/2021/07/05/15.png"> <img src="/img/posts/2021/07/05/16.png"></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>1、开启此虚拟机，等待加载完成<br><img src="/img/posts/2021/07/05/17.png"> <img src="/img/posts/2021/07/05/18.png"></p>
+<p>2、选择语言，安装Ubuntu<br><img src="/img/posts/2021/07/05/19.png"></p>
+<p>3、默认即可<br><img src="/img/posts/2021/07/05/20.png"> <img src="/img/posts/2021/07/05/21.png"> <img src="/img/posts/2021/07/05/22.png"></p>
+<p>4、选择时区<br><img src="/img/posts/2021/07/05/23.png"></p>
+<p>5、输入你的用户信息<br><img src="/img/posts/2021/07/05/24.png"></p>
+<p>6、虚拟机开始安装 Ubuntu 、等待安装完成，安装完成后重启即可<br><img src="/img/posts/2021/07/05/25.png"> <img src="/img/posts/2021/07/05/26.png"> <img src="/img/posts/2021/07/05/27.png"> <img src="/img/posts/2021/07/05/28.png"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Ubuntu</tag>
+        <tag>VMware Workstation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows 10 启用 Linux 子系统</title>
     <url>/posts/67ae9c91/</url>
     <content><![CDATA[<h3 id="1-启用开发人员模式"><a href="#1-启用开发人员模式" class="headerlink" title="1. 启用开发人员模式"></a>1. 启用开发人员模式</h3><p>设置 &gt; 更新和安全 &gt; 开发者选项 &gt; 启用开发人员模式<br><img src="/img/posts/2021/07/06/01.png"> <img src="/img/posts/2021/07/06/02.png"> <img src="/img/posts/2021/07/06/03.png"></p>
@@ -1339,86 +1397,6 @@
       </tags>
   </entry>
   <entry>
-    <title>虚拟机安装 Ubuntu 20.04</title>
-    <url>/posts/c82dee71/</url>
-    <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>本文采用 <a href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html">VMware Workstation</a> 虚拟机安装，请在电脑上安装好虚拟机</p>
-<div class="download_layout">
-  <img class="download_icon1" src="/img/icon/Download/01.svg" />
-  <div class="download_text">
-    <span>VMware Workstation 16 Pro 下载</span>
-    <p>来源: 官网 </p>
-  </div>
-  <div class="download_url"><a href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-16.1.2-17966106.exe" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div>
-</div>
-
-<br/>
-
-<p>激活密钥:<br>16版本：<br><a href="">ZF3R0-FHED2-M80TY-8QYGC-NPKYF</a></p>
-<p>15版本：<br><a href="">FC7D0-D1YDL-M8DXZ-CYPZE-P2AY6</a><br><a href="">FG78K-0UZ15-085TQ-TZQXV-XV0CD</a><br><a href="">ZA11U-DVY97-M81LP-4MNEZ-X3AW0</a><br><a href="">YU102-44D86-48D2Z-Z4Q5C-MFAWD</a></p>
-<p>12版本：<br><a href="">ZC3TK-63GE6-481JY-WWW5T-Z7ATA</a></p>
-<p>10版本：<br><a href="">1Z0G9-67285-FZG78-ZL3Q2-234JG</a></p>
-<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><p><a href="https://ubuntu.com/">Ubuntu</a> 是一个以桌面应用为主的Linux操作系统，其名称来自非洲南部祖鲁语或豪萨语的“ubuntu”一词，意思是“人性”“我的存在是因为大家的存在”，是非洲传统的一种价值观。</p>
-<div class="download_layout">
-  <img class="download_icon1" src="/img/icon/Download/01.svg" />
-  <div class="download_text">
-    <span>Ubuntu 20.04.2.0 LTS 下载</span>
-    <p>来源: 官网 </p>
-  </div>
-  <div class="download_url"><a href="https://mirror.hkt.cc/ubuntu/20.04.2.0/ubuntu-20.04.2.0-desktop-amd64.iso" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div>
-</div>
-
-
-<h3 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h3><p>1、 打开VMware Workstation，创建新的虚拟机，选择<font color="red">自定义(高级)</font>，然后点击下一步<br><img src="/img/posts/2021/07/05/01.png"></p>
-<p>2、默认即可<br><img src="/img/posts/2021/07/05/02.png"></p>
-<p>3、选择 稍后安装操作系统<br><img src="/img/posts/2021/07/05/03.png"></p>
-<p>4、客户机操作系统选择 <font color="red">Linux</font>，版本 <font color="red">Ubuntu 64位</font><br><img src="/img/posts/2021/07/05/04.png"></p>
-<p>5、输入名称，及选择安装位置<br><img src="/img/posts/2021/07/05/05.png"></p>
-<p>6、配置处理器，按照个人电脑配置选择<br><img src="/img/posts/2021/07/05/06.png"></p>
-<p>7、配置处理器，按照个人电脑配置选择<br><img src="/img/posts/2021/07/05/07.png"></p>
-<p>8、配置内存，按照个人电脑配置选择<br><img src="/img/posts/2021/07/05/08.png"></p>
-<p>9、默认即可<br><img src="/img/posts/2021/07/05/09.png"> <img src="/img/posts/2021/07/05/10.png"> <img src="/img/posts/2021/07/05/11.png"></p>
-<p>10、为虚拟机分配磁盘大小，选择 <font color="red">将虚拟磁盘存储为单个文件</font>，磁盘大小按照个人电脑配置选择<br><img src="/img/posts/2021/07/05/12.png"></p>
-<p>11、默认即可<br><img src="/img/posts/2021/07/05/13.png"></p>
-<p>12、配置系统镜像<br><img src="/img/posts/2021/07/05/14.png"> <img src="/img/posts/2021/07/05/15.png"> <img src="/img/posts/2021/07/05/16.png"></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>1、开启此虚拟机，等待加载完成<br><img src="/img/posts/2021/07/05/17.png"> <img src="/img/posts/2021/07/05/18.png"></p>
-<p>2、选择语言，安装Ubuntu<br><img src="/img/posts/2021/07/05/19.png"></p>
-<p>3、默认即可<br><img src="/img/posts/2021/07/05/20.png"> <img src="/img/posts/2021/07/05/21.png"> <img src="/img/posts/2021/07/05/22.png"></p>
-<p>4、选择时区<br><img src="/img/posts/2021/07/05/23.png"></p>
-<p>5、输入你的用户信息<br><img src="/img/posts/2021/07/05/24.png"></p>
-<p>6、虚拟机开始安装 Ubuntu 、等待安装完成，安装完成后重启即可<br><img src="/img/posts/2021/07/05/25.png"> <img src="/img/posts/2021/07/05/26.png"> <img src="/img/posts/2021/07/05/27.png"> <img src="/img/posts/2021/07/05/28.png"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Ubuntu</tag>
-        <tag>VMware Workstation</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/4a17b156/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>原神使用 3DMigoto Loader 加载 Mod</title>
     <url>/posts/7717321e/</url>
     <content><![CDATA[<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>选择 3dmigoto-GIMI-for-playing-mods.zip 下载<br><img src="/img/posts/2022/10/19/01.png"></p>
@@ -1450,6 +1428,28 @@
         <tag>原神</tag>
         <tag>GIMI</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/posts/4a17b156/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Windows 搭建原神私服</title>
