@@ -1,4 +1,281 @@
-<!DOCTYPE html><html lang="zh-CN,en,default" class="loading"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no"><title>Stable Diffusion 七种图片放大方法 - 棕果核</title><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="google" content="notranslate"><meta name="keywords" content="棕果核,个人博客,Blog,"><meta name="description" content="介绍本文将使用以下七种方法放大图片，高分辨率修复 (Hires. fix) 只能用于文生图，该方法不太好控制，很难得到满意的图。
-高分辨率修复 (Hires. fix)点击图片信息，把图片导入，获取,"><meta name="author" content="棕果核"><link rel="alternative" href="atom.xml" title="棕果核" type="application/atom+xml"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Stable Diffusion 七种图片放大方法 - 棕果核"><meta name="twitter:description" content="介绍本文将使用以下七种方法放大图片，高分辨率修复 (Hires. fix) 只能用于文生图，该方法不太好控制，很难得到满意的图。
-高分辨率修复 (Hires. fix)点击图片信息，把图片导入，获取,"><meta property="og:site_name" content="棕果核"><meta property="og:type" content="object"><meta property="og:title" content="Stable Diffusion 七种图片放大方法 - 棕果核"><meta property="og:description" content="介绍本文将使用以下七种方法放大图片，高分辨率修复 (Hires. fix) 只能用于文生图，该方法不太好控制，很难得到满意的图。
-高分辨率修复 (Hires. fix)点击图片信息，把图片导入，获取,"><link rel="stylesheet" href="/css/diaspora.css"><link rel="stylesheet" href="/css/add.css"><script>window.searchDbPath="/search.xml"</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"><script src="/js/clipboard.js"></script><canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:999;pointer-events:none"></canvas><script src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script><script src="/js/fireworks.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body class="loading"><span id="config-title" style="display:none">棕果核</span><div id="loader"></div><div id="single"><div id="top" style="display:block"><div class="bar" style="width:0"></div><a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://mrzgh.top"></a><div title="播放/暂停" class="iconfont icon-play"></div><h3 class="subtitle">Stable Diffusion 七种图片放大方法</h3><div class="social"><div><div class="share"><a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a></div><div id="qr"></div></div></div><div class="scrollbar"></div></div><div class="section"><div class="post_cover"><img src="/img/posts/2023/07/05/cover.jpg"><div class="post_cover_mask"></div><div class="post_text"><h1>Stable Diffusion 七种图片放大方法</h1><div><span>七月 05, 2023</span><ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Ai-%E7%BB%98%E5%9B%BE/" rel="tag">Ai 绘图</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Stable-Diffusion/" rel="tag">Stable Diffusion</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul></div></div></div><div class="article"><div class="main"><div class="content markdown" style="margin-top:0"><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>本文将使用以下七种方法放大图片，<font color="#F25221">高分辨率修复 (Hires. fix)</font> 只能用于文生图，该方法不太好控制，很难得到满意的图。<br><br></p><h4 id="高分辨率修复-Hires-fix"><a href="#高分辨率修复-Hires-fix" class="headerlink" title="高分辨率修复 (Hires. fix)"></a>高分辨率修复 (Hires. fix)</h4><p>点击<font color="#F25221">图片信息</font>，把图片导入，获取参数后点击<font color="#F25221">发送到文生图</font><br><img src="/img/posts/2023/07/05/01.png"><br>选择<font color="#F25221">高分辨率修复 (Hires. fix)</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，重绘幅度按需选择，数值越大，与原图差异越大，参数调整完后点击<font color="#F25221">生成</font>即可<br><img src="/img/posts/2023/07/05/02.png"><br><br></p><h4 id="后期处理"><a href="#后期处理" class="headerlink" title="后期处理"></a>后期处理</h4><p>点击<font color="#F25221">后期处理</font>，把图片导入，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，最后点击<font color="#F25221">生成</font>即可<br><img src="/img/posts/2023/07/05/03.png"><br><br></p><h4 id="SD-upscale"><a href="#SD-upscale" class="headerlink" title="SD upscale"></a>SD upscale</h4><p>点击<font color="#F25221">图片信息</font>，把图片导入，获取参数后点击<font color="#F25221">发送到图生图</font><br><img src="/img/posts/2023/07/05/04.png"><br>脚本选择 <font color="#F25221">SD upscale</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，最后点击<font color="#F25221">生成</font>即可。如果画面崩坏，可以通过调低<font color="#F25221">重绘幅度</font>的数值，进行控制生成的图片。<br><img src="/img/posts/2023/07/05/05.png"><img src="/img/posts/2023/07/05/06.png"><br><br></p><h4 id="Ultimate-SD-upscale"><a href="#Ultimate-SD-upscale" class="headerlink" title="Ultimate SD upscale"></a>Ultimate SD upscale</h4><p>脚本选择 <font color="#F25221">Ultimate SD upscale</font>，目标尺寸类型选择<font color="#F25221">Scale from image size</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，类型选择<font color="#F25221">Chess</font>，最后点击<font color="#F25221">生成</font>即可。如果画面崩坏，可以通过调低<font color="#F25221">重绘幅度</font>的数值，进行控制生成的图片。<br><img src="/img/posts/2023/07/05/07.png"><img src="/img/posts/2023/07/05/08.png"><br><br></p><h4 id="ControlNet-tile"><a href="#ControlNet-tile" class="headerlink" title="ControlNet tile"></a>ControlNet tile</h4><p><font color="#F25221">Ultimate SD upscale</font> 方法不变，然后打开<font color="#F25221">ControlNet</font>选项卡，导入图片并点击<font color="#F25221">启用</font>，控制类型选择<font color="#F25221">Tile(分块)</font>，最后点击<font color="#F25221">生成</font>即可。如果画面崩坏，可以通过调低<font color="#F25221">重绘幅度</font>的数值，进行控制生成的图片。<br><img src="/img/posts/2023/07/05/09.png"><img src="/img/posts/2023/07/05/10.png"><br><br></p><h4 id="Tiled-Diffusion-Tiled-VAE"><a href="#Tiled-Diffusion-Tiled-VAE" class="headerlink" title="Tiled Diffusion + Tiled VAE"></a>Tiled Diffusion + Tiled VAE</h4><p>打开<font color="#F25221">Tiled Diffusion</font>选项卡，点击<font color="#F25221">启用 Tiled Diffusion</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>。打开<font color="#F25221">Tiled VAE</font>选项卡，点击<font color="#F25221">启用 Tiled VAE</font>，然后点击<font color="#F25221">生成</font>即可。<br><img src="/img/posts/2023/07/05/11.png"><img src="/img/posts/2023/07/05/12.png"><br><br></p><h4 id="StableSR"><a href="#StableSR" class="headerlink" title="StableSR"></a>StableSR</h4><p>脚本选择 <font color="#F25221">StableSR</font>，SR Model选择<font color="#F25221">webui_768v_139.ckpt</font>，然后点击<font color="#F25221">生成</font>即可。<br><img src="/img/posts/2023/07/05/13.png"><img src="/img/posts/2023/07/05/14.png"><br><br></p><h4 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h4><p>原图<br><img src="/img/posts/2023/07/05/enlarge_00.png"><br>高分辨率修复 (Hires. fix)<br><img src="/img/posts/2023/07/05/enlarge_01.png"><br>后期处理<br><img src="/img/posts/2023/07/05/enlarge_02.png"><br>SD upscale<br><img src="/img/posts/2023/07/05/enlarge_03.png"><br>Ultimate SD upscale<br><img src="/img/posts/2023/07/05/enlarge_04.png"><br>ControlNet tile<br><img src="/img/posts/2023/07/05/enlarge_05.png"><br>Tiled Diffusion + Tiled VAE<br><img src="/img/posts/2023/07/05/enlarge_06.png"><br>StableSR<br><img src="/img/posts/2023/07/05/enlarge_07.png"><br><br></p><!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]--><audio id="audio" loop preload="auto" controls data-autoplay="false"><source type="audio/mpeg" src=""></audio><ul id="audio-list" style="display:none"><li title="0" data-url="/audio/Wildfire.mp3"></li><li title="1" data-url="/audio/Dancing_With_Your_Ghost.mp3"></li><li title="2" data-url="/audio/I_Love_You.mp3"></li><li title="3" data-url="/audio/Lost_in_Paradise.mp3"></li><li title="4" data-url="/audio/Perfect_Bliss.mp3"></li><li title="5" data-url="/audio/if.mp3"></li></ul></div><div class="statement"><div><span>作者:</span> 棕果核</div><div><span>标题:</span> Stable Diffusion 七种图片放大方法</div><div><span>链接:</span> <a href="/posts/83977f27/">https://mrzgh.top/posts/83977f27/</a></div><div><span>声明:</span> 本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh">CC BY 4.0</a> 进行声明</div></div><p class="end">-&nbsp;&nbsp;&nbsp;END&nbsp;&nbsp;&nbsp;-</p><div id="gitalk-container" class="comment link" data-enable="true" data-ae="false" data-ci="89ba0c99dd53a9c8cd90" data-cs="d4652489373fcfa5d0e3cd07c9ef39ae420324be" data-r="5MayRain.github.io" data-o="5MayRain" data-a="5MayRain" data-d="false">查看评论</div></div><div class="float"><div class="directory"><div class="directory_btn float_btn"></div><div class="directory_list"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E5%88%86%E8%BE%A8%E7%8E%87%E4%BF%AE%E5%A4%8D-Hires-fix"><span class="toc-number">2.</span> <span class="toc-text">高分辨率修复 (Hires. fix)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E6%9C%9F%E5%A4%84%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">后期处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SD-upscale"><span class="toc-number">4.</span> <span class="toc-text">SD upscale</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ultimate-SD-upscale"><span class="toc-number">5.</span> <span class="toc-text">Ultimate SD upscale</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ControlNet-tile"><span class="toc-number">6.</span> <span class="toc-text">ControlNet tile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tiled-Diffusion-Tiled-VAE"><span class="toc-number">7.</span> <span class="toc-text">Tiled Diffusion + Tiled VAE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#StableSR"><span class="toc-number">8.</span> <span class="toc-text">StableSR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E8%A7%88"><span class="toc-number">9.</span> <span class="toc-text">预览</span></a></li></ol></div></div></div></div></div></div></body><script src="/js/gitalk.min.js"></script><script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script><script src="/js/plugin.js"></script><script src="/js/typed.js"></script><script src="/js/diaspora.js"></script><script src="/js/codeCopy.js"></script><link rel="stylesheet" href="/photoswipe/photoswipe.css"><link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css"><script src="/photoswipe/photoswipe.min.js"></script><script src="/photoswipe/photoswipe-ui-default.min.js"></script><div class="pswp" tabindex="-1" role="dialog" aria-hidden="true"><div class="pswp__bg"></div><div class="pswp__scroll-wrap"><div class="pswp__container"><div class="pswp__item"></div><div class="pswp__item"></div><div class="pswp__item"></div></div><div class="pswp__ui pswp__ui--hidden"><div class="pswp__top-bar"><div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title="Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class="pswp__preloader"><div class="pswp__preloader__icn"><div class="pswp__preloader__cut"><div class="pswp__preloader__donut"></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class="pswp__share-tooltip"></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class="pswp__caption"><div class="pswp__caption__center"></div></div></div></div></div></html>
+
+<!DOCTYPE html>
+<html lang="zh-CN,en,default" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Stable Diffusion 七种图片放大方法 - 棕果核</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="棕果核,个人博客,Blog,"> 
+    <meta name="description" content="介绍本文将使用以下七种方法放大图片，高分辨率修复 (Hires. fix) 只能用于文生图，该方法不太好控制，很难得到满意的图。
+高分辨率修复 (Hires. fix)点击图片信息，把图片导入，获取,"> 
+    <meta name="author" content="棕果核"> 
+    <link rel="alternative" href="atom.xml" title="棕果核" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Stable Diffusion 七种图片放大方法 - 棕果核"/>
+    <meta name="twitter:description" content="介绍本文将使用以下七种方法放大图片，高分辨率修复 (Hires. fix) 只能用于文生图，该方法不太好控制，很难得到满意的图。
+高分辨率修复 (Hires. fix)点击图片信息，把图片导入，获取,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="棕果核"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Stable Diffusion 七种图片放大方法 - 棕果核"/>
+    <meta property="og:description" content="介绍本文将使用以下七种方法放大图片，高分辨率修复 (Hires. fix) 只能用于文生图，该方法不太好控制，很难得到满意的图。
+高分辨率修复 (Hires. fix)点击图片信息，把图片导入，获取,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+<link rel="stylesheet" href="/css/add.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- 代码块复制 -->
+    <script type="text/javascript" src="/js/clipboard.js"></script>
+
+    <!-- 点击效果 -->
+    
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 999; pointer-events: none;" ></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">棕果核</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://mrzgh.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Stable Diffusion 七种图片放大方法</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <!-- 帖子视图 -->
+
+    <div class="post_cover" >
+        
+            <img src="/img/posts/2023/07/05/cover.jpg" />
+        
+        <div class="post_cover_mask"></div>
+        <div class="post_text">
+            <h1>Stable Diffusion 七种图片放大方法</h1>
+            <div>
+                <span>七月 05, 2023</span>
+
+                
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Ai-%E7%BB%98%E5%9B%BE/" rel="tag">Ai 绘图</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Stable-Diffusion/" rel="tag">Stable Diffusion</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+
+            </div>
+        </div>
+    </div>
+
+
+<div class="article">
+    <div class='main'>
+
+        <!-- 帖子视图 -->
+        
+        
+        <!-- 更新时间 -->
+        
+
+        
+            <div class="content markdown" style="margin-top: 0px">
+        
+        
+            <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>本文将使用以下七种方法放大图片，<font color="#F25221">高分辨率修复 (Hires. fix)</font> 只能用于文生图，该方法不太好控制，很难得到满意的图。<br><br></p>
+<h4 id="高分辨率修复-Hires-fix"><a href="#高分辨率修复-Hires-fix" class="headerlink" title="高分辨率修复 (Hires. fix)"></a>高分辨率修复 (Hires. fix)</h4><p>点击<font color="#F25221">图片信息</font>，把图片导入，获取参数后点击<font color="#F25221">发送到文生图</font><br><img src="/img/posts/2023/07/05/01.png"><br>选择<font color="#F25221">高分辨率修复 (Hires. fix)</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，重绘幅度按需选择，数值越大，与原图差异越大，参数调整完后点击<font color="#F25221">生成</font>即可<br><img src="/img/posts/2023/07/05/02.png"><br><br></p>
+<h4 id="后期处理"><a href="#后期处理" class="headerlink" title="后期处理"></a>后期处理</h4><p>点击<font color="#F25221">后期处理</font>，把图片导入，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，最后点击<font color="#F25221">生成</font>即可<br><img src="/img/posts/2023/07/05/03.png"><br><br></p>
+<h4 id="SD-upscale"><a href="#SD-upscale" class="headerlink" title="SD upscale"></a>SD upscale</h4><p>点击<font color="#F25221">图片信息</font>，把图片导入，获取参数后点击<font color="#F25221">发送到图生图</font><br><img src="/img/posts/2023/07/05/04.png"><br>脚本选择 <font color="#F25221">SD upscale</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，最后点击<font color="#F25221">生成</font>即可。如果画面崩坏，可以通过调低<font color="#F25221">重绘幅度</font>的数值，进行控制生成的图片。<br><img src="/img/posts/2023/07/05/05.png"><img src="/img/posts/2023/07/05/06.png"><br><br></p>
+<h4 id="Ultimate-SD-upscale"><a href="#Ultimate-SD-upscale" class="headerlink" title="Ultimate SD upscale"></a>Ultimate SD upscale</h4><p>脚本选择 <font color="#F25221">Ultimate SD upscale</font>，目标尺寸类型选择<font color="#F25221">Scale from image size</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，类型选择<font color="#F25221">Chess</font>，最后点击<font color="#F25221">生成</font>即可。如果画面崩坏，可以通过调低<font color="#F25221">重绘幅度</font>的数值，进行控制生成的图片。<br><img src="/img/posts/2023/07/05/07.png"><img src="/img/posts/2023/07/05/08.png"><br><br></p>
+<h4 id="ControlNet-tile"><a href="#ControlNet-tile" class="headerlink" title="ControlNet tile"></a>ControlNet tile</h4><p><font color="#F25221">Ultimate SD upscale</font> 方法不变，然后打开<font color="#F25221">ControlNet</font>选项卡，导入图片并点击<font color="#F25221">启用</font>，控制类型选择<font color="#F25221">Tile(分块)</font>，最后点击<font color="#F25221">生成</font>即可。如果画面崩坏，可以通过调低<font color="#F25221">重绘幅度</font>的数值，进行控制生成的图片。<br><img src="/img/posts/2023/07/05/09.png"><img src="/img/posts/2023/07/05/10.png"><br><br></p>
+<h4 id="Tiled-Diffusion-Tiled-VAE"><a href="#Tiled-Diffusion-Tiled-VAE" class="headerlink" title="Tiled Diffusion + Tiled VAE"></a>Tiled Diffusion + Tiled VAE</h4><p>打开<font color="#F25221">Tiled Diffusion</font>选项卡，点击<font color="#F25221">启用 Tiled Diffusion</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>。打开<font color="#F25221">Tiled VAE</font>选项卡，点击<font color="#F25221">启用 Tiled VAE</font>，然后点击<font color="#F25221">生成</font>即可。<br><img src="/img/posts/2023/07/05/11.png"><img src="/img/posts/2023/07/05/12.png"><br><br></p>
+<h4 id="StableSR"><a href="#StableSR" class="headerlink" title="StableSR"></a>StableSR</h4><p>脚本选择 <font color="#F25221">StableSR</font>，SR Model选择<font color="#F25221">webui_768v_139.ckpt</font>，然后点击<font color="#F25221">生成</font>即可。<br><img src="/img/posts/2023/07/05/13.png"><img src="/img/posts/2023/07/05/14.png"><br><br></p>
+<h4 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h4><p>原图<br><img src="/img/posts/2023/07/05/enlarge_00.png"><br>高分辨率修复 (Hires. fix)<br><img src="/img/posts/2023/07/05/enlarge_01.png"><br>后期处理<br><img src="/img/posts/2023/07/05/enlarge_02.png"><br>SD upscale<br><img src="/img/posts/2023/07/05/enlarge_03.png"><br>Ultimate SD upscale<br><img src="/img/posts/2023/07/05/enlarge_04.png"><br>ControlNet tile<br><img src="/img/posts/2023/07/05/enlarge_05.png"><br>Tiled Diffusion + Tiled VAE<br><img src="/img/posts/2023/07/05/enlarge_06.png"><br>StableSR<br><img src="/img/posts/2023/07/05/enlarge_07.png"><br><br></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="/audio/Wildfire.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="/audio/Dancing_With_Your_Ghost.mp3"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="/audio/I_Love_You.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="/audio/Lost_in_Paradise.mp3"></li>
+                        
+                    
+                        
+                            <li title="4" data-url="/audio/Perfect_Bliss.mp3"></li>
+                        
+                    
+                        
+                            <li title="5" data-url="/audio/if.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+         <!-- 版权声明 -->
+        
+            <div class="statement">
+  <div><span>作者: </span>棕果核</div>
+  <div><span>标题: </span>Stable Diffusion 七种图片放大方法</div>
+  <div><span>链接: </span>
+    <a href="/posts/83977f27/">https://mrzgh.top/posts/83977f27/</a>
+  </div>
+  <div><span>声明: </span>本文采用
+    
+    <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh">CC BY 4.0</a>
+    
+    进行声明
+  </div>
+</div>
+        
+
+        <!-- 结束 -->
+        <p class="end" >-&nbsp;&nbsp;&nbsp;END&nbsp;&nbsp;&nbsp;-</p>
+
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="89ba0c99dd53a9c8cd90"
+        data-cs="d4652489373fcfa5d0e3cd07c9ef39ae420324be"
+        data-r="5MayRain.github.io"
+        data-o="5MayRain"
+        data-a="5MayRain"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+
+    <!-- 悬浮 -->
+    
+    <div class="float">
+        <!-- 目录 -->
+        <div class="directory">
+            <div class="directory_btn float_btn"></div>
+            <div class="directory_list">
+                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E5%88%86%E8%BE%A8%E7%8E%87%E4%BF%AE%E5%A4%8D-Hires-fix"><span class="toc-number">2.</span> <span class="toc-text">高分辨率修复 (Hires. fix)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E6%9C%9F%E5%A4%84%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">后期处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SD-upscale"><span class="toc-number">4.</span> <span class="toc-text">SD upscale</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ultimate-SD-upscale"><span class="toc-number">5.</span> <span class="toc-text">Ultimate SD upscale</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ControlNet-tile"><span class="toc-number">6.</span> <span class="toc-text">ControlNet tile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tiled-Diffusion-Tiled-VAE"><span class="toc-number">7.</span> <span class="toc-text">Tiled Diffusion + Tiled VAE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#StableSR"><span class="toc-number">8.</span> <span class="toc-text">StableSR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E8%A7%88"><span class="toc-number">9.</span> <span class="toc-text">预览</span></a></li></ol>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+<script src="/js/codeCopy.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</html>
