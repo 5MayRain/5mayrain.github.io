@@ -83,27 +83,111 @@
       </tags>
   </entry>
   <entry>
-    <title>随身WIFI(中兴微) 切卡和改串</title>
-    <url>/posts/ca27d59b/</url>
-    <content><![CDATA[<h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h4><p>插入电脑，进入 web后台，打开高级设置 -&gt; 其它 ，按 F12 打开开发人员工具界面，在控制台或 Console 工具栏下，执行下面代码，开启隐藏功能</p>
+    <title>利用 EFB 使 Telegram 收发微信消息</title>
+    <url>/posts/622c629d/</url>
+    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h4 id="EH-Forwarder-Bot（EFB）"><a href="#EH-Forwarder-Bot（EFB）" class="headerlink" title="EH Forwarder Bot（EFB）"></a>EH Forwarder Bot（EFB）</h4><p>是一个可扩展的开源聊天平台隧道 Bot 框架，允许用户一次发送和接收来自多个平台的消息，目前支持在 Telegram 上收发微信、QQ、Facebook Message 信息，支持文字、语音、图片、视频、表情互通，虽有一些功能限制但可用性良好</p>
+<h4 id="微信网页版"><a href="#微信网页版" class="headerlink" title="微信网页版"></a>微信网页版</h4><p>微信会对使用第三方客户端登录<a href="https://wx.qq.com/">微信网页版</a>的用户实行封禁，账号较老的用户封禁率似乎不高。<br><code>采用了最新的UOS协议，对于不支持微信网页版的账号也可以使用。</code></p>
+<h4 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h4><p><a href="https://github.com/blueset/ehForwarderBot">ehForwarderBot</a>、<a href="https://github.com/blueset/efb-telegram-master">efb-telegram-maste</a>、<a href="https://github.com/blueset/efb-wechat-slave">efb-wechat-slave</a></p>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
+<li>能够科学上网</li>
+<li>Ubuntu 18.04 以上的系统（ 本人用的是 Windows Linux 子系统 Ubuntu 20.04 LTS ）</li>
+<li>Telegram 软件（ 手机端或电脑端都可以 ）</li>
+</ol>
+<blockquote>
+<p>注：手机端可以使用 Termux 安装</p>
+</blockquote>
+<br>
+
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><h4 id="一、-获取-Bot-Token"><a href="#一、-获取-Bot-Token" class="headerlink" title="一、 获取 Bot Token"></a>一、 获取 Bot Token</h4><ol>
+<li>在 Telegram 里，对 @botfather 输入: &#x2F;newbot</li>
+<li>输入 Bot 名称</li>
+<li>输入 Bot 用户名，注意用户名必须以 Bot 结尾</li>
+<li>保存获取到的 token</li>
+</ol>
+<p><img src="/img/posts/2021/12/08/01.png"></p>
+<h4 id="二、-配置-Bot"><a href="#二、-配置-Bot" class="headerlink" title="二、 配置 Bot"></a>二、 配置 Bot</h4><ol>
+<li>在 Telegram 里，对 @botfather 输入: &#x2F;setprivacy 选择 Disable ( 允许 Bot 读取非指令信息 )</li>
+<li>在 Telegram 里，对 @botfather 输入: &#x2F;setjoingroups, 选择 Enable ( 允许将 Bot 添加进群组 )</li>
+<li>在 Telegram 里，对 @botfather 输入: &#x2F;setcommands, 输入下列内容 ( 允许 Bot 提供指令列表 )</li>
+</ol>
 <figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;*&quot;</span>).show();</span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2023/05/15/01.png"><img src="/img/posts/2023/05/15/02.png"></p>
-<h4 id="切卡"><a href="#切卡" class="headerlink" title="切卡"></a>切卡</h4><p>SIM卡选择栏，选择手动和卡槽，切卡密码：<code>BJadmin1234</code> 、 <code>778899</code> 、 <code>UFIadmin1234</code> ，这三个自行尝试，然后应用重启<br><img src="/img/posts/2023/05/15/03.png"></p>
-<h4 id="改串"><a href="#改串" class="headerlink" title="改串"></a>改串</h4><ol>
-<li><p>进入 高级设置 -&gt; 其它 -&gt; 调试，在调试输入 <code>AT+ZMODE=1</code> 发送，显示 OK 就重启设备<br><img src="/img/posts/2023/05/15/04.png"></p>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="built_in">help</span> - 显示命令列表.</span><br><span class="line"><span class="built_in">link</span> - 将远程会话绑定到 Telegram 群组</span><br><span class="line">chat - 生成会话头</span><br><span class="line">recog - 回复语音消息以进行识别</span><br><span class="line">info - 显示当前 Telegram 聊天的信息.</span><br><span class="line">unlink_all - 将所有远程会话从 Telegram 群组解绑.</span><br><span class="line">update_info - 更新群组名称和头像</span><br><span class="line">extra - 获取更多功能</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/posts/2021/12/08/02.png"></p>
+<h4 id="三、-获取-Telegram-账户-ID"><a href="#三、-获取-Telegram-账户-ID" class="headerlink" title="三、 获取 Telegram 账户 ID"></a>三、 获取 Telegram 账户 ID</h4><p>在 Telegram 里，对 @get_id_bot 点击 start 即可获得你的 Telegram ID</p>
+<p><img src="/img/posts/2021/12/08/03.png"></p>
+<h4 id="四、-安装依赖"><a href="#四、-安装依赖" class="headerlink" title="四、 安装依赖"></a>四、 安装依赖</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">sudo su</span><br><span class="line">apt update</span><br><span class="line">apt install libwebp-dev libmagic-dev git screen nano -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="五、-安装-Python3-6（或更高版本）"><a href="#五、-安装-Python3-6（或更高版本）" class="headerlink" title="五、 安装 Python3.6（或更高版本）"></a>五、 安装 Python3.6（或更高版本）</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">apt install python3-pip python3-setuptools python3-dev -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="六、-安装-FFmpeg"><a href="#六、-安装-FFmpeg" class="headerlink" title="六、 安装 FFmpeg"></a>六、 安装 FFmpeg</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment">#下载ffmpeg二进制</span></span><br><span class="line">wget https://www.moerats.com/usr/down/ffmpeg/ffmpeg-git-$(getconf LONG_BIT)bit-static.tar.xz</span><br><span class="line"><span class="comment">#解压文件</span></span><br><span class="line">tar xvf ffmpeg-git-*-static.tar.xz</span><br><span class="line"><span class="comment">#移动ffmpeg可执行文件</span></span><br><span class="line"><span class="built_in">mv</span> ffmpeg-git-*/ffmpeg  ffmpeg-git-*/ffprobe /usr/bin/</span><br><span class="line"><span class="comment">#删除文件</span></span><br><span class="line"><span class="built_in">rm</span> -rf ffmpeg-git-*</span><br></pre></td></tr></table></figure>
+
+<h4 id="七、-安装-EFB"><a href="#七、-安装-EFB" class="headerlink" title="七、 安装 EFB"></a>七、 安装 EFB</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 框架</span></span><br><span class="line">pip3 install ehforwarderbot</span><br><span class="line"><span class="comment"># Telegram 模块</span></span><br><span class="line">pip3 install efb-telegram-master</span><br><span class="line"><span class="comment"># WeChat 模块</span></span><br><span class="line">pip3 install efb-wechat-slave</span><br></pre></td></tr></table></figure>
+
+<h4 id="八、-配置文件"><a href="#八、-配置文件" class="headerlink" title="八、 配置文件"></a>八、 配置文件</h4><ol>
+<li><p>EFB 配置</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ehforwarderbot/profiles/default</span><br><span class="line">nano ~/.ehforwarderbot/profiles/default/config.yaml</span><br></pre></td></tr></table></figure>
+<p>粘贴下列内容，<code>ctrl+x</code> 保存退出</p>
+<figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="attr">master_channel:</span> <span class="string">blueset.telegram</span></span><br><span class="line"><span class="attr">slave_channels:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">blueset.wechat</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>重启后在调试输入 <code>AT+MODIMEI=888888888888888</code> 发送，数字可修改为自己想要的 imei，显示 OK 就重启设备，重新进入后台可以看到已经改好了<br><img src="/img/posts/2023/05/15/05.png"><img src="/img/posts/2023/05/15/06.png"></p>
+<li><p>Telegram 模块配置</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/.ehforwarderbot/profiles/default/blueset.telegram</span><br><span class="line">nano ~/.ehforwarderbot/profiles/default/blueset.telegram/config.yaml</span><br></pre></td></tr></table></figure>
+<p>粘贴下列内容，<code>ctrl+x</code> 保存退出</p>
+<figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="attr">token:</span> <span class="string">&quot;你的token&quot;</span> </span><br><span class="line"><span class="attr">admins:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">你的userid</span> </span><br><span class="line"><span class="attr">flags:</span></span><br><span class="line">  <span class="comment"># 将所有图像消息作为文件发送，以防止主动报文的图像压缩</span></span><br><span class="line">  <span class="attr">send_image_as_file:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># 图片/视频/文件消息没有标题时的占位符文本</span></span><br><span class="line">  <span class="attr">default_media_prompt:</span> <span class="string">text</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="九、-设置代理"><a href="#九、-设置代理" class="headerlink" title="九、 设置代理"></a>九、 设置代理</h4><ol>
+<li><p>在 cmd 输入 <code>ipconfig</code> 查看本机 IP 地址<br><img src="/img/posts/2021/12/08/04.png"></p>
+</li>
+<li><p>在 Ubuntu 输入 <code>ifconfig</code> 查看 IP 地址，没有 <code>ifconfig</code> 命令则输入 <code>sudo apt-get install net-tools</code> 命令安装<br><img src="/img/posts/2021/12/08/05.png"></p>
+</li>
+<li><p>可以知道本机跟子系统同一域的是 192.168.31.84</p>
+</li>
+<li><p>在 Ubuntu 输入 <code>vi /etc/environment</code>，粘贴下列代码</p>
+<figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 代理配置</span></span><br><span class="line"><span class="comment"># 本人使用的是 Clash 默认端口号为 7980</span></span><br><span class="line"><span class="string">export</span> <span class="string">http_proxy=http://192.168.31.84:7890;</span></span><br><span class="line"><span class="string">export</span> <span class="string">https_proxy=http://192.168.31.84:7890;</span></span><br><span class="line"><span class="string">export</span> <span class="string">ftp_proxy=http://192.168.31.84:7890;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳过代理</span></span><br><span class="line"><span class="string">no_proxy=&quot;127.0.0.1,</span> <span class="string">localhost,</span> <span class="string">qq,</span> <span class="string">weixin,</span>  <span class="string">login.weixin.qq.com,</span>  <span class="string">wx2.qq.com,</span>  <span class="string">*.qq.*,</span>  <span class="string">*.weixin.*&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入 <code>source /etc/environment</code> 使代理生效</p>
 </li>
 </ol>
-]]></content>
+<h4 id="十、-启动"><a href="#十、-启动" class="headerlink" title="十、 启动"></a>十、 启动</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">ehforwarderbot</span><br></pre></td></tr></table></figure>
+<p>此时会给一个微信二维码或者二维码链接给你，放到浏览器打开扫描登录即可。</p>
+<h4 id="十一、-使用"><a href="#十一、-使用" class="headerlink" title="十一、 使用"></a>十一、 使用</h4><ol>
+<li>在 Telegram 里新建群组，把你创建的 Bot 添加进去，把 Bot 设置为管理员</li>
+<li>对 Bot 输入 &#x2F;link 选择你要绑定的好友或群，再绑定你刚创建的群组</li>
+<li>好友或群里发的信息，就会发送到你创建的群组</li>
+<li>不绑定的话，微信所有的消息都会发送到 Bot 里</li>
+</ol>
+<h4 id="十二、-更新"><a href="#十二、-更新" class="headerlink" title="十二、 更新"></a>十二、 更新</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">pip3 install --upgrade ehforwarderbot</span><br><span class="line">pip3 install --upgrade efb-telegram-master </span><br><span class="line">pip3 install --upgrade efb-wechat-slave</span><br></pre></td></tr></table></figure>
+
+<h4 id="十三、-后台"><a href="#十三、-后台" class="headerlink" title="十三、 后台"></a>十三、 后台</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/systemd/system/</span><br><span class="line">nano efb.service</span><br></pre></td></tr></table></figure>
+<p>粘贴下列内容，<code>ctrl+x</code> 保存退出</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=ehforwarderbot</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root</span><br><span class="line">ExecStart=/usr/local/bin/ehforwarderbot</span><br><span class="line">Restart=always</span><br></pre></td></tr></table></figure>
+<p>输入代码启动 efb 开机自启 efb</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment">#重新加载进程守护</span></span><br><span class="line">systemctl daemon-reload</span><br><span class="line"><span class="comment">#进程守护 启动efb</span></span><br><span class="line">systemctl start efb.service</span><br><span class="line"><span class="comment">#打印日志 此时不会直接显示二维码，而需要你打开http的链接，进行扫码登录</span></span><br><span class="line">journalctl -f -u efb.service</span><br><span class="line"><span class="comment">#进程守护 开机自启efb</span></span><br><span class="line">systemctl <span class="built_in">enable</span> efb.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>查看状态</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment">#进程守护 停止efb</span></span><br><span class="line">systemctl stop efb.service</span><br><span class="line"><span class="comment">#进程守护 关闭开机自启efb</span></span><br><span class="line">systemctl <span class="built_in">disable</span> efb.service</span><br><span class="line"><span class="comment">#查看当前 efb 状态</span></span><br><span class="line">systemctl status efb.service</span><br><span class="line"><span class="comment">#实时查看 efb 守护日志</span></span><br><span class="line">journalctl -f -u efb.service</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>随身WIFI</tag>
-        <tag>中兴微</tag>
+        <tag>Ubuntu</tag>
+        <tag>EFB</tag>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -232,42 +316,27 @@
       </tags>
   </entry>
   <entry>
-    <title>Git Portable 配置</title>
-    <url>/posts/1543b37f/</url>
-    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Git Portable 是针对 Windows 版 Git 所设计的一款软件，你可以选择将它安装在U盘或移动硬盘等便携设备上。它不需要安装，也不会在注册表上留下记录。它无法像安装版的 Git 那样，可以使用右键 <code>Git Bash</code> 或者 <code>Git GUI</code> 。</p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>在 Git 官网下载对应的 Windows 的 Portable 版。比如我的是64位，就下载64位的。<br><img src="/img/posts/2021/10/01/01.png"></p>
-<div class="download_layout">
-  <img class="download_icon1" src="/img/icon/Download/01.svg" />
-  <div class="download_text">
-    <span>Git Portable 下载</span>
-    <p>来源: 官网</p>
-  </div>
-  <div class="download_url"><a href="https://git-scm.com/download/win" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div></div>
-  
-<h3 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h3><p>Git 每次进行提交时，都会检查是否有提交者的信息。为了避免每次都要重新设置用户信息，因此我们只需要将配置保存在 Git Portable 的安装路径下，然后将这个路径临时设置为 <code>$HOME</code> 即可。下面是 <code>.gitconfig</code> 文件的格式</p>
+    <title>随身WIFI(中兴微) 切卡和改串</title>
+    <url>/posts/ca27d59b/</url>
+    <content><![CDATA[<h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h4><p>插入电脑，进入 web后台，打开高级设置 -&gt; 其它 ，按 F12 打开开发人员工具界面，在控制台或 Console 工具栏下，执行下面代码，开启隐藏功能</p>
 <figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">[user]</span><br><span class="line">    name = Your name</span><br><span class="line">    email = Your e-mail</span><br></pre></td></tr></table></figure>
-
-<h3 id="SSH-配置"><a href="#SSH-配置" class="headerlink" title="SSH 配置"></a>SSH 配置</h3><p>1.Git Portable 的 SSH 配置和安装版 Git 的配置步骤基本相同，只是某些步骤不一样。<br>2.使用下面的命令生成密钥。</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;Your e-mail&quot;</span></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>回车后会提示你输入密钥的路径，改成 Git Portable 的安装路径, 后面的默认直接回车。</li>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;*&quot;</span>).show();</span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2023/05/15/01.png"><img src="/img/posts/2023/05/15/02.png"></p>
+<h4 id="切卡"><a href="#切卡" class="headerlink" title="切卡"></a>切卡</h4><p>SIM卡选择栏，选择手动和卡槽，切卡密码：<code>BJadmin1234</code> 、 <code>778899</code> 、 <code>UFIadmin1234</code> ，这三个自行尝试，然后应用重启<br><img src="/img/posts/2023/05/15/03.png"></p>
+<h4 id="改串"><a href="#改串" class="headerlink" title="改串"></a>改串</h4><ol>
+<li><p>进入 高级设置 -&gt; 其它 -&gt; 调试，在调试输入 <code>AT+ZMODE=1</code> 发送，显示 OK 就重启设备<br><img src="/img/posts/2023/05/15/04.png"></p>
+</li>
+<li><p>重启后在调试输入 <code>AT+MODIMEI=888888888888888</code> 发送，数字可修改为自己想要的 imei，显示 OK 就重启设备，重新进入后台可以看到已经改好了<br><img src="/img/posts/2023/05/15/05.png"><img src="/img/posts/2023/05/15/06.png"></p>
+</li>
 </ol>
-<h3 id="添加-git-ignore-命令"><a href="#添加-git-ignore-命令" class="headerlink" title="添加 git ignore 命令"></a>添加 git ignore 命令</h3><p>GitHub 上有一个针对不同语言或编程环境的 <code>.gitignore</code> 文件列表可供我们免费使用, 但每次从上面下载的话，是比较麻烦的。基于这个文件列表设计了一个自动添加 <code>.gitignore</code> 文件的命令—— <code>git ignore</code>。针对 Git Portable，可以在前面提到的 <code>.gitconfig</code> 文件中添加下面的代码。</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">[<span class="built_in">alias</span>]</span><br><span class="line">    ignore = <span class="string">&quot;!gi() &#123; curl -L -s https://www.gitignore.io/api/<span class="variable">$@</span> ;&#125;; gi&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h3><p>在 <code>PATH</code> 中添加 git 的环境变量，路径为 Git Portable 安装路径下的 <code>cmd</code> 文件夹，在 <code>cmd</code> 中使用 <code>git version</code> 命令可验证是否成功。</p>
-<h3 id="配置右键菜单"><a href="#配置右键菜单" class="headerlink" title="配置右键菜单"></a>配置右键菜单</h3><p>为右键菜单添加 <code>Git Bash</code> ，在 Git Portable 安装路径下，新建一个 <code>bat</code> 文件，名字随意，在里面写入下列代码，保存后以管理员身份运行，即可。</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">@rem 图标路径 </span><br><span class="line"><span class="built_in">set</span> icon=%~dp0mingw64\share\git\git-for-windows.ico</span><br><span class="line">@rem 程序路径 </span><br><span class="line"><span class="built_in">set</span> <span class="built_in">command</span>=%~dp0git-bash.exe</span><br><span class="line">reg add <span class="string">&quot;HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInGit&quot;</span> /d <span class="string">&quot;Git Bash&quot;</span> /f</span><br><span class="line">reg add <span class="string">&quot;HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInGit\command&quot;</span> /d <span class="string">&quot;%command%&quot;</span> /f</span><br><span class="line">reg add <span class="string">&quot;HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInGit&quot;</span> /v <span class="string">&quot;Icon&quot;</span> /d <span class="string">&quot;%icon%&quot;</span> /f</span><br><span class="line">ECHO 添加右键菜单成功</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>]]></content>
+]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>Git</tag>
+        <tag>随身WIFI</tag>
+        <tag>中兴微</tag>
       </tags>
   </entry>
   <entry>
@@ -462,111 +531,42 @@
       </tags>
   </entry>
   <entry>
-    <title>利用 EFB 使 Telegram 收发微信消息</title>
-    <url>/posts/622c629d/</url>
-    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h4 id="EH-Forwarder-Bot（EFB）"><a href="#EH-Forwarder-Bot（EFB）" class="headerlink" title="EH Forwarder Bot（EFB）"></a>EH Forwarder Bot（EFB）</h4><p>是一个可扩展的开源聊天平台隧道 Bot 框架，允许用户一次发送和接收来自多个平台的消息，目前支持在 Telegram 上收发微信、QQ、Facebook Message 信息，支持文字、语音、图片、视频、表情互通，虽有一些功能限制但可用性良好</p>
-<h4 id="微信网页版"><a href="#微信网页版" class="headerlink" title="微信网页版"></a>微信网页版</h4><p>微信会对使用第三方客户端登录<a href="https://wx.qq.com/">微信网页版</a>的用户实行封禁，账号较老的用户封禁率似乎不高。<br><code>采用了最新的UOS协议，对于不支持微信网页版的账号也可以使用。</code></p>
-<h4 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h4><p><a href="https://github.com/blueset/ehForwarderBot">ehForwarderBot</a>、<a href="https://github.com/blueset/efb-telegram-master">efb-telegram-maste</a>、<a href="https://github.com/blueset/efb-wechat-slave">efb-wechat-slave</a></p>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
-<li>能够科学上网</li>
-<li>Ubuntu 18.04 以上的系统（ 本人用的是 Windows Linux 子系统 Ubuntu 20.04 LTS ）</li>
-<li>Telegram 软件（ 手机端或电脑端都可以 ）</li>
-</ol>
-<blockquote>
-<p>注：手机端可以使用 Termux 安装</p>
-</blockquote>
-<br>
-
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><h4 id="一、-获取-Bot-Token"><a href="#一、-获取-Bot-Token" class="headerlink" title="一、 获取 Bot Token"></a>一、 获取 Bot Token</h4><ol>
-<li>在 Telegram 里，对 @botfather 输入: &#x2F;newbot</li>
-<li>输入 Bot 名称</li>
-<li>输入 Bot 用户名，注意用户名必须以 Bot 结尾</li>
-<li>保存获取到的 token</li>
-</ol>
-<p><img src="/img/posts/2021/12/08/01.png"></p>
-<h4 id="二、-配置-Bot"><a href="#二、-配置-Bot" class="headerlink" title="二、 配置 Bot"></a>二、 配置 Bot</h4><ol>
-<li>在 Telegram 里，对 @botfather 输入: &#x2F;setprivacy 选择 Disable ( 允许 Bot 读取非指令信息 )</li>
-<li>在 Telegram 里，对 @botfather 输入: &#x2F;setjoingroups, 选择 Enable ( 允许将 Bot 添加进群组 )</li>
-<li>在 Telegram 里，对 @botfather 输入: &#x2F;setcommands, 输入下列内容 ( 允许 Bot 提供指令列表 )</li>
-</ol>
+    <title>Git Portable 配置</title>
+    <url>/posts/1543b37f/</url>
+    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Git Portable 是针对 Windows 版 Git 所设计的一款软件，你可以选择将它安装在U盘或移动硬盘等便携设备上。它不需要安装，也不会在注册表上留下记录。它无法像安装版的 Git 那样，可以使用右键 <code>Git Bash</code> 或者 <code>Git GUI</code> 。</p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>在 Git 官网下载对应的 Windows 的 Portable 版。比如我的是64位，就下载64位的。<br><img src="/img/posts/2021/10/01/01.png"></p>
+<div class="download_layout">
+  <img class="download_icon1" src="/img/icon/Download/01.svg" />
+  <div class="download_text">
+    <span>Git Portable 下载</span>
+    <p>来源: 官网</p>
+  </div>
+  <div class="download_url"><a href="https://git-scm.com/download/win" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div></div>
+  
+<h3 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h3><p>Git 每次进行提交时，都会检查是否有提交者的信息。为了避免每次都要重新设置用户信息，因此我们只需要将配置保存在 Git Portable 的安装路径下，然后将这个路径临时设置为 <code>$HOME</code> 即可。下面是 <code>.gitconfig</code> 文件的格式</p>
 <figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="built_in">help</span> - 显示命令列表.</span><br><span class="line"><span class="built_in">link</span> - 将远程会话绑定到 Telegram 群组</span><br><span class="line">chat - 生成会话头</span><br><span class="line">recog - 回复语音消息以进行识别</span><br><span class="line">info - 显示当前 Telegram 聊天的信息.</span><br><span class="line">unlink_all - 将所有远程会话从 Telegram 群组解绑.</span><br><span class="line">update_info - 更新群组名称和头像</span><br><span class="line">extra - 获取更多功能</span><br></pre></td></tr></table></figure>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">[user]</span><br><span class="line">    name = Your name</span><br><span class="line">    email = Your e-mail</span><br></pre></td></tr></table></figure>
 
-<p><img src="/img/posts/2021/12/08/02.png"></p>
-<h4 id="三、-获取-Telegram-账户-ID"><a href="#三、-获取-Telegram-账户-ID" class="headerlink" title="三、 获取 Telegram 账户 ID"></a>三、 获取 Telegram 账户 ID</h4><p>在 Telegram 里，对 @get_id_bot 点击 start 即可获得你的 Telegram ID</p>
-<p><img src="/img/posts/2021/12/08/03.png"></p>
-<h4 id="四、-安装依赖"><a href="#四、-安装依赖" class="headerlink" title="四、 安装依赖"></a>四、 安装依赖</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">sudo su</span><br><span class="line">apt update</span><br><span class="line">apt install libwebp-dev libmagic-dev git screen nano -y</span><br></pre></td></tr></table></figure>
-
-<h4 id="五、-安装-Python3-6（或更高版本）"><a href="#五、-安装-Python3-6（或更高版本）" class="headerlink" title="五、 安装 Python3.6（或更高版本）"></a>五、 安装 Python3.6（或更高版本）</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">apt install python3-pip python3-setuptools python3-dev -y</span><br></pre></td></tr></table></figure>
-
-<h4 id="六、-安装-FFmpeg"><a href="#六、-安装-FFmpeg" class="headerlink" title="六、 安装 FFmpeg"></a>六、 安装 FFmpeg</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment">#下载ffmpeg二进制</span></span><br><span class="line">wget https://www.moerats.com/usr/down/ffmpeg/ffmpeg-git-$(getconf LONG_BIT)bit-static.tar.xz</span><br><span class="line"><span class="comment">#解压文件</span></span><br><span class="line">tar xvf ffmpeg-git-*-static.tar.xz</span><br><span class="line"><span class="comment">#移动ffmpeg可执行文件</span></span><br><span class="line"><span class="built_in">mv</span> ffmpeg-git-*/ffmpeg  ffmpeg-git-*/ffprobe /usr/bin/</span><br><span class="line"><span class="comment">#删除文件</span></span><br><span class="line"><span class="built_in">rm</span> -rf ffmpeg-git-*</span><br></pre></td></tr></table></figure>
-
-<h4 id="七、-安装-EFB"><a href="#七、-安装-EFB" class="headerlink" title="七、 安装 EFB"></a>七、 安装 EFB</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 框架</span></span><br><span class="line">pip3 install ehforwarderbot</span><br><span class="line"><span class="comment"># Telegram 模块</span></span><br><span class="line">pip3 install efb-telegram-master</span><br><span class="line"><span class="comment"># WeChat 模块</span></span><br><span class="line">pip3 install efb-wechat-slave</span><br></pre></td></tr></table></figure>
-
-<h4 id="八、-配置文件"><a href="#八、-配置文件" class="headerlink" title="八、 配置文件"></a>八、 配置文件</h4><ol>
-<li><p>EFB 配置</p>
+<h3 id="SSH-配置"><a href="#SSH-配置" class="headerlink" title="SSH 配置"></a>SSH 配置</h3><p>1.Git Portable 的 SSH 配置和安装版 Git 的配置步骤基本相同，只是某些步骤不一样。<br>2.使用下面的命令生成密钥。</p>
 <figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ehforwarderbot/profiles/default</span><br><span class="line">nano ~/.ehforwarderbot/profiles/default/config.yaml</span><br></pre></td></tr></table></figure>
-<p>粘贴下列内容，<code>ctrl+x</code> 保存退出</p>
-<figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="attr">master_channel:</span> <span class="string">blueset.telegram</span></span><br><span class="line"><span class="attr">slave_channels:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">blueset.wechat</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Telegram 模块配置</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/.ehforwarderbot/profiles/default/blueset.telegram</span><br><span class="line">nano ~/.ehforwarderbot/profiles/default/blueset.telegram/config.yaml</span><br></pre></td></tr></table></figure>
-<p>粘贴下列内容，<code>ctrl+x</code> 保存退出</p>
-<figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="attr">token:</span> <span class="string">&quot;你的token&quot;</span> </span><br><span class="line"><span class="attr">admins:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">你的userid</span> </span><br><span class="line"><span class="attr">flags:</span></span><br><span class="line">  <span class="comment"># 将所有图像消息作为文件发送，以防止主动报文的图像压缩</span></span><br><span class="line">  <span class="attr">send_image_as_file:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># 图片/视频/文件消息没有标题时的占位符文本</span></span><br><span class="line">  <span class="attr">default_media_prompt:</span> <span class="string">text</span></span><br></pre></td></tr></table></figure></li>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;Your e-mail&quot;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>回车后会提示你输入密钥的路径，改成 Git Portable 的安装路径, 后面的默认直接回车。</li>
 </ol>
-<h4 id="九、-设置代理"><a href="#九、-设置代理" class="headerlink" title="九、 设置代理"></a>九、 设置代理</h4><ol>
-<li><p>在 cmd 输入 <code>ipconfig</code> 查看本机 IP 地址<br><img src="/img/posts/2021/12/08/04.png"></p>
-</li>
-<li><p>在 Ubuntu 输入 <code>ifconfig</code> 查看 IP 地址，没有 <code>ifconfig</code> 命令则输入 <code>sudo apt-get install net-tools</code> 命令安装<br><img src="/img/posts/2021/12/08/05.png"></p>
-</li>
-<li><p>可以知道本机跟子系统同一域的是 192.168.31.84</p>
-</li>
-<li><p>在 Ubuntu 输入 <code>vi /etc/environment</code>，粘贴下列代码</p>
-<figure class="highlight yaml"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>YAML</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 代理配置</span></span><br><span class="line"><span class="comment"># 本人使用的是 Clash 默认端口号为 7980</span></span><br><span class="line"><span class="string">export</span> <span class="string">http_proxy=http://192.168.31.84:7890;</span></span><br><span class="line"><span class="string">export</span> <span class="string">https_proxy=http://192.168.31.84:7890;</span></span><br><span class="line"><span class="string">export</span> <span class="string">ftp_proxy=http://192.168.31.84:7890;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 跳过代理</span></span><br><span class="line"><span class="string">no_proxy=&quot;127.0.0.1,</span> <span class="string">localhost,</span> <span class="string">qq,</span> <span class="string">weixin,</span>  <span class="string">login.weixin.qq.com,</span>  <span class="string">wx2.qq.com,</span>  <span class="string">*.qq.*,</span>  <span class="string">*.weixin.*&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>输入 <code>source /etc/environment</code> 使代理生效</p>
-</li>
-</ol>
-<h4 id="十、-启动"><a href="#十、-启动" class="headerlink" title="十、 启动"></a>十、 启动</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">ehforwarderbot</span><br></pre></td></tr></table></figure>
-<p>此时会给一个微信二维码或者二维码链接给你，放到浏览器打开扫描登录即可。</p>
-<h4 id="十一、-使用"><a href="#十一、-使用" class="headerlink" title="十一、 使用"></a>十一、 使用</h4><ol>
-<li>在 Telegram 里新建群组，把你创建的 Bot 添加进去，把 Bot 设置为管理员</li>
-<li>对 Bot 输入 &#x2F;link 选择你要绑定的好友或群，再绑定你刚创建的群组</li>
-<li>好友或群里发的信息，就会发送到你创建的群组</li>
-<li>不绑定的话，微信所有的消息都会发送到 Bot 里</li>
-</ol>
-<h4 id="十二、-更新"><a href="#十二、-更新" class="headerlink" title="十二、 更新"></a>十二、 更新</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">pip3 install --upgrade ehforwarderbot</span><br><span class="line">pip3 install --upgrade efb-telegram-master </span><br><span class="line">pip3 install --upgrade efb-wechat-slave</span><br></pre></td></tr></table></figure>
+<h3 id="添加-git-ignore-命令"><a href="#添加-git-ignore-命令" class="headerlink" title="添加 git ignore 命令"></a>添加 git ignore 命令</h3><p>GitHub 上有一个针对不同语言或编程环境的 <code>.gitignore</code> 文件列表可供我们免费使用, 但每次从上面下载的话，是比较麻烦的。基于这个文件列表设计了一个自动添加 <code>.gitignore</code> 文件的命令—— <code>git ignore</code>。针对 Git Portable，可以在前面提到的 <code>.gitconfig</code> 文件中添加下面的代码。</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">[<span class="built_in">alias</span>]</span><br><span class="line">    ignore = <span class="string">&quot;!gi() &#123; curl -L -s https://www.gitignore.io/api/<span class="variable">$@</span> ;&#125;; gi&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="十三、-后台"><a href="#十三、-后台" class="headerlink" title="十三、 后台"></a>十三、 后台</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/systemd/system/</span><br><span class="line">nano efb.service</span><br></pre></td></tr></table></figure>
-<p>粘贴下列内容，<code>ctrl+x</code> 保存退出</p>
+<h3 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h3><p>在 <code>PATH</code> 中添加 git 的环境变量，路径为 Git Portable 安装路径下的 <code>cmd</code> 文件夹，在 <code>cmd</code> 中使用 <code>git version</code> 命令可验证是否成功。</p>
+<h3 id="配置右键菜单"><a href="#配置右键菜单" class="headerlink" title="配置右键菜单"></a>配置右键菜单</h3><p>为右键菜单添加 <code>Git Bash</code> ，在 Git Portable 安装路径下，新建一个 <code>bat</code> 文件，名字随意，在里面写入下列代码，保存后以管理员身份运行，即可。</p>
 <figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=ehforwarderbot</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root</span><br><span class="line">ExecStart=/usr/local/bin/ehforwarderbot</span><br><span class="line">Restart=always</span><br></pre></td></tr></table></figure>
-<p>输入代码启动 efb 开机自启 efb</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment">#重新加载进程守护</span></span><br><span class="line">systemctl daemon-reload</span><br><span class="line"><span class="comment">#进程守护 启动efb</span></span><br><span class="line">systemctl start efb.service</span><br><span class="line"><span class="comment">#打印日志 此时不会直接显示二维码，而需要你打开http的链接，进行扫码登录</span></span><br><span class="line">journalctl -f -u efb.service</span><br><span class="line"><span class="comment">#进程守护 开机自启efb</span></span><br><span class="line">systemctl <span class="built_in">enable</span> efb.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>查看状态</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment">#进程守护 停止efb</span></span><br><span class="line">systemctl stop efb.service</span><br><span class="line"><span class="comment">#进程守护 关闭开机自启efb</span></span><br><span class="line">systemctl <span class="built_in">disable</span> efb.service</span><br><span class="line"><span class="comment">#查看当前 efb 状态</span></span><br><span class="line">systemctl status efb.service</span><br><span class="line"><span class="comment">#实时查看 efb 守护日志</span></span><br><span class="line">journalctl -f -u efb.service</span><br></pre></td></tr></table></figure>]]></content>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">@rem 图标路径 </span><br><span class="line"><span class="built_in">set</span> icon=%~dp0mingw64\share\git\git-for-windows.ico</span><br><span class="line">@rem 程序路径 </span><br><span class="line"><span class="built_in">set</span> <span class="built_in">command</span>=%~dp0git-bash.exe</span><br><span class="line">reg add <span class="string">&quot;HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInGit&quot;</span> /d <span class="string">&quot;Git Bash&quot;</span> /f</span><br><span class="line">reg add <span class="string">&quot;HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInGit\command&quot;</span> /d <span class="string">&quot;%command%&quot;</span> /f</span><br><span class="line">reg add <span class="string">&quot;HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInGit&quot;</span> /v <span class="string">&quot;Icon&quot;</span> /d <span class="string">&quot;%icon%&quot;</span> /f</span><br><span class="line">ECHO 添加右键菜单成功</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>Ubuntu</tag>
-        <tag>EFB</tag>
-        <tag>Windows</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -621,6 +621,30 @@
         <tag>域名</tag>
         <tag>Hexo</tag>
         <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GoogleDrive团队盘无限容量获取</title>
+    <url>/posts/f9e19dad/</url>
+    <content><![CDATA[<ol>
+<li><p>登录 <a href="https://mail.google.com/">Google邮箱</a></p>
+</li>
+<li><p>选择下列的网站，哪一个都行</p>
+<blockquote>
+<p><a href="https://gdrive.zppcw.cn/">sheffield.ac.uk</a><br><a href="https://tv.ssr.workers.dev/">ccsf</a><br><a href="https://teamdrive.xcpx.workers.dev/">swccd</a><br><a href="https://gd.zxd.workers.dev/">Yesyesxx.me</a></p>
+</blockquote>
+</li>
+<li><p>填入团队盘的名称和你的Google邮箱，填完点击 Submit ，成功后登录 <a href="https://drive.google.com/?tab=wo&authuser=0">GoogleDrive</a> 可看到</p>
+</li>
+</ol>
+<p>PS：创建成功后，团队里面只有你一个人，你就是管理员</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Google</tag>
       </tags>
   </entry>
   <entry>
@@ -712,8 +736,27 @@
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>Hexo</tag>
         <tag>Windows</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo常用命令</title>
+    <url>/posts/24caea6b/</url>
+    <content><![CDATA[<h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;postName&quot;</span> 			<span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">&quot;pageName&quot;</span> 		<span class="comment">#新建页面</span></span><br><span class="line">hexo generate 				<span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server 				<span class="comment">#开启服务（默认端口4000，&#x27;ctrl + c&#x27;关闭server）</span></span><br><span class="line">hexo deploy 				<span class="comment">#部署</span></span><br><span class="line">hexo <span class="built_in">help</span>  				<span class="comment">#帮助</span></span><br><span class="line">hexo version				<span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="缩写命令"><a href="#缩写命令" class="headerlink" title="缩写命令"></a>缩写命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo n == hexo new	<span class="comment">#新建</span></span><br><span class="line">hexo g == hexo generate	<span class="comment">#生成静态网页</span></span><br><span class="line">hexo s == hexo server	<span class="comment">#开启服务</span></span><br><span class="line">hexo d == hexo deploy	<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="组合命令"><a href="#组合命令" class="headerlink" title="组合命令"></a>组合命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo s -g <span class="comment">#生成并本地预览</span></span><br><span class="line">hexo d -g <span class="comment">#生成并上传</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -763,8 +806,8 @@
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>Hexo</tag>
         <tag>Windows</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -797,49 +840,6 @@
       </tags>
   </entry>
   <entry>
-    <title>GoogleDrive团队盘无限容量获取</title>
-    <url>/posts/f9e19dad/</url>
-    <content><![CDATA[<ol>
-<li><p>登录 <a href="https://mail.google.com/">Google邮箱</a></p>
-</li>
-<li><p>选择下列的网站，哪一个都行</p>
-<blockquote>
-<p><a href="https://gdrive.zppcw.cn/">sheffield.ac.uk</a><br><a href="https://tv.ssr.workers.dev/">ccsf</a><br><a href="https://teamdrive.xcpx.workers.dev/">swccd</a><br><a href="https://gd.zxd.workers.dev/">Yesyesxx.me</a></p>
-</blockquote>
-</li>
-<li><p>填入团队盘的名称和你的Google邮箱，填完点击 Submit ，成功后登录 <a href="https://drive.google.com/?tab=wo&authuser=0">GoogleDrive</a> 可看到</p>
-</li>
-</ol>
-<p>PS：创建成功后，团队里面只有你一个人，你就是管理员</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Google</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo常用命令</title>
-    <url>/posts/24caea6b/</url>
-    <content><![CDATA[<h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;postName&quot;</span> 			<span class="comment">#新建文章</span></span><br><span class="line">hexo new page <span class="string">&quot;pageName&quot;</span> 		<span class="comment">#新建页面</span></span><br><span class="line">hexo generate 				<span class="comment">#生成静态页面至public目录</span></span><br><span class="line">hexo server 				<span class="comment">#开启服务（默认端口4000，&#x27;ctrl + c&#x27;关闭server）</span></span><br><span class="line">hexo deploy 				<span class="comment">#部署</span></span><br><span class="line">hexo <span class="built_in">help</span>  				<span class="comment">#帮助</span></span><br><span class="line">hexo version				<span class="comment">#查看Hexo的版本</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="缩写命令"><a href="#缩写命令" class="headerlink" title="缩写命令"></a>缩写命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo n == hexo new	<span class="comment">#新建</span></span><br><span class="line">hexo g == hexo generate	<span class="comment">#生成静态网页</span></span><br><span class="line">hexo s == hexo server	<span class="comment">#开启服务</span></span><br><span class="line">hexo d == hexo deploy	<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="组合命令"><a href="#组合命令" class="headerlink" title="组合命令"></a>组合命令</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo s -g <span class="comment">#生成并本地预览</span></span><br><span class="line">hexo d -g <span class="comment">#生成并上传</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo使用gulp优化</title>
     <url>/posts/3cf7d586/</url>
     <content><![CDATA[<h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><p>通过对站点使用的静态资源进行压缩，来优化网站的访问速度。</p>
@@ -857,36 +857,6 @@
 
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
 <input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo clean		<span class="comment">#清除缓存</span></span><br><span class="line">hexo g			<span class="comment">#生成静态网页</span></span><br><span class="line">gulp			<span class="comment">#压缩</span></span><br><span class="line">hexo d			<span class="comment">#部署</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo使用主题</title>
-    <url>/posts/b2b596ff/</url>
-    <content><![CDATA[<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>去Hexo网站查找你喜欢的主题 <a href="https://hexo.io/themes/">https://hexo.io/themes/</a></p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol>
-<li><p>例如我要的是<a href="https://github.com/next-theme/hexo-theme-next">NexT主题</a>，这主题已经提供了代码，只需要执行即可</p>
-</li>
-<li><p>在Hexo根目录打开 Git Bash 命令窗口，输入下列命令</p>
-</li>
-</ol>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next   </span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2020/05/12/16.png"></p>
-<ol start="3">
-<li>编辑Hexo根目录的 <font color="red">_config.yml</font> 文件 ，找到<font color="red"> theme: </font> 这行，把内容修改为 <font color="red">next</font>（主题的名称）</li>
-</ol>
-<p><img src="/img/posts/2020/05/12/17.png"></p>
-<ol start="4">
-<li>开启服务，就可以看到主题已经改变了</li>
-</ol>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo s		//开启服务</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
@@ -936,6 +906,36 @@
         <tag>Ubuntu</tag>
         <tag>D.N.A</tag>
         <tag>MIUI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo使用主题</title>
+    <url>/posts/b2b596ff/</url>
+    <content><![CDATA[<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>去Hexo网站查找你喜欢的主题 <a href="https://hexo.io/themes/">https://hexo.io/themes/</a></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol>
+<li><p>例如我要的是<a href="https://github.com/next-theme/hexo-theme-next">NexT主题</a>，这主题已经提供了代码，只需要执行即可</p>
+</li>
+<li><p>在Hexo根目录打开 Git Bash 命令窗口，输入下列命令</p>
+</li>
+</ol>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next   </span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2020/05/12/16.png"></p>
+<ol start="3">
+<li>编辑Hexo根目录的 <font color="red">_config.yml</font> 文件 ，找到<font color="red"> theme: </font> 这行，把内容修改为 <font color="red">next</font>（主题的名称）</li>
+</ol>
+<p><img src="/img/posts/2020/05/12/17.png"></p>
+<ol start="4">
+<li>开启服务，就可以看到主题已经改变了</li>
+</ol>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">hexo s		//开启服务</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1028,6 +1028,76 @@
       </tags>
   </entry>
   <entry>
+    <title>Termux 安装和配置</title>
+    <url>/posts/ea9a75b1/</url>
+    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://termux.com/">Termux</a> 是一个 Android 终端仿真器和 Linux 环境应用程序，直接工作，无需根目录或设置。额外的软件包可以使用 APT 软件包管理器来使用。 不需要 root ，运行于内部存储。<br></br></p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><div class="download_layout">
+  <img class="download_icon1" src="/img/icon/Download/01.svg" />
+  <div class="download_text">
+    <span>Termux</span>
+    <p>来源: F-Droid</p>
+  </div>
+  <div class="download_url"><a href="https://f-droid.org/packages/com.termux/" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div>
+</div>
+<div class="download_layout">
+  <img class="download_icon1" src="/img/icon/Download/01.svg" />
+  <div class="download_text">
+    <span>Termux</span>
+    <p>来源: GitHub</p>
+  </div>
+  <div class="download_url"><a href="https://github.com/termux/termux-app/releases" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div>
+</div></br>
+
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><p>除了支持 <code>apt</code> 命令外，还在此基础上封装了 <code>pkg</code> 命令，<code>pkg</code> 命令向下兼容 <code>apt</code> 命令</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">pkg search &lt;query&gt;              <span class="comment"># 搜索包</span></span><br><span class="line">pkg install &lt;package&gt;           <span class="comment"># 安装包</span></span><br><span class="line">pkg uninstall &lt;package&gt;         <span class="comment"># 卸载包</span></span><br><span class="line">pkg reinstall &lt;package&gt;         <span class="comment"># 重新安装包</span></span><br><span class="line">pkg update                      <span class="comment"># 更新源</span></span><br><span class="line">pkg upgrade                     <span class="comment"># 升级软件包</span></span><br><span class="line">pkg list-all                    <span class="comment"># 列出可供安装的所有包</span></span><br><span class="line">pkg list-installed              <span class="comment"># 列出已经安装的包</span></span><br><span class="line">pkg show &lt;package&gt;              <span class="comment"># 显示某个包的详细信息</span></span><br><span class="line">pkg files &lt;package&gt;             <span class="comment"># 显示某个包的相关文件夹路径</span></span><br><span class="line">termux-setup-storage			<span class="comment"># 获取读写权限</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h3><p>官网默认源较慢，这里替换为清华大学的源</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">sed -i <span class="string">&#x27;s@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main@&#x27;</span> <span class="variable">$PREFIX</span>/etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">pkg update</span><br></pre></td></tr></table></figure>
+
+<h3 id="基础工具"><a href="#基础工具" class="headerlink" title="基础工具"></a>基础工具</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">pkg update</span><br><span class="line">pkg install vim curl wget git tree -y</span><br></pre></td></tr></table></figure>
+
+<h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><p>项目地址：<a href="https://github.com/Cabbagec/termux-ohmyzsh/">termux-ohmyzsh</a></p>
+<p>使用了 zsh 来替代 bash 作为默认 shell，并且支持色彩和字体样式，同时也激活了外置存储，可以直接访问 SD 卡下的目录。</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)</span>&quot;</span> </span><br></pre></td></tr></table></figure>
+
+<h4 id="配色"><a href="#配色" class="headerlink" title="配色"></a>配色</h4><p>脚本执行后有如下两个选项，重启 Termux  后生效配置。</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">Enter a number, leave blank to not to change: 14	<span class="comment"># 色彩样式</span></span><br><span class="line">Enter a number, leave blank to not to change: 6		<span class="comment"># 字体样式</span></span><br></pre></td></tr></table></figure>
+
+<p>不满意配色效果，想要继续更改的话，可以根据下面命令，选择其中一行执行，即可更改对应的配色方案：</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 色彩样式</span></span><br><span class="line">chcolor</span><br><span class="line">~/.termux/colors.sh</span><br><span class="line"><span class="comment"># 字体样式</span></span><br><span class="line">chfont</span><br><span class="line">~/.termux/fonts.sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h4><p><a href="https://github.com/zsh-users/zsh-autosuggestions">autosuggestions</a> 根据用户的平时使用习惯，终端会自动提示接下来可能要输入的命令。</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 拷贝到 plugins 目录下</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions.git <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置插件，输入i编辑</span></span><br><span class="line">vim ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在这一行里加入 zsh-autosuggestions</span></span><br><span class="line">plugins=(git)</span><br><span class="line"><span class="comment"># 加入之后如下，点击 ESC 输入 :wq 保存重启 Termux 即可生效</span></span><br><span class="line">plugins=(git zsh-autosuggestions)</span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2023/05/08/01.jpg"></p>
+<h3 id="root"><a href="#root" class="headerlink" title="root"></a>root</h3><p>没有 <code>root</code> 可以利用 <code>proot</code> 为没有 <code>root</code> 的用户来模拟一个 <code>root</code> 的环境。</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">pkg install proot -y</span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">termux-chroot</span><br><span class="line"><span class="comment"># 退出</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<p>有 <code>root</code> 可以安装 <code>tsu</code> ，这是一个 <code>su</code> 的 Termux 版本，是一个真正的<code>root</code> 权限，用来在 Termux 上替代 <code>su</code></p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">pkg install tsu -y</span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">tsu</span><br><span class="line"><span class="comment"># 退出</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h3><p><code>OpenSSH</code> 是 SSH （Secure SHell） 协议的免费开源实现。SSH 协议族可以用来进行远程控制， 或在计算机之间传送文件。</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">pkg install openssh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line"><span class="comment"># ssh -p 端口号 用户名@主机名或者IP</span></span><br><span class="line">ssh -p 22 user@hostname_or_ip</span><br><span class="line"><span class="comment"># ssh -i 私钥 用户名@主机名或者IP</span></span><br><span class="line">ssh -i id_rsa user@hostname_or_ip</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Android</tag>
+        <tag>Termux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MIUI12.5 解锁 System 动态分区</title>
     <url>/posts/7f81bd69/</url>
     <content><![CDATA[<h3 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h3><ol>
@@ -1060,40 +1130,6 @@
         <tag>Ubuntu</tag>
         <tag>D.N.A</tag>
         <tag>MIUI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在电脑上使用 Ubuntu 安装 Droid Normal Assistant</title>
-    <url>/posts/f69b264e/</url>
-    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><h4 id="Droid-Normal-Assistant"><a href="#Droid-Normal-Assistant" class="headerlink" title="Droid Normal Assistant"></a>Droid Normal Assistant</h4><p>安卓一般固件解包打包助手， 简称： <a href="https://gitee.com/sharpeter/DNA">D.N.A</a></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
-<li><p>输入下列代码</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade -y <span class="comment">#必须执行</span></span><br><span class="line">sudo apt install git cpio aria2 brotli android-sdk-libsparse-utils openjdk-11-jre p7zip-full -y <span class="comment">#必须执行，使用新版本前建议重新安装一次</span></span><br><span class="line">sudo apt install zip unzip gawk sed curl wget -y <span class="comment">#可选，非必需</span></span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2021/07/15/01.png"> <img src="/img/posts/2021/07/15/02.png"></p>
-<br />
-</li>
-<li><p>下载 D.N.A</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/CapShift/D.N.A-2.git -b x86_64 DNA2</span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2021/07/15/03.png"></p>
-<br />
-</li>
-<li><p>启动</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> DNA &amp;&amp; python3 run.py</span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2021/07/15/04.png"> <img src="/img/posts/2021/07/15/05.png"></p>
-<br /></li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Ubuntu</tag>
-        <tag>D.N.A</tag>
-        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1196,98 +1232,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Stable Diffusion 七种图片放大方法</title>
-    <url>/posts/83977f27/</url>
-    <content><![CDATA[<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>本文将使用以下七种方法放大图片，<font color="#F25221">高分辨率修复 (Hires. fix)</font> 只能用于文生图，该方法不太好控制，很难得到满意的图。<br><br></p>
-<h4 id="高分辨率修复-Hires-fix"><a href="#高分辨率修复-Hires-fix" class="headerlink" title="高分辨率修复 (Hires. fix)"></a>高分辨率修复 (Hires. fix)</h4><p>点击<font color="#F25221">图片信息</font>，把图片导入，获取参数后点击<font color="#F25221">发送到文生图</font><br><img src="/img/posts/2023/07/05/01.png"><br>选择<font color="#F25221">高分辨率修复 (Hires. fix)</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，重绘幅度按需选择，数值越大，与原图差异越大，参数调整完后点击<font color="#F25221">生成</font>即可<br><img src="/img/posts/2023/07/05/02.png"><br><br></p>
-<h4 id="后期处理"><a href="#后期处理" class="headerlink" title="后期处理"></a>后期处理</h4><p>点击<font color="#F25221">后期处理</font>，把图片导入，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，最后点击<font color="#F25221">生成</font>即可<br><img src="/img/posts/2023/07/05/03.png"><br><br></p>
-<h4 id="SD-upscale"><a href="#SD-upscale" class="headerlink" title="SD upscale"></a>SD upscale</h4><p>点击<font color="#F25221">图片信息</font>，把图片导入，获取参数后点击<font color="#F25221">发送到图生图</font><br><img src="/img/posts/2023/07/05/04.png"><br>脚本选择 <font color="#F25221">SD upscale</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，最后点击<font color="#F25221">生成</font>即可。如果画面崩坏，可以通过调低<font color="#F25221">重绘幅度</font>的数值，进行控制生成的图片。<br><img src="/img/posts/2023/07/05/05.png"><img src="/img/posts/2023/07/05/06.png"><br><br></p>
-<h4 id="Ultimate-SD-upscale"><a href="#Ultimate-SD-upscale" class="headerlink" title="Ultimate SD upscale"></a>Ultimate SD upscale</h4><p>脚本选择 <font color="#F25221">Ultimate SD upscale</font>，目标尺寸类型选择<font color="#F25221">Scale from image size</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，类型选择<font color="#F25221">Chess</font>，最后点击<font color="#F25221">生成</font>即可。如果画面崩坏，可以通过调低<font color="#F25221">重绘幅度</font>的数值，进行控制生成的图片。<br><img src="/img/posts/2023/07/05/07.png"><img src="/img/posts/2023/07/05/08.png"><br><br></p>
-<h4 id="ControlNet-tile"><a href="#ControlNet-tile" class="headerlink" title="ControlNet tile"></a>ControlNet tile</h4><p><font color="#F25221">Ultimate SD upscale</font> 方法不变，然后打开<font color="#F25221">ControlNet</font>选项卡，导入图片并点击<font color="#F25221">启用</font>，控制类型选择<font color="#F25221">Tile(分块)</font>，最后点击<font color="#F25221">生成</font>即可。如果画面崩坏，可以通过调低<font color="#F25221">重绘幅度</font>的数值，进行控制生成的图片。<br><img src="/img/posts/2023/07/05/09.png"><img src="/img/posts/2023/07/05/10.png"><br><br></p>
-<h4 id="Tiled-Diffusion-Tiled-VAE"><a href="#Tiled-Diffusion-Tiled-VAE" class="headerlink" title="Tiled Diffusion + Tiled VAE"></a>Tiled Diffusion + Tiled VAE</h4><p>打开<font color="#F25221">Tiled Diffusion</font>选项卡，点击<font color="#F25221">启用 Tiled Diffusion</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>。打开<font color="#F25221">Tiled VAE</font>选项卡，点击<font color="#F25221">启用 Tiled VAE</font>，然后点击<font color="#F25221">生成</font>即可。<br><img src="/img/posts/2023/07/05/11.png"><img src="/img/posts/2023/07/05/12.png"><br><br></p>
-<h4 id="StableSR"><a href="#StableSR" class="headerlink" title="StableSR"></a>StableSR</h4><p>脚本选择 <font color="#F25221">StableSR</font>，SR Model选择<font color="#F25221">webui_768v_139.ckpt</font>，然后点击<font color="#F25221">生成</font>即可。<br><img src="/img/posts/2023/07/05/13.png"><img src="/img/posts/2023/07/05/14.png"><br><br></p>
-<h4 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h4><p>原图<br><img src="/img/posts/2023/07/05/enlarge_00.png"><br>高分辨率修复 (Hires. fix)<br><img src="/img/posts/2023/07/05/enlarge_01.png"><br>后期处理<br><img src="/img/posts/2023/07/05/enlarge_02.png"><br>SD upscale<br><img src="/img/posts/2023/07/05/enlarge_03.png"><br>Ultimate SD upscale<br><img src="/img/posts/2023/07/05/enlarge_04.png"><br>ControlNet tile<br><img src="/img/posts/2023/07/05/enlarge_05.png"><br>Tiled Diffusion + Tiled VAE<br><img src="/img/posts/2023/07/05/enlarge_06.png"><br>StableSR<br><img src="/img/posts/2023/07/05/enlarge_07.png"><br><br></p>
-]]></content>
-      <categories>
-        <category>Stable Diffusion</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Stable Diffusion</tag>
-        <tag>Ai 绘图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Termux 安装和配置</title>
-    <url>/posts/ea9a75b1/</url>
-    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://termux.com/">Termux</a> 是一个 Android 终端仿真器和 Linux 环境应用程序，直接工作，无需根目录或设置。额外的软件包可以使用 APT 软件包管理器来使用。 不需要 root ，运行于内部存储。<br></br></p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><div class="download_layout">
-  <img class="download_icon1" src="/img/icon/Download/01.svg" />
-  <div class="download_text">
-    <span>Termux</span>
-    <p>来源: F-Droid</p>
-  </div>
-  <div class="download_url"><a href="https://f-droid.org/packages/com.termux/" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div>
-</div>
-<div class="download_layout">
-  <img class="download_icon1" src="/img/icon/Download/01.svg" />
-  <div class="download_text">
-    <span>Termux</span>
-    <p>来源: GitHub</p>
-  </div>
-  <div class="download_url"><a href="https://github.com/termux/termux-app/releases" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div>
-</div></br>
-
-<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><p>除了支持 <code>apt</code> 命令外，还在此基础上封装了 <code>pkg</code> 命令，<code>pkg</code> 命令向下兼容 <code>apt</code> 命令</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">pkg search &lt;query&gt;              <span class="comment"># 搜索包</span></span><br><span class="line">pkg install &lt;package&gt;           <span class="comment"># 安装包</span></span><br><span class="line">pkg uninstall &lt;package&gt;         <span class="comment"># 卸载包</span></span><br><span class="line">pkg reinstall &lt;package&gt;         <span class="comment"># 重新安装包</span></span><br><span class="line">pkg update                      <span class="comment"># 更新源</span></span><br><span class="line">pkg upgrade                     <span class="comment"># 升级软件包</span></span><br><span class="line">pkg list-all                    <span class="comment"># 列出可供安装的所有包</span></span><br><span class="line">pkg list-installed              <span class="comment"># 列出已经安装的包</span></span><br><span class="line">pkg show &lt;package&gt;              <span class="comment"># 显示某个包的详细信息</span></span><br><span class="line">pkg files &lt;package&gt;             <span class="comment"># 显示某个包的相关文件夹路径</span></span><br><span class="line">termux-setup-storage			<span class="comment"># 获取读写权限</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h3><p>官网默认源较慢，这里替换为清华大学的源</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">sed -i <span class="string">&#x27;s@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24 stable main@&#x27;</span> <span class="variable">$PREFIX</span>/etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">pkg update</span><br></pre></td></tr></table></figure>
-
-<h3 id="基础工具"><a href="#基础工具" class="headerlink" title="基础工具"></a>基础工具</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">pkg update</span><br><span class="line">pkg install vim curl wget git tree -y</span><br></pre></td></tr></table></figure>
-
-<h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><p>项目地址：<a href="https://github.com/Cabbagec/termux-ohmyzsh/">termux-ohmyzsh</a></p>
-<p>使用了 zsh 来替代 bash 作为默认 shell，并且支持色彩和字体样式，同时也激活了外置存储，可以直接访问 SD 卡下的目录。</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)</span>&quot;</span> </span><br></pre></td></tr></table></figure>
-
-<h4 id="配色"><a href="#配色" class="headerlink" title="配色"></a>配色</h4><p>脚本执行后有如下两个选项，重启 Termux  后生效配置。</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">Enter a number, leave blank to not to change: 14	<span class="comment"># 色彩样式</span></span><br><span class="line">Enter a number, leave blank to not to change: 6		<span class="comment"># 字体样式</span></span><br></pre></td></tr></table></figure>
-
-<p>不满意配色效果，想要继续更改的话，可以根据下面命令，选择其中一行执行，即可更改对应的配色方案：</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 色彩样式</span></span><br><span class="line">chcolor</span><br><span class="line">~/.termux/colors.sh</span><br><span class="line"><span class="comment"># 字体样式</span></span><br><span class="line">chfont</span><br><span class="line">~/.termux/fonts.sh</span><br></pre></td></tr></table></figure>
-
-<h4 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h4><p><a href="https://github.com/zsh-users/zsh-autosuggestions">autosuggestions</a> 根据用户的平时使用习惯，终端会自动提示接下来可能要输入的命令。</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 拷贝到 plugins 目录下</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions.git <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置插件，输入i编辑</span></span><br><span class="line">vim ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在这一行里加入 zsh-autosuggestions</span></span><br><span class="line">plugins=(git)</span><br><span class="line"><span class="comment"># 加入之后如下，点击 ESC 输入 :wq 保存重启 Termux 即可生效</span></span><br><span class="line">plugins=(git zsh-autosuggestions)</span><br></pre></td></tr></table></figure>
-<p><img src="/img/post/2023/05/08/01.jpg"></p>
-<h3 id="root"><a href="#root" class="headerlink" title="root"></a>root</h3><p>没有 <code>root</code> 可以利用 <code>proot</code> 为没有 <code>root</code> 的用户来模拟一个 <code>root</code> 的环境。</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">pkg install proot -y</span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">termux-chroot</span><br><span class="line"><span class="comment"># 退出</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-<p>有 <code>root</code> 可以安装 <code>tsu</code> ，这是一个 <code>su</code> 的 Termux 版本，是一个真正的<code>root</code> 权限，用来在 Termux 上替代 <code>su</code></p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">pkg install tsu -y</span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">tsu</span><br><span class="line"><span class="comment"># 退出</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h3><p><code>OpenSSH</code> 是 SSH （Secure SHell） 协议的免费开源实现。SSH 协议族可以用来进行远程控制， 或在计算机之间传送文件。</p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">pkg install openssh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line"><span class="comment"># ssh -p 端口号 用户名@主机名或者IP</span></span><br><span class="line">ssh -p 22 user@hostname_or_ip</span><br><span class="line"><span class="comment"># ssh -i 私钥 用户名@主机名或者IP</span></span><br><span class="line">ssh -i id_rsa user@hostname_or_ip</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Android</tag>
-        <tag>Termux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>虚拟机安装 Ubuntu 20.04</title>
     <url>/posts/c82dee71/</url>
     <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>本文采用 <a href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html">VMware Workstation</a> 虚拟机安装，请在电脑上安装好虚拟机</p>
@@ -1344,6 +1288,103 @@
         <tag>Ubuntu</tag>
         <tag>VMware Workstation</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>在电脑上使用 Ubuntu 安装 Droid Normal Assistant</title>
+    <url>/posts/f69b264e/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><h4 id="Droid-Normal-Assistant"><a href="#Droid-Normal-Assistant" class="headerlink" title="Droid Normal Assistant"></a>Droid Normal Assistant</h4><p>安卓一般固件解包打包助手， 简称： <a href="https://gitee.com/sharpeter/DNA">D.N.A</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li><p>输入下列代码</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade -y <span class="comment">#必须执行</span></span><br><span class="line">sudo apt install git cpio aria2 brotli android-sdk-libsparse-utils openjdk-11-jre p7zip-full -y <span class="comment">#必须执行，使用新版本前建议重新安装一次</span></span><br><span class="line">sudo apt install zip unzip gawk sed curl wget -y <span class="comment">#可选，非必需</span></span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2021/07/15/01.png"> <img src="/img/posts/2021/07/15/02.png"></p>
+<br />
+</li>
+<li><p>下载 D.N.A</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/CapShift/D.N.A-2.git -b x86_64 DNA2</span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2021/07/15/03.png"></p>
+<br />
+</li>
+<li><p>启动</p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> DNA &amp;&amp; python3 run.py</span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2021/07/15/04.png"> <img src="/img/posts/2021/07/15/05.png"></p>
+<br /></li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Ubuntu</tag>
+        <tag>D.N.A</tag>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows 10 启用 Linux 子系统</title>
+    <url>/posts/67ae9c91/</url>
+    <content><![CDATA[<h3 id="1-启用开发人员模式"><a href="#1-启用开发人员模式" class="headerlink" title="1. 启用开发人员模式"></a>1. 启用开发人员模式</h3><p>设置 &gt; 更新和安全 &gt; 开发者选项 &gt; 启用开发人员模式<br><img src="/img/posts/2021/07/06/01.png"> <img src="/img/posts/2021/07/06/02.png"> <img src="/img/posts/2021/07/06/03.png"></p>
+<h3 id="2-更改系统功能"><a href="#2-更改系统功能" class="headerlink" title="2. 更改系统功能"></a>2. 更改系统功能</h3><p>使用Win+X快捷键调出系统管理菜单(也可以右击Win开始菜单调出) &gt; 应用和功能 &gt; 程序和功能 &gt; 启用或关闭 Windows 功能 &gt; 勾选适用于 Linux 的 Windows 子系统 &gt; 确定 &gt; 重启电脑<br><img src="/img/posts/2021/07/06/04.png"> <img src="/img/posts/2021/07/06/05.png"> <img src="/img/posts/2021/07/06/06.png"> <img src="/img/posts/2021/07/06/07.png"></p>
+<h3 id="3-安装Linux子系统"><a href="#3-安装Linux子系统" class="headerlink" title="3. 安装Linux子系统"></a>3. 安装Linux子系统</h3><p>重启系统后，打开 Microsoft Store，搜索 WSL，选择 Ubuntu 20.04 LTS，安装即可<br><img src="/img/posts/2021/07/06/08.png"> <img src="/img/posts/2021/07/06/09.png"> <img src="/img/posts/2021/07/06/10.png"> <img src="/img/posts/2021/07/06/11.png"> <img src="/img/posts/2021/07/06/12.png"></p>
+<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">sudo passwd root	<span class="comment">#设置root密码</span></span><br></pre></td></tr></table></figure>
+<p><img src="/img/posts/2021/07/06/13.png"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Ubuntu</tag>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Stable Diffusion 七种图片放大方法</title>
+    <url>/posts/83977f27/</url>
+    <content><![CDATA[<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>本文将使用以下七种方法放大图片，<font color="#F25221">高分辨率修复 (Hires. fix)</font> 只能用于文生图，该方法不太好控制，很难得到满意的图。<br><br></p>
+<h4 id="高分辨率修复-Hires-fix"><a href="#高分辨率修复-Hires-fix" class="headerlink" title="高分辨率修复 (Hires. fix)"></a>高分辨率修复 (Hires. fix)</h4><p>点击<font color="#F25221">图片信息</font>，把图片导入，获取参数后点击<font color="#F25221">发送到文生图</font><br><img src="/img/posts/2023/07/05/01.png"><br>选择<font color="#F25221">高分辨率修复 (Hires. fix)</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，重绘幅度按需选择，数值越大，与原图差异越大，参数调整完后点击<font color="#F25221">生成</font>即可<br><img src="/img/posts/2023/07/05/02.png"><br><br></p>
+<h4 id="后期处理"><a href="#后期处理" class="headerlink" title="后期处理"></a>后期处理</h4><p>点击<font color="#F25221">后期处理</font>，把图片导入，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，最后点击<font color="#F25221">生成</font>即可<br><img src="/img/posts/2023/07/05/03.png"><br><br></p>
+<h4 id="SD-upscale"><a href="#SD-upscale" class="headerlink" title="SD upscale"></a>SD upscale</h4><p>点击<font color="#F25221">图片信息</font>，把图片导入，获取参数后点击<font color="#F25221">发送到图生图</font><br><img src="/img/posts/2023/07/05/04.png"><br>脚本选择 <font color="#F25221">SD upscale</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，最后点击<font color="#F25221">生成</font>即可。如果画面崩坏，可以通过调低<font color="#F25221">重绘幅度</font>的数值，进行控制生成的图片。<br><img src="/img/posts/2023/07/05/05.png"><img src="/img/posts/2023/07/05/06.png"><br><br></p>
+<h4 id="Ultimate-SD-upscale"><a href="#Ultimate-SD-upscale" class="headerlink" title="Ultimate SD upscale"></a>Ultimate SD upscale</h4><p>脚本选择 <font color="#F25221">Ultimate SD upscale</font>，目标尺寸类型选择<font color="#F25221">Scale from image size</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>，类型选择<font color="#F25221">Chess</font>，最后点击<font color="#F25221">生成</font>即可。如果画面崩坏，可以通过调低<font color="#F25221">重绘幅度</font>的数值，进行控制生成的图片。<br><img src="/img/posts/2023/07/05/07.png"><img src="/img/posts/2023/07/05/08.png"><br><br></p>
+<h4 id="ControlNet-tile"><a href="#ControlNet-tile" class="headerlink" title="ControlNet tile"></a>ControlNet tile</h4><p><font color="#F25221">Ultimate SD upscale</font> 方法不变，然后打开<font color="#F25221">ControlNet</font>选项卡，导入图片并点击<font color="#F25221">启用</font>，控制类型选择<font color="#F25221">Tile(分块)</font>，最后点击<font color="#F25221">生成</font>即可。如果画面崩坏，可以通过调低<font color="#F25221">重绘幅度</font>的数值，进行控制生成的图片。<br><img src="/img/posts/2023/07/05/09.png"><img src="/img/posts/2023/07/05/10.png"><br><br></p>
+<h4 id="Tiled-Diffusion-Tiled-VAE"><a href="#Tiled-Diffusion-Tiled-VAE" class="headerlink" title="Tiled Diffusion + Tiled VAE"></a>Tiled Diffusion + Tiled VAE</h4><p>打开<font color="#F25221">Tiled Diffusion</font>选项卡，点击<font color="#F25221">启用 Tiled Diffusion</font>，放大算法选择<font color="#F25221">R-ESRGAN 4x+</font>。打开<font color="#F25221">Tiled VAE</font>选项卡，点击<font color="#F25221">启用 Tiled VAE</font>，然后点击<font color="#F25221">生成</font>即可。<br><img src="/img/posts/2023/07/05/11.png"><img src="/img/posts/2023/07/05/12.png"><br><br></p>
+<h4 id="StableSR"><a href="#StableSR" class="headerlink" title="StableSR"></a>StableSR</h4><p>脚本选择 <font color="#F25221">StableSR</font>，SR Model选择<font color="#F25221">webui_768v_139.ckpt</font>，然后点击<font color="#F25221">生成</font>即可。<br><img src="/img/posts/2023/07/05/13.png"><img src="/img/posts/2023/07/05/14.png"><br><br></p>
+<h4 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h4><p>原图<br><img src="/img/posts/2023/07/05/enlarge_00.png"><br>高分辨率修复 (Hires. fix)<br><img src="/img/posts/2023/07/05/enlarge_01.png"><br>后期处理<br><img src="/img/posts/2023/07/05/enlarge_02.png"><br>SD upscale<br><img src="/img/posts/2023/07/05/enlarge_03.png"><br>Ultimate SD upscale<br><img src="/img/posts/2023/07/05/enlarge_04.png"><br>ControlNet tile<br><img src="/img/posts/2023/07/05/enlarge_05.png"><br>Tiled Diffusion + Tiled VAE<br><img src="/img/posts/2023/07/05/enlarge_06.png"><br>StableSR<br><img src="/img/posts/2023/07/05/enlarge_07.png"><br><br></p>
+]]></content>
+      <categories>
+        <category>Stable Diffusion</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Stable Diffusion</tag>
+        <tag>Ai 绘图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/posts/4a17b156/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Windows 搭建原神私服</title>
@@ -1530,22 +1571,36 @@
       </tags>
   </entry>
   <entry>
-    <title>Windows 10 启用 Linux 子系统</title>
-    <url>/posts/67ae9c91/</url>
-    <content><![CDATA[<h3 id="1-启用开发人员模式"><a href="#1-启用开发人员模式" class="headerlink" title="1. 启用开发人员模式"></a>1. 启用开发人员模式</h3><p>设置 &gt; 更新和安全 &gt; 开发者选项 &gt; 启用开发人员模式<br><img src="/img/posts/2021/07/06/01.png"> <img src="/img/posts/2021/07/06/02.png"> <img src="/img/posts/2021/07/06/03.png"></p>
-<h3 id="2-更改系统功能"><a href="#2-更改系统功能" class="headerlink" title="2. 更改系统功能"></a>2. 更改系统功能</h3><p>使用Win+X快捷键调出系统管理菜单(也可以右击Win开始菜单调出) &gt; 应用和功能 &gt; 程序和功能 &gt; 启用或关闭 Windows 功能 &gt; 勾选适用于 Linux 的 Windows 子系统 &gt; 确定 &gt; 重启电脑<br><img src="/img/posts/2021/07/06/04.png"> <img src="/img/posts/2021/07/06/05.png"> <img src="/img/posts/2021/07/06/06.png"> <img src="/img/posts/2021/07/06/07.png"></p>
-<h3 id="3-安装Linux子系统"><a href="#3-安装Linux子系统" class="headerlink" title="3. 安装Linux子系统"></a>3. 安装Linux子系统</h3><p>重启系统后，打开 Microsoft Store，搜索 WSL，选择 Ubuntu 20.04 LTS，安装即可<br><img src="/img/posts/2021/07/06/08.png"> <img src="/img/posts/2021/07/06/09.png"> <img src="/img/posts/2021/07/06/10.png"> <img src="/img/posts/2021/07/06/11.png"> <img src="/img/posts/2021/07/06/12.png"></p>
-<figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">sudo passwd root	<span class="comment">#设置root密码</span></span><br></pre></td></tr></table></figure>
-<p><img src="/img/posts/2021/07/06/13.png"></p>
+    <title>原神使用 3DMigoto Loader 加载 Mod</title>
+    <url>/posts/7717321e/</url>
+    <content><![CDATA[<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>选择 3dmigoto-GIMI-for-playing-mods.zip 下载<br><img src="/img/posts/2022/10/19/01.png"></p>
+<div class="download_layout">
+  <img class="download_icon1" src="/img/icon/Download/01.svg" />
+  <div class="download_text">
+    <span>GI Model Importer</span>
+    <p>来源: GitHub</p>
+  </div>
+  <div class="download_url"><a href="https://github.com/SilentNightSound/GI-Model-Importer/releases" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div>
+</div>
+</br>
+
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><h5 id="编辑-d3dx-ini"><a href="#编辑-d3dx-ini" class="headerlink" title="编辑 d3dx.ini"></a>编辑 d3dx.ini</h5><p>解压下载的压缩包，打开 d3dx.ini 文件，搜索 loader ,找到 <code>target = </code><br><img src="/img/posts/2022/10/19/02.png"><br>找到你的游戏路径后，将 <code>target = </code> 后面的路径修改成你的游戏路径，然后保存即可<br><img src="/img/posts/2022/10/19/04.png"><br><img src="/img/posts/2022/10/19/03.png"></p>
+<h5 id="Mod-使用方法"><a href="#Mod-使用方法" class="headerlink" title="Mod 使用方法"></a>Mod 使用方法</h5><p>打开 <a href="https://gamebanana.com/games/8552">GameBanana</a> 网站，找到你想要的 Mod</p>
+<p>例如：我想要下图八重神子的 Mod<br><img src="/img/posts/2022/10/19/05.png"></p>
+<p>把她下载下来<br><img src="/img/posts/2022/10/19/06.png"><img src="/img/posts/2022/10/19/07.png"></p>
+<p>打开下载的 Mod 压缩包，把里面的文件夹，解压至 <code>3dmigoto/Mods</code>  的文件夹内<br><img src="/img/posts/2022/10/19/08.png"><img src="/img/posts/2022/10/19/09.png"></p>
+<h5 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h5><p>用管理员模式打开 3DMigoto Loader.exe<br><img src="/img/posts/2022/10/19/10.png"></p>
+<p>然后打开游戏，启动成功的话，命令窗口会消失，游戏内按 F10 即可刷新模型<br><img src="/img/posts/2022/10/19/11.png"></p>
 ]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>Ubuntu</tag>
         <tag>Windows</tag>
+        <tag>原神</tag>
+        <tag>私服</tag>
+        <tag>GIMI</tag>
       </tags>
   </entry>
   <entry>
@@ -1631,60 +1686,5 @@
         <tag>私服</tag>
         <tag>DNF</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>原神使用 3DMigoto Loader 加载 Mod</title>
-    <url>/posts/7717321e/</url>
-    <content><![CDATA[<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>选择 3dmigoto-GIMI-for-playing-mods.zip 下载<br><img src="/img/posts/2022/10/19/01.png"></p>
-<div class="download_layout">
-  <img class="download_icon1" src="/img/icon/Download/01.svg" />
-  <div class="download_text">
-    <span>GI Model Importer</span>
-    <p>来源: GitHub</p>
-  </div>
-  <div class="download_url"><a href="https://github.com/SilentNightSound/GI-Model-Importer/releases" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg" /></a></div>
-</div>
-</br>
-
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><h5 id="编辑-d3dx-ini"><a href="#编辑-d3dx-ini" class="headerlink" title="编辑 d3dx.ini"></a>编辑 d3dx.ini</h5><p>解压下载的压缩包，打开 d3dx.ini 文件，搜索 loader ,找到 <code>target = </code><br><img src="/img/posts/2022/10/19/02.png"><br>找到你的游戏路径后，将 <code>target = </code> 后面的路径修改成你的游戏路径，然后保存即可<br><img src="/img/posts/2022/10/19/04.png"><br><img src="/img/posts/2022/10/19/03.png"></p>
-<h5 id="Mod-使用方法"><a href="#Mod-使用方法" class="headerlink" title="Mod 使用方法"></a>Mod 使用方法</h5><p>打开 <a href="https://gamebanana.com/games/8552">GameBanana</a> 网站，找到你想要的 Mod</p>
-<p>例如：我想要下图八重神子的 Mod<br><img src="/img/posts/2022/10/19/05.png"></p>
-<p>把她下载下来<br><img src="/img/posts/2022/10/19/06.png"><img src="/img/posts/2022/10/19/07.png"></p>
-<p>打开下载的 Mod 压缩包，把里面的文件夹，解压至 <code>3dmigoto/Mods</code>  的文件夹内<br><img src="/img/posts/2022/10/19/08.png"><img src="/img/posts/2022/10/19/09.png"></p>
-<h5 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h5><p>用管理员模式打开 3DMigoto Loader.exe<br><img src="/img/posts/2022/10/19/10.png"></p>
-<p>然后打开游戏，启动成功的话，命令窗口会消失，游戏内按 F10 即可刷新模型<br><img src="/img/posts/2022/10/19/11.png"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Windows</tag>
-        <tag>原神</tag>
-        <tag>私服</tag>
-        <tag>GIMI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/4a17b156/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
-<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
 </search>
