@@ -191,7 +191,7 @@
 
 <h4 id="连接-ssh"><a href="#连接-ssh" class="headerlink" title="连接 ssh"></a>连接 ssh</h4><p>双击打开 <code>一键通过adb连接棒子</code>，即可成功连接上 ssh<br><img src="/img/posts/2024/03/21/16.webp"></p>
 <blockquote>
-<p>登录地址：ssh <a href="mailto:&#114;&#x6f;&#111;&#x74;&#64;&#49;&#x30;&#46;&#52;&#x32;&#x2e;&#48;&#46;&#x31;">&#114;&#x6f;&#111;&#x74;&#64;&#49;&#x30;&#46;&#52;&#x32;&#x2e;&#48;&#46;&#x31;</a> 1313144</p>
+<p>登录地址：ssh <a href="mailto:&#114;&#x6f;&#111;&#116;&#64;&#x31;&#x30;&#x2e;&#x34;&#x32;&#46;&#48;&#x2e;&#x31;">&#114;&#x6f;&#111;&#116;&#64;&#x31;&#x30;&#x2e;&#x34;&#x32;&#46;&#48;&#x2e;&#x31;</a> 1313144</p>
 </blockquote>
 </br>
 
@@ -199,7 +199,8 @@
 </br>
 
 <h4 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h4><p>编辑 <code>/etc/rc.local</code> 文件，添加开机要启动的服务</p>
-
+<h4 id="USB模式"><a href="#USB模式" class="headerlink" title="USB模式"></a>USB模式</h4><figure class="highlight bash"><figcaption><div></div><div class="r2"></div><div class="r3"></div><span>BASH</span></figcaption>
+<input class="btn-copy" type="image" src="/img/icon/copy.svg" alt="复制" /><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> host &gt; /sys/class/udc/ci_hdrc.0/device/driver/ci_hdrc.0/role</span><br></pre></td></tr></table></figure>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
@@ -277,7 +278,7 @@
         <div class="directory">
             <div class="directory_btn float_btn"></div>
             <div class="directory_list">
-                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%B7%E5%85%A5"><span class="toc-number">2.</span> <span class="toc-text">刷入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">更新驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5-ssh"><span class="toc-number">4.</span> <span class="toc-text">连接 ssh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5-WIFI"><span class="toc-number">5.</span> <span class="toc-text">连接 WIFI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="toc-number">6.</span> <span class="toc-text">开机启动</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%B7%E5%85%A5"><span class="toc-number">2.</span> <span class="toc-text">刷入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E9%A9%B1%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">更新驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5-ssh"><span class="toc-number">4.</span> <span class="toc-text">连接 ssh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5-WIFI"><span class="toc-number">5.</span> <span class="toc-text">连接 WIFI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="toc-number">6.</span> <span class="toc-text">开机启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#USB%E6%A8%A1%E5%BC%8F"><span class="toc-number">7.</span> <span class="toc-text">USB模式</span></a></li></ol>
             </div>
         </div>
     </div>
