@@ -50,94 +50,6 @@
       </tags>
   </entry>
   <entry>
-    <title>GitHub 静态网站绑定域名</title>
-    <url>/posts/b09467db/</url>
-    <content><![CDATA[<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><ol>
-<li>登录 <a href="https://www.dnspod.cn/">DNSPod</a> 网站</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/13.jpg"></p>
-<ol start="2">
-<li>打开 <code>管理控制台</code> &gt; <code>DNS 解析</code></li>
-</ol>
-<p><img src="/img/posts/2020/05/18/14.jpg"></p>
-<ol start="3">
-<li>点击添加域名，输入申请的域名，然后确认</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/15.jpg"><br><img src="/img/posts/2020/05/18/16.jpg"></p>
-<ol start="4">
-<li>打开申请域名的网站，进入域名管理</li>
-</ol>
-<p><img src="/img/posts/2020/05/18/17.jpg"><br><img src="/img/posts/2020/05/18/18.jpg"></p>
-<ol start="5">
-<li>选择自定义，修改服务器地址，完成后点击 <code>Change Nameservers</code>。 然后等待DNS服务器生效，短的话几分钟，长的话几个小时，请耐性等候。</li>
-</ol>
-<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #24292e">f1g1ns1.dnspod.net</span></span>
-<span class="line"><span style="color: #24292e">f1g1ns2.dnspod.net</span></span></code></pre></div></div></figure>
-<p><img src="/img/posts/2020/05/18/19.jpg"><br><img src="/img/posts/2020/05/18/20.jpg"></p>
-<ol start="6">
-<li>打开 GitHub 静态网站所在的仓库，在根目录里面添加 <code>CNAME</code> 文件，输入域名，然后点击 <code>Commit changes</code></li>
-</ol>
-<p><img src="/img/posts/2020/05/18/21.jpg"><br><img src="/img/posts/2020/05/18/22.jpg"></p>
-<ol start="7">
-<li>回到 DNSPod 网站，打开添加的域名，添加解析记录，输入 GitHub 静态网站的地址\</li>
-</ol>
-<blockquote>
-<ol>
-<li>主机记录分别为 @ 和 www</li>
-<li>记录类型为 CNAME</li>
-<li>记录值为 GitHub静态网地址</li>
-</ol>
-</blockquote>
-<p><img src="/img/posts/2020/05/18/23.jpg"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>域名</tag>
-        <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git Portable 配置</title>
-    <url>/posts/1543b37f/</url>
-    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Git Portable 是针对 Windows 版 Git 所设计的一款软件，你可以选择将它安装在U盘或移动硬盘等便携设备上。它不需要安装，也不会在注册表上留下记录。它无法像安装版的 Git 那样，可以使用右键 <code>Git Bash</code> 或者 <code>Git GUI</code> 。</p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>打开 <a href="https://git-scm.com/downloads/win">Git</a> 官网下载</p>
-<p><img src="/img/posts/2020/05/18/24.jpg"></p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>Git 每次进行提交时，都会检查是否有提交者的信息。为了避免每次都要重新设置用户信息，因此我们只需要将配置保存在 Git Portable 的安装路径下，然后将这个路径临时设置为 <code>$HOME</code> 即可。下面是 &#96;&#96;.gitconfig&#96; 文件的格式</p>
-<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #24292e">[user]</span></span>
-<span class="line"><span style="color: #24292e">    name = Your name</span></span>
-<span class="line"><span style="color: #24292e">    email = Your e-mail</span></span></code></pre></div></div></figure>
-
-<h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><ol>
-<li>用下面的命令生成密钥。</li>
-</ol>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">ssh-keygen</span><span style="color: #24292E"> </span><span style="color: #005CC5">-t</span><span style="color: #24292E"> </span><span style="color: #032F62">rsa</span><span style="color: #24292E"> </span><span style="color: #005CC5">-C</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;Your e-mail&quot;</span></span></code></pre></div></div></figure>
-<ol start="2">
-<li>回车后输入 Git Portable 的安装路径, 后面的默认直接回车。</li>
-</ol>
-<h3 id="git-ignore"><a href="#git-ignore" class="headerlink" title="git ignore"></a>git ignore</h3><p>GitHub 上有一个针对不同语言或编程环境的 .gitignore 文件列表可供我们免费使用, 但每次从上面下载的话，是比较麻烦的。基于这个文件列表设计了一个自动添加 .gitignore 文件的命令  <code>git ignore</code>。针对 Git Portable，可以在前面提到的 <code>.gitconfig</code> 文件中添加下面的代码。</p>
-<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>在系统环境变量 <code>PATH</code> 中，添加 Git Portable 的存放路径下的 cmd 文件夹，在 cmd 窗口中使用 <code>git version</code> 命令可验证是否成功。</p>
-<h3 id="添加右键菜单"><a href="#添加右键菜单" class="headerlink" title="添加右键菜单"></a>添加右键菜单</h3><p>在 Git Portable 存放路径下，新建一个 bat 文件，名字随意，在里面粘贴下列代码，保存后以管理员身份运行。</p>
-<figure class="shiki cmd"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #24292E">@rem 图标路径 </span></span>
-<span class="line"><span style="color: #D73A49">set </span><span style="color: #24292E">icon</span><span style="color: #D73A49">=%~</span><span style="color: #24292E">dp0mingw64\share\git\git</span><span style="color: #D73A49">-for-</span><span style="color: #24292E">windows.ico</span></span>
-<span class="line"><span style="color: #24292E">@rem 程序路径 </span></span>
-<span class="line"><span style="color: #D73A49">set </span><span style="color: #24292E">command</span><span style="color: #D73A49">=%~</span><span style="color: #24292E">dp0git</span><span style="color: #D73A49">-</span><span style="color: #24292E">bash.exe</span></span>
-<span class="line"><span style="color: #24292E">reg </span><span style="color: #005CC5">add</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInGit&quot;</span><span style="color: #24292E"> /d </span><span style="color: #032F62">&quot;Git Bash&quot;</span><span style="color: #24292E"> /f</span></span>
-<span class="line"><span style="color: #24292E">reg </span><span style="color: #005CC5">add</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInGit\command&quot;</span><span style="color: #24292E"> /d </span><span style="color: #032F62">&quot;%command%&quot;</span><span style="color: #24292E"> /f</span></span>
-<span class="line"><span style="color: #24292E">reg </span><span style="color: #005CC5">add</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInGit&quot;</span><span style="color: #24292E"> /v </span><span style="color: #032F62">&quot;Icon&quot;</span><span style="color: #24292E"> /d </span><span style="color: #032F62">&quot;%icon%&quot;</span><span style="color: #24292E"> /f</span></span>
-<span class="line"><span style="color: #24292E">ECHO 添加右键菜单成功</span></span>
-<span class="line"><span style="color: #24292E">pause</span></span></code></pre></div></div></figure>]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Diaspora 主题魔改</title>
     <url>/posts/ff31d855/</url>
     <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ol>
@@ -653,6 +565,68 @@
       </tags>
   </entry>
   <entry>
+    <title>Git Portable 配置</title>
+    <url>/posts/1543b37f/</url>
+    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Git Portable 是针对 Windows 版 Git 所设计的一款软件，你可以选择将它安装在U盘或移动硬盘等便携设备上。它不需要安装，也不会在注册表上留下记录。它无法像安装版的 Git 那样，可以使用右键 <code>Git Bash</code> 或者 <code>Git GUI</code> 。</p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>打开 <a href="https://git-scm.com/downloads/win">Git</a> 官网下载</p>
+<p><img src="/img/posts/2020/05/18/24.jpg"></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>Git 每次进行提交时，都会检查是否有提交者的信息。为了避免每次都要重新设置用户信息，因此我们只需要将配置保存在 Git Portable 的安装路径下，然后将这个路径临时设置为 <code>$HOME</code> 即可。下面是 &#96;&#96;.gitconfig&#96; 文件的格式</p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #24292e">[user]</span></span>
+<span class="line"><span style="color: #24292e">    name = Your name</span></span>
+<span class="line"><span style="color: #24292e">    email = Your e-mail</span></span></code></pre></div></div></figure>
+
+<h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><ol>
+<li>用下面的命令生成密钥。</li>
+</ol>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">ssh-keygen</span><span style="color: #24292E"> </span><span style="color: #005CC5">-t</span><span style="color: #24292E"> </span><span style="color: #032F62">rsa</span><span style="color: #24292E"> </span><span style="color: #005CC5">-C</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;Your e-mail&quot;</span></span></code></pre></div></div></figure>
+<ol start="2">
+<li>回车后输入 Git Portable 的安装路径, 后面的默认直接回车。</li>
+</ol>
+<h3 id="git-ignore"><a href="#git-ignore" class="headerlink" title="git ignore"></a>git ignore</h3><p>GitHub 上有一个针对不同语言或编程环境的 .gitignore 文件列表可供我们免费使用, 但每次从上面下载的话，是比较麻烦的。基于这个文件列表设计了一个自动添加 .gitignore 文件的命令  <code>git ignore</code>。针对 Git Portable，可以在前面提到的 <code>.gitconfig</code> 文件中添加下面的代码。</p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>在系统环境变量 <code>PATH</code> 中，添加 Git Portable 的存放路径下的 cmd 文件夹，在 cmd 窗口中使用 <code>git version</code> 命令可验证是否成功。</p>
+<h3 id="添加右键菜单"><a href="#添加右键菜单" class="headerlink" title="添加右键菜单"></a>添加右键菜单</h3><p>在 Git Portable 存放路径下，新建一个 bat 文件，名字随意，在里面粘贴下列代码，保存后以管理员身份运行。</p>
+<figure class="shiki cmd"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #24292E">@rem 图标路径 </span></span>
+<span class="line"><span style="color: #D73A49">set </span><span style="color: #24292E">icon</span><span style="color: #D73A49">=%~</span><span style="color: #24292E">dp0mingw64\share\git\git</span><span style="color: #D73A49">-for-</span><span style="color: #24292E">windows.ico</span></span>
+<span class="line"><span style="color: #24292E">@rem 程序路径 </span></span>
+<span class="line"><span style="color: #D73A49">set </span><span style="color: #24292E">command</span><span style="color: #D73A49">=%~</span><span style="color: #24292E">dp0git</span><span style="color: #D73A49">-</span><span style="color: #24292E">bash.exe</span></span>
+<span class="line"><span style="color: #24292E">reg </span><span style="color: #005CC5">add</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInGit&quot;</span><span style="color: #24292E"> /d </span><span style="color: #032F62">&quot;Git Bash&quot;</span><span style="color: #24292E"> /f</span></span>
+<span class="line"><span style="color: #24292E">reg </span><span style="color: #005CC5">add</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInGit\command&quot;</span><span style="color: #24292E"> /d </span><span style="color: #032F62">&quot;%command%&quot;</span><span style="color: #24292E"> /f</span></span>
+<span class="line"><span style="color: #24292E">reg </span><span style="color: #005CC5">add</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInGit&quot;</span><span style="color: #24292E"> /v </span><span style="color: #032F62">&quot;Icon&quot;</span><span style="color: #24292E"> /d </span><span style="color: #032F62">&quot;%icon%&quot;</span><span style="color: #24292E"> /f</span></span>
+<span class="line"><span style="color: #24292E">ECHO 添加右键菜单成功</span></span>
+<span class="line"><span style="color: #24292E">pause</span></span></code></pre></div></div></figure>]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub 删除所有提交记录</title>
+    <url>/posts/802b0d9b/</url>
+    <content><![CDATA[<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>在 GitHub 的项目路径下，打开 <code>Git Bash</code> 窗口，运行下列代码。</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 尝试运行</span></span>
+<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">checkout</span><span style="color: #24292E"> </span><span style="color: #005CC5">--orphan</span><span style="color: #24292E"> </span><span style="color: #032F62">latest_branch</span></span>
+<span class="line"><span style="color: #6A737D"># 添加所有文件</span></span>
+<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">add</span><span style="color: #24292E"> </span><span style="color: #005CC5">-A</span></span>
+<span class="line"><span style="color: #6A737D"># 提交更改</span></span>
+<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">commit</span><span style="color: #24292E"> </span><span style="color: #005CC5">-am</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;commit message&quot;</span></span>
+<span class="line"><span style="color: #6A737D"># 删除分支</span></span>
+<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">branch</span><span style="color: #24292E"> </span><span style="color: #005CC5">-D</span><span style="color: #24292E"> </span><span style="color: #032F62">master</span></span>
+<span class="line"><span style="color: #6A737D"># 将当前分支重命名</span></span>
+<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">branch</span><span style="color: #24292E"> </span><span style="color: #005CC5">-m</span><span style="color: #24292E"> </span><span style="color: #032F62">master</span></span>
+<span class="line"><span style="color: #6A737D"># 强制更新存储库</span></span>
+<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">push</span><span style="color: #24292E"> </span><span style="color: #005CC5">-f</span><span style="color: #24292E"> </span><span style="color: #032F62">origin</span><span style="color: #24292E"> </span><span style="color: #032F62">master</span></span></code></pre></div></div></figure>]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/posts/4a17b156/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -669,6 +643,56 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>GitHub 静态网站绑定域名</title>
+    <url>/posts/b09467db/</url>
+    <content><![CDATA[<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><ol>
+<li>登录 <a href="https://www.dnspod.cn/">DNSPod</a> 网站</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/13.jpg"></p>
+<ol start="2">
+<li>打开 <code>管理控制台</code> &gt; <code>DNS 解析</code></li>
+</ol>
+<p><img src="/img/posts/2020/05/18/14.jpg"></p>
+<ol start="3">
+<li>点击添加域名，输入申请的域名，然后确认</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/15.jpg"><br><img src="/img/posts/2020/05/18/16.jpg"></p>
+<ol start="4">
+<li>打开申请域名的网站，进入域名管理</li>
+</ol>
+<p><img src="/img/posts/2020/05/18/17.jpg"><br><img src="/img/posts/2020/05/18/18.jpg"></p>
+<ol start="5">
+<li>选择自定义，修改服务器地址，完成后点击 <code>Change Nameservers</code>。 然后等待DNS服务器生效，短的话几分钟，长的话几个小时，请耐性等候。</li>
+</ol>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #24292e">f1g1ns1.dnspod.net</span></span>
+<span class="line"><span style="color: #24292e">f1g1ns2.dnspod.net</span></span></code></pre></div></div></figure>
+<p><img src="/img/posts/2020/05/18/19.jpg"><br><img src="/img/posts/2020/05/18/20.jpg"></p>
+<ol start="6">
+<li>打开 GitHub 静态网站所在的仓库，在根目录里面添加 <code>CNAME</code> 文件，输入域名，然后点击 <code>Commit changes</code></li>
+</ol>
+<p><img src="/img/posts/2020/05/18/21.jpg"><br><img src="/img/posts/2020/05/18/22.jpg"></p>
+<ol start="7">
+<li>回到 DNSPod 网站，打开添加的域名，添加解析记录，输入 GitHub 静态网站的地址\</li>
+</ol>
+<blockquote>
+<ol>
+<li>主机记录分别为 @ 和 www</li>
+<li>记录类型为 CNAME</li>
+<li>记录值为 GitHub静态网地址</li>
+</ol>
+</blockquote>
+<p><img src="/img/posts/2020/05/18/23.jpg"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>域名</tag>
+        <tag>GitHub</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hexo 命令</title>
@@ -751,65 +775,7 @@
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>GitHub</tag>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo 更新</title>
-    <url>/posts/f2539c19/</url>
-    <content><![CDATA[<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>在 Hexo 目录下，鼠标右键打开 <code>git bash</code> 命令窗口，执行以下命令</p>
-<ol>
-<li>更新 hexo-cli</li>
-</ol>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">npm</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #032F62">hexo-cli</span><span style="color: #24292E"> </span><span style="color: #005CC5">-g</span></span></code></pre></div></div></figure>
-
-<ol start="2">
-<li>检查插件更新</li>
-</ol>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">npm</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #005CC5">-g</span><span style="color: #24292E"> </span><span style="color: #032F62">npm-check</span></span>
-<span class="line"><span style="color: #6F42C1">npm-check</span></span></code></pre></div></div></figure>
-
-<ol start="3">
-<li>更新插件</li>
-</ol>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">npm</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #005CC5">-g</span><span style="color: #24292E"> </span><span style="color: #032F62">npm-upgrade</span></span>
-<span class="line"><span style="color: #6F42C1">npm-upgrade</span></span></code></pre></div></div></figure>
-
-<ol start="4">
-<li>全局更新</li>
-</ol>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">npm</span><span style="color: #24292E"> </span><span style="color: #032F62">update</span><span style="color: #24292E"> </span><span style="color: #005CC5">-g</span></span>
-<span class="line"><span style="color: #6F42C1">npm</span><span style="color: #24292E"> </span><span style="color: #032F62">update</span><span style="color: #24292E"> </span><span style="color: #005CC5">--save</span></span></code></pre></div></div></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GitHub 删除所有提交记录</title>
-    <url>/posts/802b0d9b/</url>
-    <content><![CDATA[<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>在 GitHub 的项目路径下，打开 <code>Git Bash</code> 窗口，运行下列代码。</p>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 尝试运行</span></span>
-<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">checkout</span><span style="color: #24292E"> </span><span style="color: #005CC5">--orphan</span><span style="color: #24292E"> </span><span style="color: #032F62">latest_branch</span></span>
-<span class="line"><span style="color: #6A737D"># 添加所有文件</span></span>
-<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">add</span><span style="color: #24292E"> </span><span style="color: #005CC5">-A</span></span>
-<span class="line"><span style="color: #6A737D"># 提交更改</span></span>
-<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">commit</span><span style="color: #24292E"> </span><span style="color: #005CC5">-am</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;commit message&quot;</span></span>
-<span class="line"><span style="color: #6A737D"># 删除分支</span></span>
-<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">branch</span><span style="color: #24292E"> </span><span style="color: #005CC5">-D</span><span style="color: #24292E"> </span><span style="color: #032F62">master</span></span>
-<span class="line"><span style="color: #6A737D"># 将当前分支重命名</span></span>
-<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">branch</span><span style="color: #24292E"> </span><span style="color: #005CC5">-m</span><span style="color: #24292E"> </span><span style="color: #032F62">master</span></span>
-<span class="line"><span style="color: #6A737D"># 强制更新存储库</span></span>
-<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">push</span><span style="color: #24292E"> </span><span style="color: #005CC5">-f</span><span style="color: #24292E"> </span><span style="color: #032F62">origin</span><span style="color: #24292E"> </span><span style="color: #032F62">master</span></span></code></pre></div></div></figure>]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
         <tag>GitHub</tag>
       </tags>
   </entry>
@@ -895,6 +861,69 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo 更新</title>
+    <url>/posts/f2539c19/</url>
+    <content><![CDATA[<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><p>在 Hexo 目录下，鼠标右键打开 <code>git bash</code> 命令窗口，执行以下命令</p>
+<ol>
+<li>更新 hexo-cli</li>
+</ol>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">npm</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #032F62">hexo-cli</span><span style="color: #24292E"> </span><span style="color: #005CC5">-g</span></span></code></pre></div></div></figure>
+
+<ol start="2">
+<li>检查插件更新</li>
+</ol>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">npm</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #005CC5">-g</span><span style="color: #24292E"> </span><span style="color: #032F62">npm-check</span></span>
+<span class="line"><span style="color: #6F42C1">npm-check</span></span></code></pre></div></div></figure>
+
+<ol start="3">
+<li>更新插件</li>
+</ol>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">npm</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #005CC5">-g</span><span style="color: #24292E"> </span><span style="color: #032F62">npm-upgrade</span></span>
+<span class="line"><span style="color: #6F42C1">npm-upgrade</span></span></code></pre></div></div></figure>
+
+<ol start="4">
+<li>全局更新</li>
+</ol>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">npm</span><span style="color: #24292E"> </span><span style="color: #032F62">update</span><span style="color: #24292E"> </span><span style="color: #005CC5">-g</span></span>
+<span class="line"><span style="color: #6F42C1">npm</span><span style="color: #24292E"> </span><span style="color: #032F62">update</span><span style="color: #24292E"> </span><span style="color: #005CC5">--save</span></span></code></pre></div></div></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 使用主题</title>
+    <url>/posts/b2b596ff/</url>
+    <content><![CDATA[<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><ol>
+<li>去 <a href="https://hexo.io/themes/">Hexo</a> 官网找喜欢的主题，以 <code>Diaspora</code> 主题为例，按下图操作</li>
+</ol>
+<p><img src="/img/posts/2020/05/12/15.jpg"><br><img src="/img/posts/2020/05/12/16.jpg"></p>
+<ol start="2">
+<li>在 Hexo 目录下，鼠标右键打开 <code>git bash</code> 命令窗口，粘贴命令</li>
+</ol>
+<p><img src="/img/posts/2020/05/12/17.jpg"></p>
+<ol start="3">
+<li>打开 Hexo 目录下的 <code>_config.yml</code> 文件，编辑 <code>theme</code> ，把 <code>landscape</code> 修改为 <code>diaspora</code></li>
+</ol>
+<p><img src="/img/posts/2020/05/12/18.jpg"></p>
+<ol start="4">
+<li>开启服务打开 <a href="http://localhost:4000/">http://localhost:4000/</a> ，即可发现主题已改变</li>
+</ol>
+<p><img src="/img/posts/2020/05/12/19.jpg"></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>主题</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows 本地搭建 Hexo</title>
     <url>/posts/a7b9bc2b/</url>
     <content><![CDATA[<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页</p>
@@ -950,35 +979,6 @@
         <tag>教程</tag>
         <tag>Hexo</tag>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo 使用主题</title>
-    <url>/posts/b2b596ff/</url>
-    <content><![CDATA[<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><ol>
-<li>去 <a href="https://hexo.io/themes/">Hexo</a> 官网找喜欢的主题，以 <code>Diaspora</code> 主题为例，按下图操作</li>
-</ol>
-<p><img src="/img/posts/2020/05/12/15.jpg"><br><img src="/img/posts/2020/05/12/16.jpg"></p>
-<ol start="2">
-<li>在 Hexo 目录下，鼠标右键打开 <code>git bash</code> 命令窗口，粘贴命令</li>
-</ol>
-<p><img src="/img/posts/2020/05/12/17.jpg"></p>
-<ol start="3">
-<li>打开 Hexo 目录下的 <code>_config.yml</code> 文件，编辑 <code>theme</code> ，把 <code>landscape</code> 修改为 <code>diaspora</code></li>
-</ol>
-<p><img src="/img/posts/2020/05/12/18.jpg"></p>
-<ol start="4">
-<li>开启服务打开 <a href="http://localhost:4000/">http://localhost:4000/</a> ，即可发现主题已改变</li>
-</ol>
-<p><img src="/img/posts/2020/05/12/19.jpg"></p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>主题</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1219,6 +1219,114 @@
       </tags>
   </entry>
   <entry>
+    <title>Termux 安装和配置</title>
+    <url>/posts/ea9a75b1/</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Termux 是一个 Android 终端仿真器和 Linux 环境应用程序，直接工作，无需根目录或设置。额外的软件包可以使用 APT 软件包管理器来使用。 不需要 root ，运行于内部存储。</p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><div class="download_layout">
+  <img class="download_icon1" src="/img/icon/Download/01.svg">
+  <div class="download_text">
+    <span>Termux</span>
+    <p>来源: <a href="https://f-droid.org/packages/com.termux/">F-Droid</a> | <a href="https://github.com/termux/termux-app/releases">GitHub</a></p>
+  </div>
+  <div class="download_url"><a href="https://f-droid.org/packages/com.termux/" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg"></a></div>
+</div>
+
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><p>除了支持 apt 命令外，还在此基础上封装了 pkg 命令，pkg 命令向下兼容 apt 命令</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">search</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">quer</span><span style="color: #24292E">y</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E">              </span><span style="color: #6A737D"># 搜索包</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">packag</span><span style="color: #24292E">e</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E">           </span><span style="color: #6A737D"># 安装包</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">uninstall</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">packag</span><span style="color: #24292E">e</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E">         </span><span style="color: #6A737D"># 卸载包</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">reinstall</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">packag</span><span style="color: #24292E">e</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E">         </span><span style="color: #6A737D"># 重新安装包</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">update</span><span style="color: #24292E">                      </span><span style="color: #6A737D"># 更新源</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">upgrade</span><span style="color: #24292E">                     </span><span style="color: #6A737D"># 升级软件包</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">list-all</span><span style="color: #24292E">                    </span><span style="color: #6A737D"># 列出可供安装的所有包</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">list-installed</span><span style="color: #24292E">              </span><span style="color: #6A737D"># 列出已经安装的包</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">show</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">packag</span><span style="color: #24292E">e</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E">              </span><span style="color: #6A737D"># 显示某个包的详细信息</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">files</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">packag</span><span style="color: #24292E">e</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E">             </span><span style="color: #6A737D"># 显示某个包的相关文件夹路径</span></span>
+<span class="line"><span style="color: #6F42C1">termux-setup-storage</span><span style="color: #24292E">            </span><span style="color: #6A737D"># 获取读写权限</span></span>
+<span class="line"><span style="color: #6F42C1">termux-change-repo</span><span style="color: #24292E">              </span><span style="color: #6A737D"># 更换源</span></span></code></pre></div></div></figure>
+
+<h3 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h3><p>官网默认源较慢，这里替换为清华大学的源</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">sed</span><span style="color: #24292E"> </span><span style="color: #005CC5">-i</span><span style="color: #24292E"> </span><span style="color: #032F62">&#39;s@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main stable main@&#39;</span><span style="color: #24292E"> $PREFIX</span><span style="color: #032F62">/etc/apt/sources.list</span></span>
+<span class="line"><span style="color: #6F42C1">sed</span><span style="color: #24292E"> </span><span style="color: #005CC5">-i</span><span style="color: #24292E"> </span><span style="color: #032F62">&#39;s@^\(deb.*x11 main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-x11 x11 main @&#39;</span><span style="color: #24292E"> $PREFIX</span><span style="color: #032F62">/etc/apt/sources.list.d/x11.list</span><span style="color: #24292E"> </span></span>
+<span class="line"><span style="color: #6F42C1">sed</span><span style="color: #24292E"> </span><span style="color: #005CC5">-i</span><span style="color: #24292E"> </span><span style="color: #032F62">&#39;s@^\(deb.*root main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-root root main @&#39;</span><span style="color: #24292E"> $PREFIX</span><span style="color: #032F62">/etc/apt/sources.list.d/root.list</span><span style="color: #24292E"> </span></span>
+<span class="line"><span style="color: #6F42C1">apt</span><span style="color: #24292E"> </span><span style="color: #032F62">update</span><span style="color: #24292E"> &amp;&amp; </span><span style="color: #6F42C1">apt</span><span style="color: #24292E"> </span><span style="color: #032F62">upgrade</span></span></code></pre></div></div></figure>
+
+<h3 id="基础工具"><a href="#基础工具" class="headerlink" title="基础工具"></a>基础工具</h3><figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">update</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #032F62">vim</span><span style="color: #24292E"> </span><span style="color: #032F62">curl</span><span style="color: #24292E"> </span><span style="color: #032F62">wget</span><span style="color: #24292E"> </span><span style="color: #032F62">git</span><span style="color: #24292E"> </span><span style="color: #032F62">tree</span><span style="color: #24292E"> </span><span style="color: #005CC5">-y</span></span></code></pre></div></div></figure>
+
+<h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><ol>
+<li>使用了 zsh 来替代 bash 作为默认 shell，并且支持色彩和字体样式，同时也激活了外置存储，可以直接访问 SD 卡下的目录。</li>
+</ol>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 安装</span></span>
+<span class="line"><span style="color: #6F42C1">sh</span><span style="color: #24292E"> </span><span style="color: #005CC5">-c</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;$(</span><span style="color: #6F42C1">curl</span><span style="color: #032F62"> </span><span style="color: #005CC5">-fsSL</span><span style="color: #032F62"> https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)&quot;</span></span></code></pre></div></div></figure>
+
+<ol start="2">
+<li>配色：脚本执行后有如下两个选项</li>
+</ol>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">Enter</span><span style="color: #24292E"> </span><span style="color: #032F62">a</span><span style="color: #24292E"> </span><span style="color: #032F62">number,</span><span style="color: #24292E"> </span><span style="color: #032F62">leave</span><span style="color: #24292E"> </span><span style="color: #032F62">blank</span><span style="color: #24292E"> </span><span style="color: #032F62">to</span><span style="color: #24292E"> </span><span style="color: #032F62">not</span><span style="color: #24292E"> </span><span style="color: #032F62">to</span><span style="color: #24292E"> </span><span style="color: #032F62">change:</span><span style="color: #24292E"> </span><span style="color: #005CC5">14</span><span style="color: #24292E">  </span><span style="color: #6A737D"># 色彩样式</span></span>
+<span class="line"><span style="color: #6F42C1">Enter</span><span style="color: #24292E"> </span><span style="color: #032F62">a</span><span style="color: #24292E"> </span><span style="color: #032F62">number,</span><span style="color: #24292E"> </span><span style="color: #032F62">leave</span><span style="color: #24292E"> </span><span style="color: #032F62">blank</span><span style="color: #24292E"> </span><span style="color: #032F62">to</span><span style="color: #24292E"> </span><span style="color: #032F62">not</span><span style="color: #24292E"> </span><span style="color: #032F62">to</span><span style="color: #24292E"> </span><span style="color: #032F62">change:</span><span style="color: #24292E"> </span><span style="color: #005CC5">6</span><span style="color: #24292E">   </span><span style="color: #6A737D"># 字体样式</span></span></code></pre></div></div></figure>
+
+<ol start="3">
+<li>重新修改样式</li>
+</ol>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 色彩样式</span></span>
+<span class="line"><span style="color: #6F42C1">chcolor</span></span>
+<span class="line"><span style="color: #D73A49">~</span><span style="color: #24292E">/.termux/colors.sh</span></span>
+<span class="line"><span style="color: #6A737D"># 字体样式</span></span>
+<span class="line"><span style="color: #6F42C1">chfont</span></span>
+<span class="line"><span style="color: #D73A49">~</span><span style="color: #24292E">/.termux/fonts.sh</span></span></code></pre></div></div></figure>
+
+<ol start="4">
+<li>使用 <code>autosuggestions</code> 历史输入命令提示插件</li>
+</ol>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 下载</span></span>
+<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">clone</span><span style="color: #24292E"> </span><span style="color: #032F62">https://github.com/zsh-users/zsh-autosuggestions.git</span><span style="color: #24292E"> $ZSH_CUSTOM</span><span style="color: #032F62">/plugins/zsh-autosuggestions</span></span>
+<span class="line"><span style="color: #6A737D"># 配置插件，输入i编辑</span></span>
+<span class="line"><span style="color: #6F42C1">vim</span><span style="color: #24292E"> </span><span style="color: #032F62">~/.zshrc</span></span>
+<span class="line"><span style="color: #6A737D"># 在这一行里加入 zsh-autosuggestions</span></span>
+<span class="line"><span style="color: #24292E">plugins</span><span style="color: #D73A49">=</span><span style="color: #24292E">(</span><span style="color: #032F62">git</span><span style="color: #24292E">)</span></span>
+<span class="line"><span style="color: #6A737D"># 加入之后如下，点击 ESC 输入 :wq 保存重启 Termux 即可生效</span></span>
+<span class="line"><span style="color: #24292E">plugins</span><span style="color: #D73A49">=</span><span style="color: #24292E">(</span><span style="color: #032F62">git</span><span style="color: #24292E"> </span><span style="color: #032F62">zsh-autosuggestions</span><span style="color: #24292E">)</span></span></code></pre></div></div></figure>
+<p><img src="/img/posts/2021/07/11/01.jpg"></p>
+<h3 id="root"><a href="#root" class="headerlink" title="root"></a>root</h3><ol>
+<li>没有 root 可以利用 <code>proot</code> 为没有 root 的用户来模拟一个 root 的环境。</li>
+</ol>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 安装</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #032F62">proot</span><span style="color: #24292E"> </span><span style="color: #005CC5">-y</span></span>
+<span class="line"><span style="color: #6A737D"># 使用</span></span>
+<span class="line"><span style="color: #6F42C1">termux-chroot</span></span>
+<span class="line"><span style="color: #6A737D"># 退出</span></span>
+<span class="line"><span style="color: #005CC5">exit</span></span></code></pre></div></div></figure>
+
+<ol start="2">
+<li>有 root 可以安装 <code>tsu</code> ，这是一个 su 的 Termux 版本，是一个真正的root 权限，用来在 Termux 上替代 su</li>
+</ol>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 安装</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #032F62">tsu</span><span style="color: #24292E"> </span><span style="color: #005CC5">-y</span></span>
+<span class="line"><span style="color: #6A737D"># 使用</span></span>
+<span class="line"><span style="color: #6F42C1">tsu</span></span>
+<span class="line"><span style="color: #6A737D"># 退出</span></span>
+<span class="line"><span style="color: #005CC5">exit</span></span></code></pre></div></div></figure>
+
+<h3 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h3><p><code>OpenSSH</code> 是 SSH （Secure SHell） 协议的免费开源实现。SSH 协议族可以用来进行远程控制， 或在计算机之间传送文件。</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 安装</span></span>
+<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #032F62">openssh</span><span style="color: #24292E"> </span><span style="color: #005CC5">-y</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 使用</span></span>
+<span class="line"><span style="color: #6A737D"># ssh -p 端口号 用户名@主机名或者IP</span></span>
+<span class="line"><span style="color: #6F42C1">ssh</span><span style="color: #24292E"> </span><span style="color: #005CC5">-p</span><span style="color: #24292E"> </span><span style="color: #005CC5">22</span><span style="color: #24292E"> </span><span style="color: #032F62">user@hostname_or_ip</span></span>
+<span class="line"><span style="color: #6A737D"># ssh -i 私钥 用户名@主机名或者IP</span></span>
+<span class="line"><span style="color: #6F42C1">ssh</span><span style="color: #24292E"> </span><span style="color: #005CC5">-i</span><span style="color: #24292E"> </span><span style="color: #032F62">id_rsa</span><span style="color: #24292E"> </span><span style="color: #032F62">user@hostname_or_ip</span></span></code></pre></div></div></figure>]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Android</tag>
+        <tag>Termux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>随身WIFI(高通410) 刷入 Debian 12</title>
     <url>/posts/54044fb4/</url>
     <content><![CDATA[<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>下载并解压 Debian 12，该 Debian 12 出自酷安的 <a href="http://www.coolapk.com/u/20775713">@jsbsbxjxh66</a> 大佬</p>
@@ -1354,114 +1462,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Termux 安装和配置</title>
-    <url>/posts/ea9a75b1/</url>
-    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Termux 是一个 Android 终端仿真器和 Linux 环境应用程序，直接工作，无需根目录或设置。额外的软件包可以使用 APT 软件包管理器来使用。 不需要 root ，运行于内部存储。</p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><div class="download_layout">
-  <img class="download_icon1" src="/img/icon/Download/01.svg">
-  <div class="download_text">
-    <span>Termux</span>
-    <p>来源: <a href="https://f-droid.org/packages/com.termux/">F-Droid</a> | <a href="https://github.com/termux/termux-app/releases">GitHub</a></p>
-  </div>
-  <div class="download_url"><a href="https://f-droid.org/packages/com.termux/" target="_blank"><img class="download_icon2" src="/img/icon/Download/02.svg"></a></div>
-</div>
-
-<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><p>除了支持 apt 命令外，还在此基础上封装了 pkg 命令，pkg 命令向下兼容 apt 命令</p>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">search</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">quer</span><span style="color: #24292E">y</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E">              </span><span style="color: #6A737D"># 搜索包</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">packag</span><span style="color: #24292E">e</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E">           </span><span style="color: #6A737D"># 安装包</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">uninstall</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">packag</span><span style="color: #24292E">e</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E">         </span><span style="color: #6A737D"># 卸载包</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">reinstall</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">packag</span><span style="color: #24292E">e</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E">         </span><span style="color: #6A737D"># 重新安装包</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">update</span><span style="color: #24292E">                      </span><span style="color: #6A737D"># 更新源</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">upgrade</span><span style="color: #24292E">                     </span><span style="color: #6A737D"># 升级软件包</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">list-all</span><span style="color: #24292E">                    </span><span style="color: #6A737D"># 列出可供安装的所有包</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">list-installed</span><span style="color: #24292E">              </span><span style="color: #6A737D"># 列出已经安装的包</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">show</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">packag</span><span style="color: #24292E">e</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E">              </span><span style="color: #6A737D"># 显示某个包的详细信息</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">files</span><span style="color: #24292E"> </span><span style="color: #D73A49">&lt;</span><span style="color: #032F62">packag</span><span style="color: #24292E">e</span><span style="color: #D73A49">&gt;</span><span style="color: #24292E">             </span><span style="color: #6A737D"># 显示某个包的相关文件夹路径</span></span>
-<span class="line"><span style="color: #6F42C1">termux-setup-storage</span><span style="color: #24292E">            </span><span style="color: #6A737D"># 获取读写权限</span></span>
-<span class="line"><span style="color: #6F42C1">termux-change-repo</span><span style="color: #24292E">              </span><span style="color: #6A737D"># 更换源</span></span></code></pre></div></div></figure>
-
-<h3 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h3><p>官网默认源较慢，这里替换为清华大学的源</p>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">sed</span><span style="color: #24292E"> </span><span style="color: #005CC5">-i</span><span style="color: #24292E"> </span><span style="color: #032F62">&#39;s@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main stable main@&#39;</span><span style="color: #24292E"> $PREFIX</span><span style="color: #032F62">/etc/apt/sources.list</span></span>
-<span class="line"><span style="color: #6F42C1">sed</span><span style="color: #24292E"> </span><span style="color: #005CC5">-i</span><span style="color: #24292E"> </span><span style="color: #032F62">&#39;s@^\(deb.*x11 main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-x11 x11 main @&#39;</span><span style="color: #24292E"> $PREFIX</span><span style="color: #032F62">/etc/apt/sources.list.d/x11.list</span><span style="color: #24292E"> </span></span>
-<span class="line"><span style="color: #6F42C1">sed</span><span style="color: #24292E"> </span><span style="color: #005CC5">-i</span><span style="color: #24292E"> </span><span style="color: #032F62">&#39;s@^\(deb.*root main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-root root main @&#39;</span><span style="color: #24292E"> $PREFIX</span><span style="color: #032F62">/etc/apt/sources.list.d/root.list</span><span style="color: #24292E"> </span></span>
-<span class="line"><span style="color: #6F42C1">apt</span><span style="color: #24292E"> </span><span style="color: #032F62">update</span><span style="color: #24292E"> &amp;&amp; </span><span style="color: #6F42C1">apt</span><span style="color: #24292E"> </span><span style="color: #032F62">upgrade</span></span></code></pre></div></div></figure>
-
-<h3 id="基础工具"><a href="#基础工具" class="headerlink" title="基础工具"></a>基础工具</h3><figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">update</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #032F62">vim</span><span style="color: #24292E"> </span><span style="color: #032F62">curl</span><span style="color: #24292E"> </span><span style="color: #032F62">wget</span><span style="color: #24292E"> </span><span style="color: #032F62">git</span><span style="color: #24292E"> </span><span style="color: #032F62">tree</span><span style="color: #24292E"> </span><span style="color: #005CC5">-y</span></span></code></pre></div></div></figure>
-
-<h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><ol>
-<li>使用了 zsh 来替代 bash 作为默认 shell，并且支持色彩和字体样式，同时也激活了外置存储，可以直接访问 SD 卡下的目录。</li>
-</ol>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 安装</span></span>
-<span class="line"><span style="color: #6F42C1">sh</span><span style="color: #24292E"> </span><span style="color: #005CC5">-c</span><span style="color: #24292E"> </span><span style="color: #032F62">&quot;$(</span><span style="color: #6F42C1">curl</span><span style="color: #032F62"> </span><span style="color: #005CC5">-fsSL</span><span style="color: #032F62"> https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)&quot;</span></span></code></pre></div></div></figure>
-
-<ol start="2">
-<li>配色：脚本执行后有如下两个选项</li>
-</ol>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6F42C1">Enter</span><span style="color: #24292E"> </span><span style="color: #032F62">a</span><span style="color: #24292E"> </span><span style="color: #032F62">number,</span><span style="color: #24292E"> </span><span style="color: #032F62">leave</span><span style="color: #24292E"> </span><span style="color: #032F62">blank</span><span style="color: #24292E"> </span><span style="color: #032F62">to</span><span style="color: #24292E"> </span><span style="color: #032F62">not</span><span style="color: #24292E"> </span><span style="color: #032F62">to</span><span style="color: #24292E"> </span><span style="color: #032F62">change:</span><span style="color: #24292E"> </span><span style="color: #005CC5">14</span><span style="color: #24292E">  </span><span style="color: #6A737D"># 色彩样式</span></span>
-<span class="line"><span style="color: #6F42C1">Enter</span><span style="color: #24292E"> </span><span style="color: #032F62">a</span><span style="color: #24292E"> </span><span style="color: #032F62">number,</span><span style="color: #24292E"> </span><span style="color: #032F62">leave</span><span style="color: #24292E"> </span><span style="color: #032F62">blank</span><span style="color: #24292E"> </span><span style="color: #032F62">to</span><span style="color: #24292E"> </span><span style="color: #032F62">not</span><span style="color: #24292E"> </span><span style="color: #032F62">to</span><span style="color: #24292E"> </span><span style="color: #032F62">change:</span><span style="color: #24292E"> </span><span style="color: #005CC5">6</span><span style="color: #24292E">   </span><span style="color: #6A737D"># 字体样式</span></span></code></pre></div></div></figure>
-
-<ol start="3">
-<li>重新修改样式</li>
-</ol>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 色彩样式</span></span>
-<span class="line"><span style="color: #6F42C1">chcolor</span></span>
-<span class="line"><span style="color: #D73A49">~</span><span style="color: #24292E">/.termux/colors.sh</span></span>
-<span class="line"><span style="color: #6A737D"># 字体样式</span></span>
-<span class="line"><span style="color: #6F42C1">chfont</span></span>
-<span class="line"><span style="color: #D73A49">~</span><span style="color: #24292E">/.termux/fonts.sh</span></span></code></pre></div></div></figure>
-
-<ol start="4">
-<li>使用 <code>autosuggestions</code> 历史输入命令提示插件</li>
-</ol>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 下载</span></span>
-<span class="line"><span style="color: #6F42C1">git</span><span style="color: #24292E"> </span><span style="color: #032F62">clone</span><span style="color: #24292E"> </span><span style="color: #032F62">https://github.com/zsh-users/zsh-autosuggestions.git</span><span style="color: #24292E"> $ZSH_CUSTOM</span><span style="color: #032F62">/plugins/zsh-autosuggestions</span></span>
-<span class="line"><span style="color: #6A737D"># 配置插件，输入i编辑</span></span>
-<span class="line"><span style="color: #6F42C1">vim</span><span style="color: #24292E"> </span><span style="color: #032F62">~/.zshrc</span></span>
-<span class="line"><span style="color: #6A737D"># 在这一行里加入 zsh-autosuggestions</span></span>
-<span class="line"><span style="color: #24292E">plugins</span><span style="color: #D73A49">=</span><span style="color: #24292E">(</span><span style="color: #032F62">git</span><span style="color: #24292E">)</span></span>
-<span class="line"><span style="color: #6A737D"># 加入之后如下，点击 ESC 输入 :wq 保存重启 Termux 即可生效</span></span>
-<span class="line"><span style="color: #24292E">plugins</span><span style="color: #D73A49">=</span><span style="color: #24292E">(</span><span style="color: #032F62">git</span><span style="color: #24292E"> </span><span style="color: #032F62">zsh-autosuggestions</span><span style="color: #24292E">)</span></span></code></pre></div></div></figure>
-<p><img src="/img/posts/2021/07/11/01.jpg"></p>
-<h3 id="root"><a href="#root" class="headerlink" title="root"></a>root</h3><ol>
-<li>没有 root 可以利用 <code>proot</code> 为没有 root 的用户来模拟一个 root 的环境。</li>
-</ol>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 安装</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #032F62">proot</span><span style="color: #24292E"> </span><span style="color: #005CC5">-y</span></span>
-<span class="line"><span style="color: #6A737D"># 使用</span></span>
-<span class="line"><span style="color: #6F42C1">termux-chroot</span></span>
-<span class="line"><span style="color: #6A737D"># 退出</span></span>
-<span class="line"><span style="color: #005CC5">exit</span></span></code></pre></div></div></figure>
-
-<ol start="2">
-<li>有 root 可以安装 <code>tsu</code> ，这是一个 su 的 Termux 版本，是一个真正的root 权限，用来在 Termux 上替代 su</li>
-</ol>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 安装</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #032F62">tsu</span><span style="color: #24292E"> </span><span style="color: #005CC5">-y</span></span>
-<span class="line"><span style="color: #6A737D"># 使用</span></span>
-<span class="line"><span style="color: #6F42C1">tsu</span></span>
-<span class="line"><span style="color: #6A737D"># 退出</span></span>
-<span class="line"><span style="color: #005CC5">exit</span></span></code></pre></div></div></figure>
-
-<h3 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h3><p><code>OpenSSH</code> 是 SSH （Secure SHell） 协议的免费开源实现。SSH 协议族可以用来进行远程控制， 或在计算机之间传送文件。</p>
-<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div><div class="code"><pre class="shiki github-light"><code><span class="line"><span style="color: #6A737D"># 安装</span></span>
-<span class="line"><span style="color: #6F42C1">pkg</span><span style="color: #24292E"> </span><span style="color: #032F62">install</span><span style="color: #24292E"> </span><span style="color: #032F62">openssh</span><span style="color: #24292E"> </span><span style="color: #005CC5">-y</span></span>
-<span class="line"></span>
-<span class="line"><span style="color: #6A737D"># 使用</span></span>
-<span class="line"><span style="color: #6A737D"># ssh -p 端口号 用户名@主机名或者IP</span></span>
-<span class="line"><span style="color: #6F42C1">ssh</span><span style="color: #24292E"> </span><span style="color: #005CC5">-p</span><span style="color: #24292E"> </span><span style="color: #005CC5">22</span><span style="color: #24292E"> </span><span style="color: #032F62">user@hostname_or_ip</span></span>
-<span class="line"><span style="color: #6A737D"># ssh -i 私钥 用户名@主机名或者IP</span></span>
-<span class="line"><span style="color: #6F42C1">ssh</span><span style="color: #24292E"> </span><span style="color: #005CC5">-i</span><span style="color: #24292E"> </span><span style="color: #032F62">id_rsa</span><span style="color: #24292E"> </span><span style="color: #032F62">user@hostname_or_ip</span></span></code></pre></div></div></figure>]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Android</tag>
-        <tag>Termux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows 搭建 DNF 私服</title>
     <url>/posts/14ae033e/</url>
     <content><![CDATA[<h3 id="搭建准备"><a href="#搭建准备" class="headerlink" title="搭建准备"></a>搭建准备</h3><h4 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h4><div class="download_layout">
@@ -1547,30 +1547,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Windows 10 安装 Linux 子系统</title>
-    <url>/posts/67ae9c91/</url>
-    <content><![CDATA[<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><ol>
-<li>启用开发人员模式： <code>设置</code> &gt; <code>更新和安全</code> &gt; <code>开发者选项</code> &gt; <code>启用开发人员模式</code></li>
-</ol>
-<p><img src="/img/posts/2021/07/06/01.png"><br><img src="/img/posts/2021/07/06/02.png"><br><img src="/img/posts/2021/07/06/03.png"></p>
-<ol start="2">
-<li>更改系统功能： <code>使用 Win+X 快捷键调出系统管理菜单</code> &gt; <code>应用和功能</code> &gt; <code>程序和功能</code> &gt; <code>启用或关闭 Windows 功能</code> &gt; <code>勾选适用于 Linux 的 Windows 子系统</code> &gt; <code>确定</code> &gt; <code>重启电脑</code></li>
-</ol>
-<p><img src="/img/posts/2021/07/06/04.png"><br><img src="/img/posts/2021/07/06/05.png"><br><img src="/img/posts/2021/07/06/06.png"><br><img src="/img/posts/2021/07/06/07.png"></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>重启系统后，打开 Microsoft Store，搜索 WSL，安装 Ubuntu 20.04 LTS</p>
-<p><img src="/img/posts/2021/07/06/08.png"><br><img src="/img/posts/2021/07/06/09.png"><br><img src="/img/posts/2021/07/06/10.png"><br><img src="/img/posts/2021/07/06/11.png"><br><img src="/img/posts/2021/07/06/12.png"><br><img src="/img/posts/2021/07/06/13.png"></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>Windows</tag>
-        <tag>Ubuntu</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>原神使用 3DMigoto Loader 加载 Mod</title>
     <url>/posts/9a52cbd4/</url>
     <content><![CDATA[<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>选择 3dmigoto-GIMI-for-playing-mods.zip 下载</p>
@@ -1622,6 +1598,30 @@
         <tag>Windows</tag>
         <tag>私服</tag>
         <tag>原神</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows 10 安装 Linux 子系统</title>
+    <url>/posts/67ae9c91/</url>
+    <content><![CDATA[<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><ol>
+<li>启用开发人员模式： <code>设置</code> &gt; <code>更新和安全</code> &gt; <code>开发者选项</code> &gt; <code>启用开发人员模式</code></li>
+</ol>
+<p><img src="/img/posts/2021/07/06/01.png"><br><img src="/img/posts/2021/07/06/02.png"><br><img src="/img/posts/2021/07/06/03.png"></p>
+<ol start="2">
+<li>更改系统功能： <code>使用 Win+X 快捷键调出系统管理菜单</code> &gt; <code>应用和功能</code> &gt; <code>程序和功能</code> &gt; <code>启用或关闭 Windows 功能</code> &gt; <code>勾选适用于 Linux 的 Windows 子系统</code> &gt; <code>确定</code> &gt; <code>重启电脑</code></li>
+</ol>
+<p><img src="/img/posts/2021/07/06/04.png"><br><img src="/img/posts/2021/07/06/05.png"><br><img src="/img/posts/2021/07/06/06.png"><br><img src="/img/posts/2021/07/06/07.png"></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>重启系统后，打开 Microsoft Store，搜索 WSL，安装 Ubuntu 20.04 LTS</p>
+<p><img src="/img/posts/2021/07/06/08.png"><br><img src="/img/posts/2021/07/06/09.png"><br><img src="/img/posts/2021/07/06/10.png"><br><img src="/img/posts/2021/07/06/11.png"><br><img src="/img/posts/2021/07/06/12.png"><br><img src="/img/posts/2021/07/06/13.png"></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>Windows</tag>
+        <tag>Ubuntu</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
